@@ -699,7 +699,7 @@ const recipeDatabase = [
   { name: "Guacamole & Tostadas", cuisine: "Mexican", ingredients: ["avocado", "lime", "tomato", "onion", "cilantro", "corn tostada"], cal: 310, p: 5, c: 35, f: 22, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
   { name: "Sopes con Chorizo", cuisine: "Mexican", ingredients: ["masa dough", "chorizo", "refried beans", "lettuce", "cheese", "cream"], cal: 580, p: 25, c: 45, f: 35, diet: ["Gluten-Free"] },
   { name: "Aguachile de Camarón", cuisine: "Mexican", ingredients: ["shrimp", "lime", "cilantro", "jalapeno", "cucumber", "red onion"], cal: 190, p: 28, c: 10, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
-  { name: "Churros", cuisine: "Mexican", ingredients: ["flour", "water", "sugar", "cinnamon", "oil"], cal: 350, p: 4, c: 45, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free"] }
+  { name: "Churros", cuisine: "Mexican", ingredients: ["flour", "water", "sugar", "cinnamon", "oil"], cal: 350, p: 4, c: 45, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
 // --- ITALIAN CLASSICS & POLLENZO PREP ---
   { name: "Tortelli di Zucca", cuisine: "Italian", ingredients: ["pasta dough", "pumpkin", "amaretti", "parmesan", "nutmeg", "butter"], cal: 420, p: 12, c: 55, f: 18, diet: ["Vegetarian"] },
   { name: "Fritto Misto di Pesce", cuisine: "Italian", ingredients: ["calamari", "shrimp", "anchovies", "flour", "lemon", "oil"], cal: 480, p: 35, c: 30, f: 24, diet: ["Pescatarian", "Dairy-Free"] },
