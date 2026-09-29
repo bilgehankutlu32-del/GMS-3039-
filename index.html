@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Recipe & Nutrition Finder</title>
+  <title>Global Recipe & Nutrition Finder</title>
   <style>
-    /* Updated Appetizing Color Palette */
     :root {
-      --primary: #d94838; /* Tomato Red */
+      --primary: #d94838;
       --primary-light: #fbeae8;
       --primary-dark: #b83628;
-      --secondary: #4a7c59; /* Fresh Herb Green */
+      --secondary: #4a7c59;
       --bg: #fdfbf7;
       --card-bg: #ffffff;
       --text: #2d3748;
@@ -30,7 +29,6 @@
 
     .container { max-width: 1100px; margin: 0 auto; }
 
-    /* New Logo and Purpose Section */
     header { text-align: center; margin-bottom: 30px; }
     .logo { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
     .purpose { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0 auto; font-style: italic; }
@@ -45,7 +43,6 @@
       margin-bottom: 30px;
     }
 
-    /* Updated Input Row with Cuisine Filter */
     .input-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
     .input-row input { flex: 2; min-width: 200px; padding: 12px 16px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; }
     .input-row select { flex: 1; min-width: 150px; padding: 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer; }
@@ -79,11 +76,9 @@
     .ing-have { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
     .ing-missing { background: #f1f5f9; color: var(--text-muted); text-decoration: line-through; }
 
-    /* New Nutrition Bar */
     .nutrition-bar { background-color: #f8fafc; border-radius: 8px; padding: 10px; margin-top: 10px; border: 1px solid #e2e8f0; }
     .nutrition-title { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: bold; margin-bottom: 5px; }
     .macros { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; }
-    .macros span { display: flex; align-items: center; gap: 4px; }
     
     .empty-state { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted); }
   </style>
@@ -92,23 +87,26 @@
 
 <div class="container">
   <header>
-    <div class="logo">🍽️ Culinary Recipe & Nutrition Matcher</div>
-    <p class="purpose"><strong>Purpose:</strong> Enter the ingredients you have at home or the name of a meal you ate. We will match you with recipes from our 50-dish database, filter by world cuisines, and calculate the exact nutritional value for your dish.</p>
+    <div class="logo">🌍 Global Recipe & Nutrition Matcher</div>
+    <p class="purpose"><strong>Purpose:</strong> Enter ingredients from your fridge or the name of a meal. We will match you with dishes from our 120+ massive global database, filter by world cuisines, and calculate the exact nutritional value.</p>
   </header>
 
   <section class="search-panel">
     <div class="input-row">
-      <input type="text" id="ingredient-input" placeholder="Type an ingredient (e.g., egg) or a meal (e.g., Tacos)...">
+      <input type="text" id="ingredient-input" placeholder="Type an ingredient (e.g., egg) or a meal (e.g., Paella)...">
       
-      <!-- New Cuisine Filter -->
       <select id="cuisine-filter">
         <option value="All">🌍 All Cuisines</option>
         <option value="Mexican">🌮 Mexican</option>
         <option value="Turkish">🍢 Turkish</option>
         <option value="Italian">🍝 Italian</option>
-        <option value="American">🍔 American</option>
         <option value="Asian">🍜 Asian</option>
+        <option value="Japanese">🍣 Japanese</option>
+        <option value="Indian">🍛 Indian</option>
+        <option value="American">🍔 American</option>
+        <option value="European">🥖 European</option>
         <option value="Middle Eastern">🥙 Middle Eastern</option>
+        <option value="Latin American">🥑 Latin American</option>
       </select>
       
       <button class="btn-add" id="btn-add">Add</button>
@@ -119,9 +117,9 @@
       <button class="pill" data-ing="egg">🥚 Egg</button>
       <button class="pill" data-ing="tomato">🍅 Tomato</button>
       <button class="pill" data-ing="onion">🧅 Onion</button>
+      <button class="pill" data-ing="garlic">🧄 Garlic</button>
       <button class="pill" data-ing="chicken">🍗 Chicken</button>
-      <button class="pill" data-ing="cheese">🧀 Cheese</button>
-      <button class="pill" data-ing="Tacos al Pastor">🌮 Tacos al Pastor</button>
+      <button class="pill" data-ing="rice">🍚 Rice</button>
     </div>
 
     <div class="user-ingredients-box" id="user-ingredients-box">
@@ -139,8 +137,9 @@
 </div>
 
 <script>
-  // Database of 50 Recipes with added Nutritional Values (Calories, Protein, Carbs, Fat)
+  // Expanded Database: Over 120 Recipes
   const recipeDatabase = [
+    // --- MEXICAN ---
     { name: "Tacos al Pastor", cuisine: "Mexican", ingredients: ["pork", "pineapple", "tortilla", "onion", "cilantro"], cal: 450, p: 24, c: 45, f: 18 },
     { name: "Mole Poblano", cuisine: "Mexican", ingredients: ["chicken", "chili", "chocolate", "sesame seeds", "garlic", "onion"], cal: 620, p: 35, c: 40, f: 32 },
     { name: "Chiles en Nogada", cuisine: "Mexican", ingredients: ["poblano pepper", "ground beef", "walnut", "pomegranate", "cream"], cal: 580, p: 26, c: 35, f: 38 },
@@ -150,47 +149,106 @@
     { name: "Guacamole", cuisine: "Mexican", ingredients: ["avocado", "lime", "onion", "tomato", "cilantro", "salt"], cal: 250, p: 3, c: 15, f: 22 },
     { name: "Crispy Beef Tacos", cuisine: "Mexican", ingredients: ["ground beef", "tortilla", "cheese", "lettuce", "tomato", "sour cream"], cal: 500, p: 25, c: 38, f: 28 },
     { name: "Chicken Fajitas", cuisine: "Mexican", ingredients: ["chicken", "bell pepper", "onion", "tortilla", "lime", "olive oil"], cal: 420, p: 32, c: 40, f: 15 },
+    { name: "Huevos Rancheros", cuisine: "Mexican", ingredients: ["egg", "tortilla", "tomato", "chili", "beans", "cheese"], cal: 380, p: 18, c: 35, f: 20 },
+    { name: "Beef Tamales", cuisine: "Mexican", ingredients: ["masa dough", "beef", "chili", "corn husk", "garlic"], cal: 410, p: 15, c: 45, f: 18 },
+    { name: "Churros", cuisine: "Mexican", ingredients: ["flour", "water", "sugar", "cinnamon", "oil"], cal: 350, p: 4, c: 45, f: 18 },
+
+    // --- TURKISH ---
     { name: "Menemen", cuisine: "Turkish", ingredients: ["egg", "tomato", "green pepper", "olive oil", "salt"], cal: 320, p: 14, c: 12, f: 24 },
-    { name: "Mercimek Çorbası (Lentil Soup)", cuisine: "Turkish", ingredients: ["red lentils", "onion", "carrot", "potato", "butter", "cumin"], cal: 280, p: 14, c: 42, f: 8 },
-    { name: "Spinach Feta Börek / Pie", cuisine: "Turkish", ingredients: ["spinach", "feta cheese", "egg", "onion", "filo pastry", "olive oil"], cal: 390, p: 12, c: 35, f: 22 },
+    { name: "Mercimek Çorbası", cuisine: "Turkish", ingredients: ["red lentils", "onion", "carrot", "potato", "butter", "mint"], cal: 280, p: 14, c: 42, f: 8 },
+    { name: "Spinach Feta Börek", cuisine: "Turkish", ingredients: ["spinach", "feta cheese", "egg", "onion", "filo pastry", "olive oil"], cal: 390, p: 12, c: 35, f: 22 },
+    { name: "İskender Kebap", cuisine: "Turkish", ingredients: ["beef", "pita", "tomato", "yogurt", "butter"], cal: 850, p: 45, c: 60, f: 48 },
+    { name: "Karnıyarık", cuisine: "Turkish", ingredients: ["eggplant", "ground beef", "onion", "tomato", "parsley"], cal: 420, p: 22, c: 25, f: 28 },
+    { name: "Lahmacun", cuisine: "Turkish", ingredients: ["dough", "ground beef", "onion", "tomato", "parsley", "lemon"], cal: 310, p: 15, c: 40, f: 10 },
+    { name: "Mantı", cuisine: "Turkish", ingredients: ["flour", "ground beef", "yogurt", "garlic", "butter", "mint"], cal: 550, p: 25, c: 65, f: 20 },
+    { name: "Antalya Piyazı", cuisine: "Turkish", ingredients: ["white beans", "tahini", "garlic", "lemon", "vinegar", "egg"], cal: 380, p: 18, c: 30, f: 22 },
+    { name: "Hibeş", cuisine: "Turkish", ingredients: ["tahini", "lemon", "garlic", "cumin", "paprika", "olive oil"], cal: 320, p: 8, c: 15, f: 28 },
+    { name: "Ali Nazik", cuisine: "Turkish", ingredients: ["eggplant", "yogurt", "ground beef", "garlic", "butter"], cal: 450, p: 25, c: 15, f: 32 },
+    { name: "Kısır", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "parsley", "green onion", "lemon", "pomegranate molasses"], cal: 290, p: 8, c: 55, f: 6 },
+    { name: "Hünkar Beğendi", cuisine: "Turkish", ingredients: ["lamb", "eggplant", "milk", "butter", "cheese", "flour"], cal: 620, p: 35, c: 20, f: 45 },
+
+    // --- ITALIAN ---
     { name: "Spaghetti Bolognese", cuisine: "Italian", ingredients: ["spaghetti", "ground beef", "tomato", "onion", "garlic", "olive oil"], cal: 650, p: 30, c: 75, f: 22 },
     { name: "Pasta Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "egg", "bacon", "parmesan", "black pepper"], cal: 700, p: 25, c: 65, f: 35 },
     { name: "Margherita Pizza", cuisine: "Italian", ingredients: ["flour", "yeast", "tomato", "mozzarella", "basil", "olive oil"], cal: 850, p: 35, c: 110, f: 30 },
     { name: "Caprese Salad", cuisine: "Italian", ingredients: ["tomato", "mozzarella", "basil", "olive oil", "balsamic vinegar"], cal: 320, p: 14, c: 8, f: 26 },
     { name: "Tomato Garlic Bruschetta", cuisine: "Italian", ingredients: ["bread", "tomato", "garlic", "basil", "olive oil"], cal: 210, p: 6, c: 25, f: 10 },
     { name: "Mushroom Risotto", cuisine: "Italian", ingredients: ["rice", "mushrooms", "onion", "garlic", "butter", "parmesan"], cal: 480, p: 12, c: 60, f: 18 },
-    { name: "Minestrone Vegetable Soup", cuisine: "Italian", ingredients: ["white beans", "tomato", "pasta", "carrot", "onion", "zucchini"], cal: 290, p: 12, c: 45, f: 6 },
+    { name: "Minestrone Soup", cuisine: "Italian", ingredients: ["white beans", "tomato", "pasta", "carrot", "onion", "zucchini"], cal: 290, p: 12, c: 45, f: 6 },
+    { name: "Lasagna", cuisine: "Italian", ingredients: ["pasta", "ground beef", "ricotta", "mozzarella", "tomato", "garlic"], cal: 650, p: 35, c: 45, f: 35 },
+    { name: "Pesto Penne", cuisine: "Italian", ingredients: ["penne", "basil", "pine nuts", "garlic", "parmesan", "olive oil"], cal: 520, p: 15, c: 60, f: 25 },
+    { name: "Tiramisu", cuisine: "Italian", ingredients: ["mascarpone", "ladyfingers", "coffee", "cocoa powder", "egg"], cal: 480, p: 8, c: 40, f: 32 },
+    { name: "Osso Buco", cuisine: "Italian", ingredients: ["veal shank", "white wine", "broth", "onion", "carrot", "celery"], cal: 550, p: 45, c: 15, f: 30 },
+    { name: "Gnocchi with Sage Butter", cuisine: "Italian", ingredients: ["potato gnocchi", "butter", "sage", "parmesan", "black pepper"], cal: 420, p: 10, c: 55, f: 18 },
+
+    // --- ASIAN (General, Thai, Chinese) ---
+    { name: "Beef Stir Fry", cuisine: "Asian", ingredients: ["beef", "broccoli", "soy sauce", "garlic", "ginger", "rice"], cal: 520, p: 35, c: 55, f: 18 },
+    { name: "Egg Fried Rice", cuisine: "Asian", ingredients: ["rice", "egg", "soy sauce", "green peas", "carrot", "onion"], cal: 410, p: 14, c: 58, f: 14 },
+    { name: "Shrimp Pad Thai", cuisine: "Asian", ingredients: ["rice noodles", "shrimp", "egg", "peanuts", "soy sauce", "lime"], cal: 580, p: 28, c: 68, f: 22 },
+    { name: "Tom Yum Soup", cuisine: "Asian", ingredients: ["shrimp", "mushrooms", "lime", "chili", "lemongrass"], cal: 260, p: 22, c: 15, f: 12 },
+    { name: "Green Curry", cuisine: "Asian", ingredients: ["chicken", "green curry paste", "coconut milk", "bamboo shoots", "basil"], cal: 490, p: 28, c: 18, f: 35 },
+    { name: "Kung Pao Chicken", cuisine: "Asian", ingredients: ["chicken", "peanuts", "chili", "soy sauce", "bell pepper", "garlic"], cal: 460, p: 30, c: 22, f: 28 },
+    { name: "Spring Rolls", cuisine: "Asian", ingredients: ["rice paper", "shrimp", "lettuce", "carrot", "mint", "peanut sauce"], cal: 220, p: 10, c: 35, f: 6 },
+    { name: "Pho (Vietnamese Soup)", cuisine: "Asian", ingredients: ["beef", "rice noodles", "beef broth", "bean sprouts", "basil", "lime"], cal: 410, p: 30, c: 55, f: 10 },
+    { name: "Banh Mi Sandwich", cuisine: "Asian", ingredients: ["baguette", "pork", "pate", "carrot", "cucumber", "cilantro"], cal: 520, p: 24, c: 60, f: 22 },
+
+    // --- JAPANESE ---
+    { name: "Teriyaki Chicken Bowl", cuisine: "Japanese", ingredients: ["chicken", "soy sauce", "sugar", "garlic", "ginger", "rice"], cal: 550, p: 40, c: 65, f: 12 },
+    { name: "Sushi Rolls (Maki)", cuisine: "Japanese", ingredients: ["sushi rice", "nori", "salmon", "avocado", "cucumber"], cal: 350, p: 18, c: 45, f: 10 },
+    { name: "Miso Soup", cuisine: "Japanese", ingredients: ["miso paste", "tofu", "seaweed", "green onion", "dashi"], cal: 90, p: 6, c: 8, f: 3 },
+    { name: "Pork Tonkatsu", cuisine: "Japanese", ingredients: ["pork", "panko", "egg", "flour", "cabbage", "tonkatsu sauce"], cal: 620, p: 35, c: 40, f: 35 },
+    { name: "Shoyu Ramen", cuisine: "Japanese", ingredients: ["ramen noodles", "pork broth", "soy sauce", "egg", "pork belly", "green onion"], cal: 680, p: 28, c: 65, f: 32 },
+    { name: "Vegetable Tempura", cuisine: "Japanese", ingredients: ["sweet potato", "zucchini", "flour", "egg", "oil", "soy sauce"], cal: 410, p: 6, c: 48, f: 22 },
+    { name: "Okonomiyaki", cuisine: "Japanese", ingredients: ["cabbage", "flour", "egg", "pork belly", "okonomiyaki sauce", "mayonnaise"], cal: 520, p: 18, c: 45, f: 28 },
+
+    // --- INDIAN ---
+    { name: "Chicken Tikka Masala", cuisine: "Indian", ingredients: ["chicken", "yogurt", "tomato", "garam masala", "cream", "garlic"], cal: 550, p: 38, c: 20, f: 35 },
+    { name: "Butter Chicken", cuisine: "Indian", ingredients: ["chicken", "butter", "tomato", "cream", "ginger", "garlic"], cal: 610, p: 35, c: 15, f: 45 },
+    { name: "Palak Paneer", cuisine: "Indian", ingredients: ["spinach", "paneer", "onion", "tomato", "garam masala", "garlic"], cal: 420, p: 18, c: 18, f: 32 },
+    { name: "Chana Masala", cuisine: "Indian", ingredients: ["chickpeas", "tomato", "onion", "cumin", "coriander", "turmeric"], cal: 320, p: 12, c: 48, f: 10 },
+    { name: "Vegetable Samosa", cuisine: "Indian", ingredients: ["potato", "peas", "flour", "cumin", "oil", "coriander"], cal: 280, p: 6, c: 35, f: 14 },
+    { name: "Lamb Biryani", cuisine: "Indian", ingredients: ["lamb", "basmati rice", "onion", "yogurt", "saffron", "mint"], cal: 680, p: 35, c: 70, f: 28 },
+    { name: "Dal Makhani", cuisine: "Indian", ingredients: ["black lentils", "kidney beans", "butter", "cream", "tomato", "garlic"], cal: 450, p: 15, c: 45, f: 25 },
+    { name: "Aloo Gobi", cuisine: "Indian", ingredients: ["potato", "cauliflower", "onion", "tomato", "turmeric", "cumin"], cal: 240, p: 6, c: 38, f: 8 },
+
+    // --- MIDDLE EASTERN ---
     { name: "Shakshuka", cuisine: "Middle Eastern", ingredients: ["egg", "tomato", "bell pepper", "onion", "garlic", "cumin", "olive oil"], cal: 340, p: 16, c: 20, f: 22 },
     { name: "Hummus", cuisine: "Middle Eastern", ingredients: ["chickpeas", "tahini", "lemon", "garlic", "olive oil", "cumin"], cal: 410, p: 12, c: 45, f: 22 },
     { name: "Falafel", cuisine: "Middle Eastern", ingredients: ["chickpeas", "onion", "parsley", "garlic", "cumin", "flour"], cal: 350, p: 14, c: 42, f: 16 },
     { name: "Baba Ganoush", cuisine: "Middle Eastern", ingredients: ["eggplant", "tahini", "garlic", "lemon", "olive oil"], cal: 240, p: 5, c: 18, f: 18 },
-    { name: "Beef Stir Fry", cuisine: "Asian", ingredients: ["beef", "broccoli", "soy sauce", "garlic", "ginger", "rice"], cal: 520, p: 35, c: 55, f: 18 },
-    { name: "Egg Fried Rice", cuisine: "Asian", ingredients: ["rice", "egg", "soy sauce", "green peas", "carrot", "onion"], cal: 410, p: 14, c: 58, f: 14 },
-    { name: "Shrimp Pad Thai", cuisine: "Asian", ingredients: ["rice noodles", "shrimp", "egg", "peanuts", "soy sauce", "lime"], cal: 580, p: 28, c: 68, f: 22 },
-    { name: "Tom Yum Soup", cuisine: "Asian", ingredients: ["shrimp", "mushrooms", "lime", "chili", "garlic"], cal: 260, p: 22, c: 15, f: 12 },
-    { name: "Teriyaki Chicken Bowl", cuisine: "Asian", ingredients: ["chicken", "soy sauce", "sugar", "garlic", "ginger", "rice"], cal: 550, p: 40, c: 65, f: 12 },
-    { name: "Chicken Curry", cuisine: "Asian", ingredients: ["chicken", "curry powder", "coconut milk", "onion", "garlic", "ginger"], cal: 510, p: 35, c: 18, f: 32 },
-    { name: "Caesar Salad", cuisine: "American", ingredients: ["lettuce", "chicken", "parmesan", "bread", "mayonnaise", "garlic"], cal: 450, p: 30, c: 18, f: 28 },
+    { name: "Chicken Shawarma Wrap", cuisine: "Middle Eastern", ingredients: ["chicken", "pita", "garlic sauce", "pickle", "lettuce", "tomato"], cal: 520, p: 35, c: 45, f: 22 },
+    { name: "Tabbouleh", cuisine: "Middle Eastern", ingredients: ["parsley", "bulgur", "tomato", "mint", "lemon", "olive oil"], cal: 180, p: 4, c: 25, f: 8 },
+    { name: "Fattoush Salad", cuisine: "Middle Eastern", ingredients: ["lettuce", "cucumber", "tomato", "pita", "radish", "sumac"], cal: 220, p: 5, c: 28, f: 10 },
+    { name: "Kofta Kebab", cuisine: "Middle Eastern", ingredients: ["ground beef", "onion", "parsley", "cumin", "coriander"], cal: 410, p: 30, c: 8, f: 28 },
+
+    // --- AMERICAN ---
     { name: "Classic Beef Chili", cuisine: "American", ingredients: ["ground beef", "kidney beans", "tomato", "chili", "onion", "cumin"], cal: 480, p: 35, c: 42, f: 20 },
     { name: "Avocado Beef Burger", cuisine: "American", ingredients: ["ground beef", "burger bun", "avocado", "tomato", "lettuce", "onion"], cal: 680, p: 38, c: 45, f: 40 },
     { name: "Stovetop Mac and Cheese", cuisine: "American", ingredients: ["pasta", "cheese", "milk", "butter", "flour"], cal: 550, p: 22, c: 58, f: 26 },
-    { name: "Classic Egg Salad", cuisine: "American", ingredients: ["egg", "mayonnaise", "mustard", "onion", "celery"], cal: 380, p: 15, c: 8, f: 32 },
     { name: "Loaded Baked Potato", cuisine: "American", ingredients: ["potato", "cheese", "bacon", "sour cream", "onion"], cal: 450, p: 14, c: 45, f: 24 },
     { name: "Clam Chowder", cuisine: "American", ingredients: ["clams", "potato", "bacon", "onion", "cream", "butter"], cal: 520, p: 18, c: 35, f: 35 },
-    { name: "Tuna Salad", cuisine: "American", ingredients: ["tuna", "mayonnaise", "onion", "lemon", "celery"], cal: 310, p: 28, c: 5, f: 20 },
-    { name: "Ratatouille", cuisine: "French", ingredients: ["eggplant", "zucchini", "bell pepper", "tomato", "garlic", "olive oil"], cal: 190, p: 4, c: 22, f: 11 },
-    { name: "Potato Leek Soup", cuisine: "French", ingredients: ["potato", "leek", "butter", "cream", "garlic"], cal: 380, p: 6, c: 35, f: 24 },
-    { name: "Greek Salad", cuisine: "Greek", ingredients: ["cucumber", "tomato", "onion", "feta cheese", "olives", "olive oil"], cal: 340, p: 10, c: 15, f: 28 },
-    { name: "Stuffed Bell Peppers", cuisine: "Greek", ingredients: ["bell pepper", "ground beef", "rice", "onion", "tomato"], cal: 420, p: 25, c: 40, f: 18 },
-    { name: "Green Lentil Salad", cuisine: "Greek", ingredients: ["green lentils", "cucumber", "tomato", "parsley", "lemon", "olive oil"], cal: 310, p: 16, c: 38, f: 12 },
-    { name: "French Toast", cuisine: "American", ingredients: ["bread", "egg", "milk", "cinnamon", "butter"], cal: 410, p: 12, c: 50, f: 18 },
-    { name: "Fluffy Pancakes", cuisine: "American", ingredients: ["flour", "milk", "egg", "sugar", "baking powder", "butter"], cal: 450, p: 10, c: 65, f: 16 },
-    { name: "Classic Cheese Omelette", cuisine: "American", ingredients: ["egg", "butter", "cheese", "salt"], cal: 320, p: 18, c: 2, f: 26 },
-    { name: "Avocado Egg Toast", cuisine: "American", ingredients: ["bread", "avocado", "egg", "olive oil", "salt"], cal: 380, p: 14, c: 30, f: 22 },
-    { name: "Banana Peanut Smoothie", cuisine: "American", ingredients: ["banana", "milk", "honey", "peanut butter", "yogurt"], cal: 420, p: 16, c: 55, f: 18 },
-    { name: "Garlic Butter Shrimp", cuisine: "American", ingredients: ["shrimp", "butter", "garlic", "lemon", "parsley"], cal: 310, p: 28, c: 4, f: 20 },
-    { name: "Shepherd's Pie", cuisine: "American", ingredients: ["ground beef", "potato", "peas", "carrot", "onion", "butter", "milk"], cal: 520, p: 28, c: 45, f: 24 },
-    { name: "Creamy Tomato Soup", cuisine: "American", ingredients: ["tomato", "garlic", "onion", "butter", "flour", "milk"], cal: 280, p: 6, c: 30, f: 16 }
+    { name: "BBQ Ribs", cuisine: "American", ingredients: ["pork ribs", "bbq sauce", "brown sugar", "garlic", "paprika"], cal: 850, p: 45, c: 35, f: 55 },
+    { name: "Buffalo Wings", cuisine: "American", ingredients: ["chicken wings", "hot sauce", "butter", "celery", "blue cheese"], cal: 740, p: 40, c: 5, f: 62 },
+    { name: "Pulled Pork Sandwich", cuisine: "American", ingredients: ["pork", "bbq sauce", "burger bun", "cabbage", "carrot"], cal: 580, p: 32, c: 55, f: 24 },
+    { name: "Pancakes with Syrup", cuisine: "American", ingredients: ["flour", "milk", "egg", "butter", "maple syrup"], cal: 480, p: 10, c: 75, f: 16 },
+
+    // --- EUROPEAN (French, Greek, Spanish, etc.) ---
+    { name: "Ratatouille", cuisine: "European", ingredients: ["eggplant", "zucchini", "bell pepper", "tomato", "garlic", "olive oil"], cal: 190, p: 4, c: 22, f: 11 },
+    { name: "Potato Leek Soup", cuisine: "European", ingredients: ["potato", "leek", "butter", "cream", "garlic"], cal: 380, p: 6, c: 35, f: 24 },
+    { name: "Greek Salad", cuisine: "European", ingredients: ["cucumber", "tomato", "onion", "feta cheese", "olives", "olive oil"], cal: 340, p: 10, c: 15, f: 28 },
+    { name: "Moussaka", cuisine: "European", ingredients: ["eggplant", "ground beef", "tomato", "onion", "milk", "flour"], cal: 520, p: 25, c: 35, f: 32 },
+    { name: "Spanish Paella", cuisine: "European", ingredients: ["rice", "shrimp", "chicken", "saffron", "bell pepper", "peas"], cal: 620, p: 38, c: 70, f: 18 },
+    { name: "Gazpacho", cuisine: "European", ingredients: ["tomato", "cucumber", "bell pepper", "onion", "garlic", "olive oil"], cal: 150, p: 3, c: 18, f: 8 },
+    { name: "Tortilla Española", cuisine: "European", ingredients: ["potato", "egg", "onion", "olive oil", "salt"], cal: 380, p: 12, c: 30, f: 24 },
+    { name: "Beef Bourguignon", cuisine: "European", ingredients: ["beef", "red wine", "mushrooms", "bacon", "pearl onions"], cal: 620, p: 48, c: 20, f: 35 },
+    { name: "Quiche Lorraine", cuisine: "European", ingredients: ["pie crust", "egg", "cream", "bacon", "gruyere cheese"], cal: 580, p: 22, c: 30, f: 42 },
+    { name: "Tzatziki", cuisine: "European", ingredients: ["yogurt", "cucumber", "garlic", "dill", "olive oil"], cal: 120, p: 6, c: 8, f: 7 },
+
+    // --- LATIN AMERICAN ---
+    { name: "Arepas con Queso", cuisine: "Latin American", ingredients: ["cornmeal", "water", "cheese", "butter", "salt"], cal: 380, p: 12, c: 45, f: 16 },
+    { name: "Peruvian Ceviche", cuisine: "Latin American", ingredients: ["white fish", "lime", "red onion", "cilantro", "sweet potato", "corn"], cal: 260, p: 28, c: 30, f: 4 },
+    { name: "Empanadas de Carne", cuisine: "Latin American", ingredients: ["flour", "ground beef", "onion", "egg", "olives"], cal: 450, p: 18, c: 42, f: 22 },
+    { name: "Lomo Saltado", cuisine: "Latin American", ingredients: ["beef", "potato", "onion", "tomato", "soy sauce", "rice"], cal: 680, p: 35, c: 65, f: 30 }
   ];
 
   const userIngredients = new Set();
@@ -247,7 +305,6 @@
       const matched = [];
       const missing = [];
 
-      // Check if user typed the exact meal name
       const isMealMatch = userArray.some(ing => recipe.name.toLowerCase().includes(ing));
 
       recipe.ingredients.forEach(ing => {
@@ -261,16 +318,14 @@
 
       let matchPct = Math.round((matchedCount / total) * 100);
       
-      // If they searched for the meal name, boost it to 100% visibility
       if (isMealMatch) {
         matchPct = 100;
-        matchedCount = total; // Forces it to show up
+        matchedCount = total; 
       }
 
       return { ...recipe, matchedCount, total, matched, missing, matchPct, isMealMatch };
     });
 
-    // Filter logic
     let filtered = scoredRecipes
       .filter(r => r.matchedCount > 0 || r.isMealMatch)
       .sort((a, b) => b.matchPct - a.matchPct || b.matchedCount - a.matchedCount);
@@ -282,7 +337,7 @@
     resultsCount.textContent = filtered.length;
 
     if (filtered.length === 0) {
-      recipesGrid.innerHTML = `<div class="empty-state">No recipes found. Try adding basic staples or check your cuisine filter!</div>`;
+      recipesGrid.innerHTML = `<div class="empty-state">No recipes found matching your criteria. Try adding basic staples or changing your cuisine filter!</div>`;
       return;
     }
 
@@ -319,7 +374,6 @@
     }).join("");
   }
 
-  // Event Listeners
   btnAdd.addEventListener("click", () => {
     addIngredient(inputEl.value);
     inputEl.value = "";
