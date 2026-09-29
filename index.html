@@ -22,12 +22,11 @@
       color: var(--text);
       line-height: 1.5;
       padding: 30px 16px;
-      /* Default background */
       background-image: url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000'); 
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      transition: background-image 1s ease-in-out;
+      transition: background-image 0.8s ease-in-out;
     }
 
     .container { max-width: 1100px; margin: 0 auto; }
@@ -36,9 +35,8 @@
     .logo { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
     .purpose { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0 auto; font-style: italic; }
 
-    /* Music Player Control */
-    .music-control { margin-top: 15px; display: inline-block; background: var(--secondary); color: white; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; border: none; font-size: 14px; transition: 0.3s; }
-    .music-control:hover { background: #386044; }
+    .music-control { margin-top: 15px; display: inline-block; background: var(--secondary); color: white; padding: 10px 24px; border-radius: 30px; cursor: pointer; font-weight: 700; border: none; font-size: 15px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .music-control:hover { background: #386044; transform: scale(1.02); }
 
     .search-panel { background: var(--card-bg); border-top: 5px solid var(--primary); border-radius: 12px; padding: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 30px; }
 
@@ -80,7 +78,6 @@
 </head>
 <body>
 
-<!-- Hidden Audio Player for Background Music -->
 <audio id="bg-audio" loop></audio>
 
 <div class="container">
@@ -94,7 +91,6 @@
     <div class="input-row">
       <input type="text" id="ingredient-input" placeholder="Ingredient or meal name...">
       
-      <!-- Cuisine Filter -->
       <select id="cuisine-filter">
         <option value="All">🌍 All Cuisines</option>
         <option value="Mexican">🌮 Mexican</option>
@@ -103,7 +99,6 @@
         <option value="Asian">🍜 Asian</option>
       </select>
       
-      <!-- NEW: Dietary Filter -->
       <select id="diet-filter">
         <option value="All">🍽️ Any Diet</option>
         <option value="Vegetarian">🥗 Vegetarian</option>
@@ -113,7 +108,6 @@
 
       <button class="btn-add" id="btn-add">Add</button>
     </div>
-
     <div class="user-ingredients-box" id="user-ingredients-box"></div>
   </section>
 
@@ -123,61 +117,83 @@
   <section class="recipes-grid" id="recipes-grid"></section>
 </div>
 
-<!-- Link to the External Database File -->
 <script src="database.js"></script>
 
 <script>
-  // Dynamic Backgrounds & Music Configuration
+  // Updated configurations for Backgrounds and Cultural Audio
   const themeConfig = {
-    "All": { bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" }, // Generic Acoustic
-    "Mexican": { bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/10/25/audio_249df9d8b7.mp3" }, // Latin Guitar
-    "Turkish": { bg: "https://images.unsplash.com/photo-1544062534-118c7bc77ff9?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2023/04/07/audio_4ba73b64f3.mp3" }, // Middle Eastern Oud
-    "Italian": { bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" }, // Italian Mandolin
-    "Asian": { bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/12/28/audio_38bfa79fbc.mp3" } // Asian Zen
+    "All": { name: "Global", bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" },
+    "Mexican": { name: "Mexican", bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/10/25/audio_249df9d8b7.mp3" },
+    "Turkish": { name: "Turkish", bg: "https://images.unsplash.com/photo-1544062534-118c7bc77ff9?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2023/04/07/audio_4ba73b64f3.mp3" },
+    "Italian": { name: "Italian", bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" },
+    "Asian": { name: "Asian", bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/12/28/audio_38bfa79fbc.mp3" }
   };
 
   const audioEl = document.getElementById("bg-audio");
   const musicBtn = document.getElementById("music-btn");
+  const cuisineFilterEl = document.getElementById("cuisine-filter");
   let isMusicPlaying = false;
 
-  // Music Player Logic
+  // Safe Audio Loading Function
+  async function updateAndPlayAudio(cuisine) {
+    const theme = themeConfig[cuisine] || themeConfig["All"];
+    
+    // Change Background immediately
+    document.body.style.backgroundImage = `url('${theme.bg}')`;
+
+    // Only swap audio source if it is actually different to prevent skipping
+    if (audioEl.src !== theme.audio) {
+      audioEl.pause();
+      audioEl.src = theme.audio;
+      audioEl.load(); // Forces browser to prep the new track safely
+    }
+
+    if (isMusicPlaying) {
+      try {
+        await audioEl.play();
+        musicBtn.textContent = `⏸️ Pause ${theme.name} Music`;
+      } catch (err) {
+        console.error("Browser blocked autoplay during transition", err);
+        isMusicPlaying = false;
+        musicBtn.textContent = `🎵 Play ${theme.name} Music`;
+      }
+    } else {
+      musicBtn.textContent = `🎵 Play ${theme.name} Music`;
+    }
+  }
+
+  // Master Play/Pause Button Logic
   musicBtn.addEventListener("click", () => {
+    const cuisine = cuisineFilterEl.value;
+    const theme = themeConfig[cuisine] || themeConfig["All"];
+
     if (isMusicPlaying) {
       audioEl.pause();
-      musicBtn.textContent = "🎵 Play Music";
       isMusicPlaying = false;
+      musicBtn.textContent = `🎵 Play ${theme.name} Music`;
     } else {
-      audioEl.play().catch(e => console.log("Autoplay prevented"));
-      musicBtn.textContent = "⏸️ Pause Music";
+      audioEl.play().catch(e => console.log(e));
       isMusicPlaying = true;
+      musicBtn.textContent = `⏸️ Pause ${theme.name} Music`;
     }
   });
 
+  // Handle Theme Changes when dropdown is clicked
+  cuisineFilterEl.addEventListener("change", () => {
+    const cuisine = cuisineFilterEl.value;
+    updateAndPlayAudio(cuisine);
+    evaluateRecipes();
+  });
+
+  // Rest of the application logic
   const userIngredients = new Set();
   const inputEl = document.getElementById("ingredient-input");
-  const cuisineFilterEl = document.getElementById("cuisine-filter");
   const dietFilterEl = document.getElementById("diet-filter");
   const btnAdd = document.getElementById("btn-add");
   const tagsBox = document.getElementById("user-ingredients-box");
   const recipesGrid = document.getElementById("recipes-grid");
   const resultsCount = document.getElementById("results-count");
 
-  // Handle Theme Changes (Background + Music)
-  cuisineFilterEl.addEventListener("change", () => {
-    const cuisine = cuisineFilterEl.value;
-    const theme = themeConfig[cuisine] || themeConfig["All"];
-    
-    // Change Background
-    document.body.style.backgroundImage = `url('${theme.bg}')`;
-    
-    // Change Music
-    audioEl.src = theme.audio;
-    if (isMusicPlaying) audioEl.play();
-    
-    evaluateRecipes();
-  });
-
-  // Filters Event Listeners
   dietFilterEl.addEventListener("change", evaluateRecipes);
 
   function addIngredient(val) {
@@ -209,13 +225,13 @@
     const selectedDiet = dietFilterEl.value;
     const userArray = Array.from(userIngredients);
 
-    // Filter by Diet first
+    // Ensure database.js is loaded
+    if (typeof recipeDatabase === 'undefined') return;
+
     let viableRecipes = recipeDatabase;
     if (selectedDiet !== "All") {
       viableRecipes = viableRecipes.filter(r => r.diet.includes(selectedDiet));
     }
-    
-    // Filter by Cuisine
     if (selectedCuisine !== "All") {
       viableRecipes = viableRecipes.filter(r => r.cuisine === selectedCuisine);
     }
@@ -223,8 +239,6 @@
     if (userIngredients.size === 0) {
       recipesGrid.innerHTML = ``;
       resultsCount.textContent = viableRecipes.length;
-      
-      // Show all viable recipes if no ingredients entered
       renderCards(viableRecipes.map(r => ({ ...r, matchPct: 0, matched: [], missing: r.ingredients })));
       return;
     }
@@ -266,7 +280,6 @@
     recipesGrid.innerHTML = recipes.map(item => {
       const badgeClass = item.matchPct === 100 ? "match-100" : "";
       const badgeText = item.matchPct > 0 ? (item.isMealMatch ? "Meal Match!" : `${item.matchPct}% Match`) : "Recipe";
-      
       const dietHtml = item.diet.map(d => `<span class="diet-badge diet-${d.toLowerCase()}">${d}</span>`).join("");
 
       return `
@@ -299,9 +312,9 @@
   btnAdd.addEventListener("click", () => { addIngredient(inputEl.value); inputEl.value = ""; });
   inputEl.addEventListener("keypress", (e) => { if (e.key === "Enter") { addIngredient(inputEl.value); inputEl.value = ""; } });
   
-  // Set default audio on load
+  // Set default audio on load without auto-playing to respect browser security
   audioEl.src = themeConfig["All"].audio;
-  evaluateRecipes(); // Run once to populate list
+  setTimeout(evaluateRecipes, 100); 
 </script>
 </body>
 </html>
