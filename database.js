@@ -287,4 +287,63 @@ const recipeDatabase = [
   { name: "Etsiz Çiğ Köfte", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "isot pepper", "pomegranate molasses", "walnut", "onion"], cal: 310, p: 8, c: 60, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Ayva Tatlısı", cuisine: "Turkish", ingredients: ["quince", "sugar", "cloves", "kaymak", "pistachio"], cal: 280, p: 2, c: 65, f: 5, diet: ["Vegetarian", "Gluten-Free"] },
   { name: "Cacık", cuisine: "Turkish", ingredients: ["yogurt", "cucumber", "garlic", "mint", "olive oil"], cal: 150, p: 8, c: 10, f: 9, diet: ["Vegetarian", "Gluten-Free", "Keto"] }
+// --- ITALIAN (Roman Classics & Street Food) ---
+  { name: "Spaghetti alla Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "guanciale", "pecorino romano", "egg yolk", "black pepper"], cal: 650, p: 25, c: 55, f: 35, diet: [] },
+  { name: "Bucatini all'Amatriciana", cuisine: "Italian", ingredients: ["bucatini", "guanciale", "pecorino romano", "tomato", "chili"], cal: 600, p: 22, c: 60, f: 30, diet: [] },
+  { name: "Saltimbocca alla Romana", cuisine: "Italian", ingredients: ["veal", "prosciutto", "sage", "butter", "white wine"], cal: 450, p: 48, c: 5, f: 26, diet: ["Gluten-Free", "Keto", "Fitness"] },
+  { name: "Carciofi alla Giudia", cuisine: "Italian", ingredients: ["artichoke", "lemon", "olive oil", "salt", "black pepper"], cal: 220, p: 6, c: 20, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Supplí al Telefono", cuisine: "Italian", ingredients: ["arborio rice", "tomato sauce", "mozzarella", "egg", "breadcrumbs", "oil"], cal: 380, p: 12, c: 45, f: 18, diet: ["Vegetarian"] },
+  { name: "Coda alla Vaccinara", cuisine: "Italian", ingredients: ["oxtail", "tomato", "celery", "carrot", "onion", "white wine", "cocoa"], cal: 720, p: 55, c: 15, f: 48, diet: ["Gluten-Free"] },
+  { name: "Trippa alla Romana", cuisine: "Italian", ingredients: ["beef tripe", "tomato", "pecorino romano", "mint", "onion", "white wine"], cal: 410, p: 35, c: 12, f: 22, diet: ["Gluten-Free", "Keto"] },
+  { name: "Tonnarelli Cacio e Pepe", cuisine: "Italian", ingredients: ["tonnarelli pasta", "pecorino romano", "black pepper"], cal: 520, p: 20, c: 65, f: 22, diet: ["Vegetarian"] },
+  { name: "Abbacchio a Scottadito", cuisine: "Italian", ingredients: ["lamb chops", "olive oil", "rosemary", "garlic", "lemon"], cal: 580, p: 45, c: 2, f: 42, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Maritozzo con la Panna", cuisine: "Italian", ingredients: ["flour", "egg", "butter", "sugar", "yeast", "heavy cream"], cal: 450, p: 8, c: 50, f: 24, diet: ["Vegetarian"] },
+
+  // --- HIGH-PROTEIN & FITNESS MEAL PREP ---
+  { name: "Grilled Chicken & Quinoa Power Bowl", cuisine: "American", ingredients: ["chicken breast", "quinoa", "spinach", "cherry tomato", "olive oil"], cal: 480, p: 45, c: 40, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Cottage Cheese Protein Pancakes", cuisine: "American", ingredients: ["cottage cheese", "egg whites", "oats", "cinnamon", "vanilla"], cal: 320, p: 35, c: 30, f: 4, diet: ["Vegetarian", "Fitness"] },
+  { name: "Turkey & Egg White Wrap", cuisine: "American", ingredients: ["ground turkey", "egg whites", "whole wheat wrap", "spinach", "tomato"], cal: 410, p: 42, c: 35, f: 10, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Baked Lemon Herb Chicken Breast", cuisine: "American", ingredients: ["chicken breast", "lemon", "rosemary", "garlic", "olive oil"], cal: 310, p: 48, c: 2, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Lentil & Tuna Protein Salad", cuisine: "American", ingredients: ["canned tuna", "brown lentils", "red onion", "celery", "lemon"], cal: 340, p: 38, c: 35, f: 4, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Greek Yogurt & Whey Smoothie", cuisine: "American", ingredients: ["greek yogurt", "whey protein", "banana", "almond milk", "chia seeds"], cal: 350, p: 40, c: 35, f: 6, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Lean Beef & Asparagus Skillet", cuisine: "American", ingredients: ["lean beef", "asparagus", "garlic", "soy sauce", "sesame oil"], cal: 420, p: 45, c: 10, f: 20, diet: ["Dairy-Free", "Keto", "Fitness"] },
+  { name: "Edamame & Tofu Power Salad", cuisine: "Asian", ingredients: ["tofu", "edamame", "cabbage", "carrot", "sesame dressing"], cal: 380, p: 28, c: 25, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Fitness"] },
+  { name: "Steamed Chicken & Broccoli", cuisine: "Asian", ingredients: ["chicken breast", "broccoli", "garlic", "ginger", "soy sauce"], cal: 320, p: 45, c: 15, f: 6, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Chia & Egg White Oatmeal", cuisine: "American", ingredients: ["oats", "egg whites", "chia seeds", "almond milk", "cinnamon"], cal: 310, p: 25, c: 35, f: 8, diet: ["Vegetarian", "Dairy-Free", "Fitness"] },
+
+  // --- TURKISH & ANATOLIAN GASTRONOMY ---
+  { name: "Tirmis Ezmesi", cuisine: "Turkish", ingredients: ["lupin beans", "olive oil", "lemon", "garlic", "cumin", "salt"], cal: 240, p: 12, c: 16, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Antalya Tahinli Kabak Tatlısı", cuisine: "Turkish", ingredients: ["pumpkin", "sugar", "tahini", "walnut"], cal: 380, p: 6, c: 55, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Tirmis Hardalı & Izgara Tavuk", cuisine: "Turkish", ingredients: ["chicken breast", "lupin beans", "mustard", "olive oil", "thyme"], cal: 410, p: 48, c: 10, f: 18, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Antalya Şiş Köfte", cuisine: "Turkish", ingredients: ["ground beef", "lamb fat", "salt", "cumin", "pita bread"], cal: 550, p: 35, c: 30, f: 32, diet: [] },
+  { name: "Fırında Lagos", cuisine: "Turkish", ingredients: ["grouper fish", "olive oil", "lemon", "garlic", "bay leaf", "potato"], cal: 420, p: 45, c: 25, f: 14, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Alanya Bohçası", cuisine: "Turkish", ingredients: ["crepe dough", "lamb", "onion", "tomato", "kasar cheese"], cal: 580, p: 32, c: 45, f: 28, diet: [] },
+  { name: "Toros Salata", cuisine: "Turkish", ingredients: ["arugula", "tomato", "tulum cheese", "walnut", "pomegranate molasses", "olive oil"], cal: 290, p: 8, c: 15, f: 24, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Kabak Çiçeği Dolması", cuisine: "Turkish", ingredients: ["zucchini flowers", "rice", "onion", "mint", "dill", "olive oil"], cal: 240, p: 4, c: 35, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Kereviz Salatası", cuisine: "Turkish", ingredients: ["celery root", "yogurt", "garlic", "walnut", "mayonnaise"], cal: 220, p: 6, c: 12, f: 18, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "Zeytinyağlı Kuru Patlıcan Dolması", cuisine: "Turkish", ingredients: ["dried eggplant", "rice", "onion", "pomegranate molasses", "sumac", "olive oil"], cal: 340, p: 5, c: 55, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+
+  // --- FRENCH RUSTIC & HAUTE CUISINE ---
+  { name: "Duck à l'Orange", cuisine: "French", ingredients: ["duck breast", "orange", "sugar", "vinegar", "chicken broth", "butter"], cal: 680, p: 35, c: 25, f: 48, diet: ["Gluten-Free"] },
+  { name: "Tartiflette", cuisine: "French", ingredients: ["potato", "reblochon cheese", "bacon", "onion", "white wine", "cream"], cal: 750, p: 25, c: 45, f: 52, diet: ["Gluten-Free"] },
+  { name: "Pissaladière", cuisine: "French", ingredients: ["pizza dough", "onion", "anchovies", "black olives", "olive oil", "thyme"], cal: 420, p: 12, c: 55, f: 16, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Foie Gras Poêlé", cuisine: "French", ingredients: ["foie gras", "salt", "black pepper", "fig", "balsamic vinegar"], cal: 450, p: 8, c: 15, f: 42, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Crème Brûlée", cuisine: "French", ingredients: ["heavy cream", "egg yolk", "sugar", "vanilla bean"], cal: 480, p: 6, c: 30, f: 38, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Poulet Basque", cuisine: "French", ingredients: ["chicken", "bell pepper", "tomato", "onion", "espelette pepper", "white wine"], cal: 460, p: 45, c: 20, f: 22, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Flammekueche", cuisine: "French", ingredients: ["pizza dough", "creme fraiche", "bacon", "onion", "nutmeg"], cal: 580, p: 18, c: 55, f: 32, diet: [] },
+  { name: "Hachis Parmentier", cuisine: "French", ingredients: ["ground beef", "potato", "onion", "butter", "milk", "cheese"], cal: 550, p: 35, c: 40, f: 28, diet: ["Gluten-Free"] },
+  { name: "Moules-Frites", cuisine: "French", ingredients: ["mussels", "white wine", "shallot", "butter", "parsley", "potato"], cal: 620, p: 38, c: 65, f: 24, diet: ["Pescatarian", "Gluten-Free"] },
+  { name: "Gougères au Fromage", cuisine: "French", ingredients: ["flour", "butter", "egg", "gruyere cheese", "nutmeg"], cal: 320, p: 12, c: 20, f: 22, diet: ["Vegetarian"] },
+
+  // --- MIDDLE EASTERN & INDIAN ---
+  { name: "Tandoori Paneer Tikka", cuisine: "Indian", ingredients: ["paneer cheese", "yogurt", "garam masala", "bell pepper", "onion", "lemon"], cal: 410, p: 22, c: 15, f: 30, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "Baingan Bharta", cuisine: "Indian", ingredients: ["eggplant", "tomato", "onion", "garlic", "ginger", "cumin"], cal: 220, p: 6, c: 30, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Lamb Vindaloo", cuisine: "Indian", ingredients: ["lamb", "vinegar", "garlic", "ginger", "chili", "mustard seeds"], cal: 580, p: 45, c: 12, f: 38, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Dal Tadka", cuisine: "Indian", ingredients: ["yellow lentils", "tomato", "onion", "garlic", "cumin", "ghee"], cal: 340, p: 18, c: 45, f: 12, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Garlic Naan", cuisine: "Indian", ingredients: ["flour", "yogurt", "yeast", "butter", "garlic", "cilantro"], cal: 280, p: 6, c: 45, f: 8, diet: ["Vegetarian"] },
+  { name: "Chicken Musakhan", cuisine: "Middle Eastern", ingredients: ["chicken", "sumac", "onion", "olive oil", "pine nuts", "taboon bread"], cal: 620, p: 45, c: 48, f: 28, diet: ["Dairy-Free"] },
+  { name: "Muhammara", cuisine: "Middle Eastern", ingredients: ["roasted red pepper", "walnut", "pomegranate molasses", "olive oil", "breadcrumbs", "cumin"], cal: 310, p: 6, c: 22, f: 24, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Labneh with Za'atar", cuisine: "Middle Eastern", ingredients: ["labneh", "zaatar", "olive oil", "pita bread", "cucumber"], cal: 280, p: 10, c: 25, f: 18, diet: ["Vegetarian"] },
+  { name: "Kousa Mahshi", cuisine: "Middle Eastern", ingredients: ["zucchini", "rice", "ground beef", "tomato", "mint", "garlic"], cal: 380, p: 20, c: 45, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] }
 ];
