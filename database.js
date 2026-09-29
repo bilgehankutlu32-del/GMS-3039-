@@ -752,7 +752,7 @@ const recipeDatabase = [
   { name: "Tom Yum Soup", cuisine: "Asian", ingredients: ["shrimp", "lemongrass", "galangal", "kaffir lime", "chili", "fish sauce"], cal: 220, p: 25, c: 12, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Beef Pho", cuisine: "Asian", ingredients: ["beef brisket", "rice noodles", "beef broth", "star anise", "bean sprouts", "basil"], cal: 480, p: 35, c: 55, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
   { name: "Pork Banh Mi", cuisine: "Asian", ingredients: ["baguette", "pork belly", "pate", "carrot", "daikon", "cilantro", "mayonnaise"], cal: 580, p: 25, c: 65, f: 26, diet: ["Dairy-Free"] },
-  { name: "Katsu Sando", cuisine: "Japanese", ingredients: ["pork loin", "milk bread", "panko", "tonkatsu sauce", "cabbage", "egg"], cal: 620, p: 28, c: 60, f: 30, diet: ["Dairy-Free"] },
+ { name: "Katsu Sando", cuisine: "Japanese", ingredients: ["pork loin", "milk bread", "panko", "tonkatsu sauce", "cabbage", "egg"], cal: 620, p: 28, c: 60, f: 30, diet: [] },
   { name: "Spicy Tuna Hand Roll", cuisine: "Japanese", ingredients: ["tuna", "sushi rice", "nori", "sriracha", "sesame oil", "green onion"], cal: 280, p: 22, c: 35, f: 6, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
   { name: "Lamb Gyro", cuisine: "Mediterranean", ingredients: ["lamb", "pita", "tzatziki", "tomato", "onion", "oregano"], cal: 550, p: 38, c: 45, f: 24, diet: [] },
   { name: "Chicken Souvlaki", cuisine: "Mediterranean", ingredients: ["chicken breast", "lemon", "olive oil", "garlic", "oregano"], cal: 320, p: 48, c: 4, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
