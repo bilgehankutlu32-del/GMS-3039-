@@ -26,25 +26,23 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      transition: background-image 0.8s ease-in-out;
+      transition: background-image 0.6s ease-in-out;
     }
 
     .container { max-width: 1100px; margin: 0 auto; }
 
-    header { text-align: center; margin-bottom: 30px; background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    header { text-align: center; margin-bottom: 30px; background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     .logo { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
     .purpose { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0 auto; font-style: italic; }
-
-    .music-control { margin-top: 15px; display: inline-block; background: var(--secondary); color: white; padding: 10px 24px; border-radius: 30px; cursor: pointer; font-weight: 700; border: none; font-size: 15px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .music-control:hover { background: #386044; transform: scale(1.02); }
 
     .search-panel { background: var(--card-bg); border-top: 5px solid var(--primary); border-radius: 12px; padding: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 30px; }
 
     .input-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
     .input-row input { flex: 2; min-width: 200px; padding: 12px 16px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; }
-    .input-row select { flex: 1; min-width: 140px; padding: 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer; }
+    .input-row select { flex: 1; min-width: 150px; padding: 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer; }
     
-    .btn-add { background-color: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 0 24px; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .btn-add { background-color: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 0 24px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .btn-add:hover { background-color: var(--primary-dark); }
 
     .user-ingredients-box { min-height: 48px; padding: 10px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
     .tag { background-color: var(--primary-dark); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
@@ -59,9 +57,15 @@
     .badge-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .diet-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
     .diet-badge { font-size: 10px; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 12px; }
+    
+    /* Expanded Diet Tag Colors */
     .diet-vegan { background: #dcfce7; color: #166534; }
     .diet-vegetarian { background: #fef08a; color: #854d0e; }
     .diet-fitness { background: #e0e7ff; color: #3730a3; }
+    .diet-pescatarian { background: #cffafe; color: #164e63; }
+    .diet-gluten-free { background: #ffedd5; color: #9a3412; }
+    .diet-keto { background: #f3e8ff; color: #581c87; }
+    .diet-dairy-free { background: #fce7f3; color: #831843; }
     
     .match-badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; background: #fef3c7; color: #92400e; }
     .match-100 { background: #dcfce7; color: #166534; }
@@ -78,32 +82,40 @@
 </head>
 <body>
 
-<audio id="bg-audio" loop></audio>
-
 <div class="container">
   <header>
-    <div class="logo">🌍 Immersive Gastronomy Matcher</div>
-    <p class="purpose">Search recipes, track macros, and immerse yourself in the culture of your food.</p>
-    <button class="music-control" id="music-btn">🎵 Play Global Music</button>
+    <div class="logo">🌍 Global Gastronomy Matcher</div>
+    <p class="purpose">Search recipes, filter by detailed dietary needs, and calculate macros instantly.</p>
   </header>
 
   <section class="search-panel">
     <div class="input-row">
       <input type="text" id="ingredient-input" placeholder="Ingredient or meal name...">
       
+      <!-- Expanded Cuisine Filter -->
       <select id="cuisine-filter">
         <option value="All">🌍 All Cuisines</option>
-        <option value="Mexican">🌮 Mexican</option>
         <option value="Turkish">🍢 Turkish</option>
         <option value="Italian">🍝 Italian</option>
+        <option value="Mexican">🌮 Mexican</option>
         <option value="Asian">🍜 Asian</option>
+        <option value="French">🥐 French</option>
+        <option value="Middle Eastern">🥙 Middle Eastern</option>
+        <option value="Japanese">🍣 Japanese</option>
+        <option value="Indian">🍛 Indian</option>
+        <option value="Mediterranean">🍋 Mediterranean</option>
       </select>
       
+      <!-- Expanded Dietary Filter -->
       <select id="diet-filter">
         <option value="All">🍽️ Any Diet</option>
-        <option value="Vegetarian">🥗 Vegetarian</option>
         <option value="Vegan">🌱 Vegan</option>
-        <option value="Fitness">💪 Fitness / High Protein</option>
+        <option value="Vegetarian">🥗 Vegetarian</option>
+        <option value="Pescatarian">🐟 Pescatarian</option>
+        <option value="Gluten-Free">🌾 Gluten-Free</option>
+        <option value="Keto">🥩 Keto</option>
+        <option value="Dairy-Free">🥛 Dairy-Free</option>
+        <option value="Fitness">💪 High Protein</option>
       </select>
 
       <button class="btn-add" id="btn-add">Add</button>
@@ -117,94 +129,39 @@
   <section class="recipes-grid" id="recipes-grid"></section>
 </div>
 
+<!-- Links to your Database File -->
 <script src="database.js"></script>
 
 <script>
-  // VERIFIED OPEN-SOURCE AUDIO & IMAGES
-  const themeConfig = {
-    "All": { 
-        name: "Global", 
-        bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80", 
-        audio: "https://assets.mixkit.co/music/preview/mixkit-acoustic-guitar-loop-2287.mp3" 
-    },
-    "Mexican": { 
-        name: "Mexican", 
-        bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=2000&q=80", 
-        audio: "https://assets.mixkit.co/music/preview/mixkit-latin-jazz-guitar-158.mp3" 
-    },
-    "Turkish": { 
-        name: "Turkish", 
-        bg: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80", 
-        audio: "https://assets.mixkit.co/music/preview/mixkit-middle-eastern-beat-116.mp3" 
-    },
-    "Italian": { 
-        name: "Italian", 
-        bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=2000&q=80", 
-        audio: "https://assets.mixkit.co/music/preview/mixkit-classical-piano-and-strings-600.mp3" 
-    },
-    "Asian": { 
-        name: "Asian", 
-        bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=2000&q=80", 
-        audio: "https://assets.mixkit.co/music/preview/mixkit-zen-relaxing-spa-background-music-230.mp3" 
-    }
+  // Dynamic Background Images based on Cuisine (No Audio)
+  const backgrounds = {
+    "All": "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80",
+    "Turkish": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80",
+    "Italian": "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=2000&q=80",
+    "Mexican": "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=2000&q=80",
+    "Asian": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=2000&q=80",
+    "French": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=2000&q=80",
+    "Middle Eastern": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=80",
+    "Japanese": "https://images.unsplash.com/photo-1580870058815-2eb10817c9b3?auto=format&fit=crop&w=2000&q=80",
+    "Indian": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=2000&q=80",
+    "Mediterranean": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=2000&q=80"
   };
 
-  const audioEl = document.getElementById("bg-audio");
-  const musicBtn = document.getElementById("music-btn");
   const cuisineFilterEl = document.getElementById("cuisine-filter");
-  let isMusicPlaying = false;
-
-  async function updateAndPlayAudio(cuisine) {
-    const theme = themeConfig[cuisine] || themeConfig["All"];
-    document.body.style.backgroundImage = `url('${theme.bg}')`;
-
-    if (audioEl.src !== theme.audio) {
-      audioEl.pause();
-      audioEl.src = theme.audio;
-      audioEl.load(); 
-    }
-
-    if (isMusicPlaying) {
-      try {
-        await audioEl.play();
-        musicBtn.textContent = `⏸️ Pause ${theme.name} Music`;
-      } catch (err) {
-        isMusicPlaying = false;
-        musicBtn.textContent = `🎵 Play ${theme.name} Music`;
-      }
-    } else {
-      musicBtn.textContent = `🎵 Play ${theme.name} Music`;
-    }
-  }
-
-  musicBtn.addEventListener("click", () => {
-    const cuisine = cuisineFilterEl.value;
-    const theme = themeConfig[cuisine] || themeConfig["All"];
-
-    if (isMusicPlaying) {
-      audioEl.pause();
-      isMusicPlaying = false;
-      musicBtn.textContent = `🎵 Play ${theme.name} Music`;
-    } else {
-      audioEl.play().catch(e => console.log(e));
-      isMusicPlaying = true;
-      musicBtn.textContent = `⏸️ Pause ${theme.name} Music`;
-    }
-  });
-
-  cuisineFilterEl.addEventListener("change", () => {
-    const cuisine = cuisineFilterEl.value;
-    updateAndPlayAudio(cuisine);
-    evaluateRecipes();
-  });
-
-  const userIngredients = new Set();
-  const inputEl = document.getElementById("ingredient-input");
   const dietFilterEl = document.getElementById("diet-filter");
+  const inputEl = document.getElementById("ingredient-input");
   const btnAdd = document.getElementById("btn-add");
   const tagsBox = document.getElementById("user-ingredients-box");
   const recipesGrid = document.getElementById("recipes-grid");
   const resultsCount = document.getElementById("results-count");
+  const userIngredients = new Set();
+
+  cuisineFilterEl.addEventListener("change", () => {
+    // Change background image instantly
+    const cuisine = cuisineFilterEl.value;
+    document.body.style.backgroundImage = `url('${backgrounds[cuisine] || backgrounds["All"]}')`;
+    evaluateRecipes();
+  });
 
   dietFilterEl.addEventListener("change", evaluateRecipes);
 
@@ -240,9 +197,12 @@
     if (typeof recipeDatabase === 'undefined') return;
 
     let viableRecipes = recipeDatabase;
+    
+    // Apply Dietary Filter
     if (selectedDiet !== "All") {
       viableRecipes = viableRecipes.filter(r => r.diet.includes(selectedDiet));
     }
+    // Apply Cuisine Filter
     if (selectedCuisine !== "All") {
       viableRecipes = viableRecipes.filter(r => r.cuisine === selectedCuisine);
     }
@@ -284,14 +244,19 @@
 
   function renderCards(recipes) {
     if (recipes.length === 0) {
-      recipesGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; background: white; padding: 20px; border-radius: 12px;">No dishes found matching your filters.</div>`;
+      recipesGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; background: white; padding: 20px; border-radius: 12px; font-weight: 500; color: #718096;">No dishes found matching your filters.</div>`;
       return;
     }
 
     recipesGrid.innerHTML = recipes.map(item => {
       const badgeClass = item.matchPct === 100 ? "match-100" : "";
       const badgeText = item.matchPct > 0 ? (item.isMealMatch ? "Meal Match!" : `${item.matchPct}% Match`) : "Recipe";
-      const dietHtml = item.diet.map(d => `<span class="diet-badge diet-${d.toLowerCase()}">${d}</span>`).join("");
+      
+      // Map diet tags to their specific CSS classes
+      const dietHtml = item.diet.map(d => {
+        const safeClass = d.toLowerCase().replace(/\s+/g, '-');
+        return `<span class="diet-badge diet-${safeClass}">${d}</span>`;
+      }).join("");
 
       return `
         <div class="recipe-card">
@@ -323,7 +288,7 @@
   btnAdd.addEventListener("click", () => { addIngredient(inputEl.value); inputEl.value = ""; });
   inputEl.addEventListener("keypress", (e) => { if (e.key === "Enter") { addIngredient(inputEl.value); inputEl.value = ""; } });
   
-  audioEl.src = themeConfig["All"].audio;
+  // Render on startup
   setTimeout(evaluateRecipes, 100); 
 </script>
 </body>
