@@ -169,4 +169,63 @@ const recipeDatabase = [
   { name: "Oyakodon", cuisine: "Japanese", ingredients: ["chicken thigh", "egg", "rice", "onion", "soy sauce", "mirin"], cal: 580, p: 35, c: 70, f: 18, diet: ["Dairy-Free"] },
   { name: "Unagi Don (Eel Bowl)", cuisine: "Japanese", ingredients: ["eel", "rice", "soy sauce", "mirin", "sugar", "sake"], cal: 540, p: 25, c: 75, f: 15, diet: ["Pescatarian", "Dairy-Free"] },
   { name: "Agedashi Tofu", cuisine: "Japanese", ingredients: ["tofu", "potato starch", "oil", "dashi", "soy sauce", "mirin"], cal: 280, p: 12, c: 22, f: 16, diet: ["Pescatarian", "Dairy-Free"] }
+// --- FRENCH GASTRONOMY ---
+  { name: "Steak Tartare", cuisine: "French", ingredients: ["raw beef", "egg yolk", "capers", "mustard", "shallot", "parsley"], cal: 350, p: 45, c: 2, f: 18, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Duck Confit (Confit de Canard)", cuisine: "French", ingredients: ["duck leg", "duck fat", "garlic", "thyme", "bay leaf"], cal: 680, p: 38, c: 0, f: 58, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Quiche Lorraine", cuisine: "French", ingredients: ["pie crust", "egg", "heavy cream", "bacon", "gruyere cheese", "nutmeg"], cal: 580, p: 22, c: 30, f: 42, diet: [] },
+  { name: "Sole Meunière", cuisine: "French", ingredients: ["sole fish", "butter", "lemon", "parsley", "flour"], cal: 380, p: 32, c: 10, f: 22, diet: ["Pescatarian"] },
+  { name: "Crêpes Suzette", cuisine: "French", ingredients: ["flour", "egg", "milk", "butter", "orange", "sugar"], cal: 410, p: 8, c: 55, f: 18, diet: ["Vegetarian"] },
+  { name: "Cassoulet", cuisine: "French", ingredients: ["white beans", "duck confit", "pork sausage", "pork belly", "garlic", "tomato"], cal: 850, p: 55, c: 50, f: 48, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Soufflé au Fromage", cuisine: "French", ingredients: ["egg", "gruyere cheese", "butter", "flour", "milk"], cal: 420, p: 24, c: 15, f: 30, diet: ["Vegetarian"] },
+  { name: "Tarte Tatin", cuisine: "French", ingredients: ["apple", "sugar", "butter", "puff pastry"], cal: 380, p: 3, c: 55, f: 18, diet: ["Vegetarian"] },
+  { name: "Vichyssoise", cuisine: "French", ingredients: ["leek", "potato", "chicken broth", "heavy cream", "chive"], cal: 310, p: 6, c: 28, f: 20, diet: ["Gluten-Free"] },
+  { name: "Poulet Rôti (Roast Chicken)", cuisine: "French", ingredients: ["whole chicken", "butter", "lemon", "thyme", "garlic"], cal: 540, p: 55, c: 2, f: 32, diet: ["Gluten-Free", "Keto", "Fitness"] },
+
+  // --- SPANISH & GREEK (Mediterranean) ---
+  { name: "Paella Valenciana", cuisine: "Mediterranean", ingredients: ["bomba rice", "chicken", "rabbit", "saffron", "green beans", "tomato"], cal: 620, p: 45, c: 68, f: 18, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Gazpacho", cuisine: "Mediterranean", ingredients: ["tomato", "cucumber", "bell pepper", "onion", "garlic", "olive oil"], cal: 150, p: 3, c: 18, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Tortilla Española", cuisine: "Mediterranean", ingredients: ["potato", "egg", "onion", "olive oil", "salt"], cal: 380, p: 12, c: 30, f: 24, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Gambas al Ajillo", cuisine: "Mediterranean", ingredients: ["shrimp", "garlic", "olive oil", "red pepper flakes", "parsley"], cal: 280, p: 28, c: 2, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Patatas Bravas", cuisine: "Mediterranean", ingredients: ["potato", "olive oil", "tomato", "paprika", "garlic", "mayonnaise"], cal: 410, p: 5, c: 45, f: 24, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Pastitsio", cuisine: "Mediterranean", ingredients: ["bucatini pasta", "ground beef", "tomato", "cinnamon", "milk", "flour"], cal: 650, p: 35, c: 55, f: 30, diet: [] },
+  { name: "Dolmades", cuisine: "Mediterranean", ingredients: ["vine leaves", "rice", "pine nuts", "dill", "mint", "lemon"], cal: 220, p: 4, c: 35, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Chicken Souvlaki", cuisine: "Mediterranean", ingredients: ["chicken breast", "lemon", "olive oil", "oregano", "garlic", "pita bread"], cal: 420, p: 45, c: 25, f: 14, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Halloumi Salad", cuisine: "Mediterranean", ingredients: ["halloumi cheese", "mixed greens", "cherry tomato", "cucumber", "olive oil"], cal: 350, p: 18, c: 10, f: 28, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "Salmorejo", cuisine: "Mediterranean", ingredients: ["tomato", "bread", "garlic", "olive oil", "jamon", "egg"], cal: 320, p: 12, c: 30, f: 18, diet: ["Dairy-Free"] },
+
+  // --- INDIAN ---
+  { name: "Tandoori Chicken", cuisine: "Indian", ingredients: ["chicken", "yogurt", "garam masala", "ginger", "garlic", "lemon"], cal: 380, p: 48, c: 6, f: 16, diet: ["Gluten-Free", "Keto", "Fitness"] },
+  { name: "Vegetable Samosa", cuisine: "Indian", ingredients: ["potato", "peas", "flour", "cumin", "coriander", "oil"], cal: 280, p: 6, c: 35, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Rogan Josh", cuisine: "Indian", ingredients: ["lamb", "yogurt", "onion", "garlic", "ginger", "kashmiri chili"], cal: 520, p: 45, c: 12, f: 32, diet: ["Gluten-Free", "Keto"] },
+  { name: "Masala Dosa", cuisine: "Indian", ingredients: ["rice", "urad dal", "potato", "onion", "mustard seeds", "turmeric"], cal: 350, p: 8, c: 60, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Malai Kofta", cuisine: "Indian", ingredients: ["potato", "paneer cheese", "cashew", "tomato", "cream", "garam masala"], cal: 480, p: 14, c: 35, f: 32, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Chicken Korma", cuisine: "Indian", ingredients: ["chicken", "cashew", "cream", "onion", "garlic", "cardamom"], cal: 580, p: 40, c: 15, f: 40, diet: ["Gluten-Free", "Keto"] },
+  { name: "Pani Puri", cuisine: "Indian", ingredients: ["semolina", "potato", "chickpeas", "tamarind", "mint", "chili"], cal: 220, p: 6, c: 45, f: 4, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Pork Vindaloo", cuisine: "Indian", ingredients: ["pork", "vinegar", "garlic", "ginger", "chili", "mustard seeds"], cal: 540, p: 45, c: 10, f: 35, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Mango Lassi", cuisine: "Indian", ingredients: ["mango", "yogurt", "sugar", "cardamom", "milk"], cal: 210, p: 8, c: 35, f: 5, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Saag Paneer", cuisine: "Indian", ingredients: ["spinach", "paneer cheese", "onion", "garlic", "ginger", "cream"], cal: 380, p: 18, c: 12, f: 30, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+
+  // --- MIDDLE EASTERN ---
+  { name: "Mujadara", cuisine: "Middle Eastern", ingredients: ["brown lentil", "rice", "onion", "olive oil", "cumin"], cal: 380, p: 14, c: 60, f: 12, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Knafeh", cuisine: "Middle Eastern", ingredients: ["kataifi dough", "cheese", "sugar", "butter", "pistachio", "rose water"], cal: 550, p: 12, c: 65, f: 28, diet: ["Vegetarian"] },
+  { name: "Mutabal", cuisine: "Middle Eastern", ingredients: ["eggplant", "tahini", "yogurt", "garlic", "lemon", "olive oil"], cal: 210, p: 6, c: 12, f: 16, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "Kibbeh", cuisine: "Middle Eastern", ingredients: ["bulgur", "ground beef", "onion", "pine nuts", "allspice", "oil"], cal: 420, p: 20, c: 45, f: 22, diet: ["Dairy-Free"] },
+  { name: "Sabich", cuisine: "Middle Eastern", ingredients: ["pita bread", "eggplant", "egg", "tahini", "cucumber", "tomato"], cal: 450, p: 16, c: 50, f: 22, diet: ["Vegetarian", "Dairy-Free"] },
+  { name: "Shish Tawook", cuisine: "Middle Eastern", ingredients: ["chicken breast", "yogurt", "lemon", "garlic", "tomato paste", "olive oil"], cal: 380, p: 45, c: 6, f: 18, diet: ["Gluten-Free", "Keto", "Fitness"] },
+  { name: "Ma'amoul", cuisine: "Middle Eastern", ingredients: ["semolina", "date", "butter", "rose water", "mahleb"], cal: 320, p: 4, c: 45, f: 14, diet: ["Vegetarian"] },
+  { name: "Mansaf", cuisine: "Middle Eastern", ingredients: ["lamb", "jameed", "rice", "almond", "pine nuts", "pita bread"], cal: 750, p: 55, c: 60, f: 35, diet: [] },
+  { name: "Fatayer (Spinach)", cuisine: "Middle Eastern", ingredients: ["flour", "spinach", "onion", "sumac", "lemon", "olive oil"], cal: 280, p: 8, c: 40, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Chicken Machboos", cuisine: "Middle Eastern", ingredients: ["chicken", "basmati rice", "onion", "tomato", "loomi", "baharat"], cal: 580, p: 40, c: 65, f: 18, diet: ["Dairy-Free", "Gluten-Free"] },
+
+  // --- FITNESS & TURKISH ---
+  { name: "High-Protein Oatmeal", cuisine: "American", ingredients: ["oats", "whey protein", "chia seeds", "almond milk", "peanut butter"], cal: 420, p: 32, c: 45, f: 14, diet: ["Vegetarian", "Fitness"] },
+  { name: "Turkey & Bean Chili", cuisine: "American", ingredients: ["ground turkey", "kidney beans", "tomato", "onion", "chili", "cumin"], cal: 410, p: 42, c: 35, f: 10, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Baked Cod & Quinoa", cuisine: "American", ingredients: ["cod fish", "quinoa", "spinach", "lemon", "olive oil"], cal: 380, p: 45, c: 30, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Greek Yogurt & Fruit Parfait", cuisine: "American", ingredients: ["greek yogurt", "strawberry", "blueberry", "honey", "walnut"], cal: 290, p: 22, c: 30, f: 10, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Sweet Potato Hash & Eggs", cuisine: "American", ingredients: ["sweet potato", "egg", "onion", "bell pepper", "olive oil"], cal: 350, p: 18, c: 35, f: 16, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "İzmir Köfte", cuisine: "Turkish", ingredients: ["ground beef", "potato", "tomato", "green pepper", "onion", "tomato paste"], cal: 480, p: 30, c: 35, f: 24, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Balık Ekmek", cuisine: "Turkish", ingredients: ["mackerel", "bread", "onion", "lettuce", "lemon", "salt"], cal: 420, p: 28, c: 45, f: 14, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Kumpir", cuisine: "Turkish", ingredients: ["potato", "butter", "kasar cheese", "sausage", "corn", "olives"], cal: 650, p: 18, c: 65, f: 38, diet: ["Gluten-Free"] },
+  { name: "Sultan Reşat Pilavı", cuisine: "Turkish", ingredients: ["rice", "chicken", "eggplant", "pine nuts", "currants", "butter"], cal: 550, p: 25, c: 60, f: 22, diet: ["Gluten-Free"] },
+  { name: "Fırın Sütlaç", cuisine: "Turkish", ingredients: ["milk", "rice", "sugar", "cornstarch", "vanilla"], cal: 310, p: 8, c: 55, f: 6, diet: ["Vegetarian", "Gluten-Free"] }
 ];
