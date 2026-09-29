@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Recipe & Nutrition Finder</title>
+  <title>Immersive Gastronomy & Nutrition Matcher</title>
   <style>
     :root {
       --primary: #d94838;
-      --primary-light: #fbeae8;
       --primary-dark: #b83628;
       --secondary: #4a7c59;
-      --bg: #fdfbf7;
-      --card-bg: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.95);
       --text: #2d3748;
       --text-muted: #718096;
       --border: #e2e8f0;
@@ -21,236 +19,166 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
       padding: 30px 16px;
+      /* Default background */
+      background-image: url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background-image 1s ease-in-out;
     }
 
     .container { max-width: 1100px; margin: 0 auto; }
 
-    header { text-align: center; margin-bottom: 30px; }
-    .logo { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+    header { text-align: center; margin-bottom: 30px; background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .logo { font-size: 2.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
     .purpose { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0 auto; font-style: italic; }
 
-    .search-panel {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-top: 5px solid var(--secondary);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
-    }
+    /* Music Player Control */
+    .music-control { margin-top: 15px; display: inline-block; background: var(--secondary); color: white; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; border: none; font-size: 14px; transition: 0.3s; }
+    .music-control:hover { background: #386044; }
+
+    .search-panel { background: var(--card-bg); border-top: 5px solid var(--primary); border-radius: 12px; padding: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 30px; }
 
     .input-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
     .input-row input { flex: 2; min-width: 200px; padding: 12px 16px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; }
-    .input-row select { flex: 1; min-width: 150px; padding: 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer; }
-    .input-row input:focus, .input-row select:focus { border-color: var(--primary); }
+    .input-row select { flex: 1; min-width: 140px; padding: 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; outline: none; cursor: pointer; }
     
     .btn-add { background-color: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 0 24px; font-size: 15px; font-weight: 600; cursor: pointer; }
-    .btn-add:hover { background-color: var(--primary-dark); }
 
-    .quick-tags { margin-bottom: 16px; }
-    .quick-tags span { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-right: 8px; }
-    .pill { display: inline-block; padding: 5px 12px; margin: 4px; font-size: 13px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 20px; cursor: pointer; }
-    .pill:hover { background: #e2e8f0; }
-
-    .user-ingredients-box { min-height: 48px; padding: 10px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { background-color: var(--secondary); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+    .user-ingredients-box { min-height: 48px; padding: 10px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .tag { background-color: var(--primary-dark); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
     .tag button { background: none; border: none; color: #fff; cursor: pointer; font-size: 15px; }
 
-    .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; background: var(--card-bg); padding: 10px 20px; border-radius: 8px; }
     .recipes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
     
-    .recipe-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; }
-    .badge-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .category-badge { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 0.5px; }
-    .match-badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
-    .match-100 { background: var(--primary-light); color: var(--primary-dark); }
-    .match-partial { background: #fef3c7; color: #92400e; }
+    .recipe-card { background: var(--card-bg); border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+    .recipe-card:hover { transform: translateY(-5px); }
     
-    .recipe-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
+    .badge-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .diet-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+    .diet-badge { font-size: 10px; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 12px; }
+    .diet-vegan { background: #dcfce7; color: #166534; }
+    .diet-vegetarian { background: #fef08a; color: #854d0e; }
+    .diet-fitness { background: #e0e7ff; color: #3730a3; }
+    
+    .match-badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; background: #fef3c7; color: #92400e; }
+    .match-100 { background: #dcfce7; color: #166534; }
+    
+    .recipe-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
     .ingredient-list { font-size: 13px; margin-bottom: 14px; }
     .ing-tag { display: inline-block; padding: 2px 8px; margin: 2px; border-radius: 4px; font-size: 12px; }
-    .ing-have { background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+    .ing-have { background: #fbeae8; color: var(--primary-dark); font-weight: 600; }
     .ing-missing { background: #f1f5f9; color: var(--text-muted); text-decoration: line-through; }
 
     .nutrition-bar { background-color: #f8fafc; border-radius: 8px; padding: 10px; margin-top: 10px; border: 1px solid #e2e8f0; }
-    .nutrition-title { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: bold; margin-bottom: 5px; }
     .macros { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; }
-    
-    .empty-state { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted); }
   </style>
 </head>
 <body>
 
+<!-- Hidden Audio Player for Background Music -->
+<audio id="bg-audio" loop></audio>
+
 <div class="container">
   <header>
-    <div class="logo">🌍 Mega Recipe & Nutrition Matcher</div>
-    <p class="purpose"><strong>Purpose:</strong> A massive database spanning Mexican, Turkish, Italian, and more. Enter ingredients or meal names to find matches and calculate exact nutritional macros.</p>
+    <div class="logo">🌍 Immersive Gastronomy Matcher</div>
+    <p class="purpose">Search recipes, track macros, and immerse yourself in the culture of your food.</p>
+    <button class="music-control" id="music-btn">🎵 Play Global Music</button>
   </header>
 
   <section class="search-panel">
     <div class="input-row">
-      <input type="text" id="ingredient-input" placeholder="Type an ingredient (e.g., eggplant) or a meal (e.g., Hünkar Beğendi)...">
+      <input type="text" id="ingredient-input" placeholder="Ingredient or meal name...">
+      
+      <!-- Cuisine Filter -->
       <select id="cuisine-filter">
         <option value="All">🌍 All Cuisines</option>
         <option value="Mexican">🌮 Mexican</option>
         <option value="Turkish">🍢 Turkish</option>
         <option value="Italian">🍝 Italian</option>
         <option value="Asian">🍜 Asian</option>
-        <option value="American">🍔 American</option>
-        <option value="European">🥖 European</option>
-        <option value="Middle Eastern">🥙 Middle Eastern</option>
       </select>
+      
+      <!-- NEW: Dietary Filter -->
+      <select id="diet-filter">
+        <option value="All">🍽️ Any Diet</option>
+        <option value="Vegetarian">🥗 Vegetarian</option>
+        <option value="Vegan">🌱 Vegan</option>
+        <option value="Fitness">💪 Fitness / High Protein</option>
+      </select>
+
       <button class="btn-add" id="btn-add">Add</button>
     </div>
 
-    <div class="quick-tags">
-      <span>Quick Add:</span>
-      <button class="pill" data-ing="egg">🥚 Egg</button>
-      <button class="pill" data-ing="tomato">🍅 Tomato</button>
-      <button class="pill" data-ing="onion">🧅 Onion</button>
-      <button class="pill" data-ing="garlic">🧄 Garlic</button>
-      <button class="pill" data-ing="chicken">🍗 Chicken</button>
-      <button class="pill" data-ing="beef">🥩 Beef</button>
-      <button class="pill" data-ing="eggplant">🍆 Eggplant</button>
-    </div>
-
-    <div class="user-ingredients-box" id="user-ingredients-box">
-      <span style="color: #94a3b8; font-size: 13px;" id="empty-hint">Your kitchen is empty. Add ingredients above!</span>
-    </div>
+    <div class="user-ingredients-box" id="user-ingredients-box"></div>
   </section>
 
   <div class="results-header">
-    <h2 style="font-size: 1.25rem;">Suggested Recipes (<span id="results-count">0</span>)</h2>
+    <h2>Suggested Recipes (<span id="results-count">0</span>)</h2>
   </div>
-
-  <section class="recipes-grid" id="recipes-grid">
-    <div class="empty-state">Add at least one ingredient to discover recipes!</div>
-  </section>
+  <section class="recipes-grid" id="recipes-grid"></section>
 </div>
 
+<!-- Link to the External Database File -->
+<script src="database.js"></script>
+
 <script>
-  // MEGA DATABASE (Maxed out for a single HTML file)
-  const recipeDatabase = [
-    // --- MEXICAN (Expanded) ---
-    { name: "Tacos al Pastor", cuisine: "Mexican", ingredients: ["pork", "pineapple", "tortilla", "onion", "cilantro"], cal: 450, p: 24, c: 45, f: 18 },
-    { name: "Mole Poblano", cuisine: "Mexican", ingredients: ["chicken", "chili", "chocolate", "sesame seeds", "garlic", "onion"], cal: 620, p: 35, c: 40, f: 32 },
-    { name: "Chiles en Nogada", cuisine: "Mexican", ingredients: ["poblano pepper", "ground beef", "walnut", "pomegranate", "cream"], cal: 580, p: 26, c: 35, f: 38 },
-    { name: "Pozole Rojo", cuisine: "Mexican", ingredients: ["pork", "corn", "chili", "garlic", "onion", "cabbage"], cal: 410, p: 28, c: 48, f: 12 },
-    { name: "Enchiladas Verdes", cuisine: "Mexican", ingredients: ["chicken", "tortilla", "tomatillo", "onion", "cheese", "cream"], cal: 520, p: 30, c: 42, f: 26 },
-    { name: "Chicken Quesadilla", cuisine: "Mexican", ingredients: ["tortilla", "chicken", "cheese", "bell pepper", "onion"], cal: 480, p: 28, c: 35, f: 22 },
-    { name: "Guacamole", cuisine: "Mexican", ingredients: ["avocado", "lime", "onion", "tomato", "cilantro", "salt"], cal: 250, p: 3, c: 15, f: 22 },
-    { name: "Crispy Beef Tacos", cuisine: "Mexican", ingredients: ["ground beef", "tortilla", "cheese", "lettuce", "tomato", "sour cream"], cal: 500, p: 25, c: 38, f: 28 },
-    { name: "Chicken Fajitas", cuisine: "Mexican", ingredients: ["chicken", "bell pepper", "onion", "tortilla", "lime", "olive oil"], cal: 420, p: 32, c: 40, f: 15 },
-    { name: "Huevos Rancheros", cuisine: "Mexican", ingredients: ["egg", "tortilla", "tomato", "chili", "beans", "cheese"], cal: 380, p: 18, c: 35, f: 20 },
-    { name: "Beef Tamales", cuisine: "Mexican", ingredients: ["masa dough", "beef", "chili", "corn husk", "garlic"], cal: 410, p: 15, c: 45, f: 18 },
-    { name: "Churros", cuisine: "Mexican", ingredients: ["flour", "water", "sugar", "cinnamon", "oil"], cal: 350, p: 4, c: 45, f: 18 },
-    { name: "Carnitas", cuisine: "Mexican", ingredients: ["pork", "orange", "garlic", "oregano", "tortilla"], cal: 550, p: 38, c: 22, f: 32 },
-    { name: "Barbacoa", cuisine: "Mexican", ingredients: ["beef", "chili", "garlic", "cloves", "lime", "tortilla"], cal: 520, p: 40, c: 20, f: 30 },
-    { name: "Sopa de Tortilla", cuisine: "Mexican", ingredients: ["chicken broth", "tomato", "tortilla", "avocado", "cheese"], cal: 320, p: 15, c: 35, f: 18 },
-    { name: "Pico de Gallo", cuisine: "Mexican", ingredients: ["tomato", "onion", "cilantro", "jalapeno", "lime"], cal: 80, p: 2, c: 18, f: 0 },
-    { name: "Elote (Street Corn)", cuisine: "Mexican", ingredients: ["corn", "mayonnaise", "cheese", "chili", "lime"], cal: 280, p: 8, c: 30, f: 15 },
-    { name: "Chicken Flautas", cuisine: "Mexican", ingredients: ["chicken", "tortilla", "oil", "lettuce", "cream", "cheese"], cal: 490, p: 26, c: 45, f: 22 },
-    { name: "Ceviche de Pescado", cuisine: "Mexican", ingredients: ["white fish", "lime", "tomato", "onion", "cilantro", "jalapeno"], cal: 210, p: 30, c: 12, f: 4 },
-    { name: "Chilaquiles Rojos", cuisine: "Mexican", ingredients: ["tortilla chips", "tomato", "chili", "egg", "cheese", "cream"], cal: 460, p: 18, c: 50, f: 22 },
+  // Dynamic Backgrounds & Music Configuration
+  const themeConfig = {
+    "All": { bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" }, // Generic Acoustic
+    "Mexican": { bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/10/25/audio_249df9d8b7.mp3" }, // Latin Guitar
+    "Turkish": { bg: "https://images.unsplash.com/photo-1544062534-118c7bc77ff9?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2023/04/07/audio_4ba73b64f3.mp3" }, // Middle Eastern Oud
+    "Italian": { bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" }, // Italian Mandolin
+    "Asian": { bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/12/28/audio_38bfa79fbc.mp3" } // Asian Zen
+  };
 
-    // --- TURKISH (Expanded) ---
-    { name: "Menemen", cuisine: "Turkish", ingredients: ["egg", "tomato", "green pepper", "olive oil", "salt"], cal: 320, p: 14, c: 12, f: 24 },
-    { name: "Mercimek Çorbası", cuisine: "Turkish", ingredients: ["red lentils", "onion", "carrot", "potato", "butter", "mint"], cal: 280, p: 14, c: 42, f: 8 },
-    { name: "Spinach Feta Börek", cuisine: "Turkish", ingredients: ["spinach", "feta cheese", "egg", "onion", "filo pastry", "olive oil"], cal: 390, p: 12, c: 35, f: 22 },
-    { name: "İskender Kebap", cuisine: "Turkish", ingredients: ["beef", "pita", "tomato", "yogurt", "butter"], cal: 850, p: 45, c: 60, f: 48 },
-    { name: "Karnıyarık", cuisine: "Turkish", ingredients: ["eggplant", "ground beef", "onion", "tomato", "parsley"], cal: 420, p: 22, c: 25, f: 28 },
-    { name: "Lahmacun", cuisine: "Turkish", ingredients: ["dough", "ground beef", "onion", "tomato", "parsley", "lemon"], cal: 310, p: 15, c: 40, f: 10 },
-    { name: "Mantı", cuisine: "Turkish", ingredients: ["flour", "ground beef", "yogurt", "garlic", "butter", "mint"], cal: 550, p: 25, c: 65, f: 20 },
-    { name: "Antalya Piyazı", cuisine: "Turkish", ingredients: ["white beans", "tahini", "garlic", "lemon", "vinegar", "egg"], cal: 380, p: 18, c: 30, f: 22 },
-    { name: "Hibeş", cuisine: "Turkish", ingredients: ["tahini", "lemon", "garlic", "cumin", "paprika", "olive oil"], cal: 320, p: 8, c: 15, f: 28 },
-    { name: "Ali Nazik", cuisine: "Turkish", ingredients: ["eggplant", "yogurt", "ground beef", "garlic", "butter"], cal: 450, p: 25, c: 15, f: 32 },
-    { name: "Kısır", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "parsley", "green onion", "lemon", "pomegranate molasses"], cal: 290, p: 8, c: 55, f: 6 },
-    { name: "Hünkar Beğendi", cuisine: "Turkish", ingredients: ["lamb", "eggplant", "milk", "butter", "cheese", "flour"], cal: 620, p: 35, c: 20, f: 45 },
-    { name: "Adana Kebap", cuisine: "Turkish", ingredients: ["lamb", "tail fat", "red pepper", "salt", "pita"], cal: 680, p: 38, c: 35, f: 45 },
-    { name: "Ezogelin Çorbası", cuisine: "Turkish", ingredients: ["red lentils", "bulgur", "mint", "tomato paste", "butter"], cal: 260, p: 12, c: 40, f: 8 },
-    { name: "Yayla Çorbası", cuisine: "Turkish", ingredients: ["yogurt", "rice", "mint", "butter", "egg"], cal: 220, p: 8, c: 25, f: 10 },
-    { name: "İmam Bayıldı", cuisine: "Turkish", ingredients: ["eggplant", "onion", "garlic", "tomato", "olive oil"], cal: 280, p: 4, c: 22, f: 20 },
-    { name: "Mücver", cuisine: "Turkish", ingredients: ["zucchini", "egg", "flour", "dill", "feta cheese", "oil"], cal: 310, p: 10, c: 25, f: 18 },
-    { name: "İçli Köfte", cuisine: "Turkish", ingredients: ["bulgur", "ground beef", "walnut", "onion", "oil"], cal: 450, p: 18, c: 45, f: 22 },
-    { name: "Şakşuka (Turkish)", cuisine: "Turkish", ingredients: ["eggplant", "zucchini", "potato", "tomato", "garlic", "olive oil"], cal: 290, p: 4, c: 28, f: 18 },
-    { name: "Tirmis Hardalı Vinaigrette", cuisine: "Turkish", ingredients: ["lupin beans", "mustard", "mixed greens", "olive oil", "lemon"], cal: 280, p: 12, c: 18, f: 19 },
+  const audioEl = document.getElementById("bg-audio");
+  const musicBtn = document.getElementById("music-btn");
+  let isMusicPlaying = false;
 
-    // --- ITALIAN (Expanded) ---
-    { name: "Spaghetti Bolognese", cuisine: "Italian", ingredients: ["spaghetti", "ground beef", "tomato", "onion", "garlic", "olive oil"], cal: 650, p: 30, c: 75, f: 22 },
-    { name: "Pasta Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "egg", "bacon", "parmesan", "black pepper"], cal: 700, p: 25, c: 65, f: 35 },
-    { name: "Margherita Pizza", cuisine: "Italian", ingredients: ["flour", "yeast", "tomato", "mozzarella", "basil", "olive oil"], cal: 850, p: 35, c: 110, f: 30 },
-    { name: "Caprese Salad", cuisine: "Italian", ingredients: ["tomato", "mozzarella", "basil", "olive oil", "balsamic vinegar"], cal: 320, p: 14, c: 8, f: 26 },
-    { name: "Tomato Garlic Bruschetta", cuisine: "Italian", ingredients: ["bread", "tomato", "garlic", "basil", "olive oil"], cal: 210, p: 6, c: 25, f: 10 },
-    { name: "Mushroom Risotto", cuisine: "Italian", ingredients: ["rice", "mushrooms", "onion", "garlic", "butter", "parmesan"], cal: 480, p: 12, c: 60, f: 18 },
-    { name: "Minestrone Soup", cuisine: "Italian", ingredients: ["white beans", "tomato", "pasta", "carrot", "onion", "zucchini"], cal: 290, p: 12, c: 45, f: 6 },
-    { name: "Lasagna", cuisine: "Italian", ingredients: ["pasta", "ground beef", "ricotta", "mozzarella", "tomato", "garlic"], cal: 650, p: 35, c: 45, f: 35 },
-    { name: "Pesto Penne", cuisine: "Italian", ingredients: ["penne", "basil", "pine nuts", "garlic", "parmesan", "olive oil"], cal: 520, p: 15, c: 60, f: 25 },
-    { name: "Tiramisu", cuisine: "Italian", ingredients: ["mascarpone", "ladyfingers", "coffee", "cocoa powder", "egg"], cal: 480, p: 8, c: 40, f: 32 },
-    { name: "Osso Buco", cuisine: "Italian", ingredients: ["veal shank", "white wine", "broth", "onion", "carrot", "celery"], cal: 550, p: 45, c: 15, f: 30 },
-    { name: "Gnocchi with Sage Butter", cuisine: "Italian", ingredients: ["potato gnocchi", "butter", "sage", "parmesan", "black pepper"], cal: 420, p: 10, c: 55, f: 18 },
-    { name: "Agnolotti del Plin", cuisine: "Italian", ingredients: ["pasta dough", "roast veal", "pork", "spinach", "butter", "sage"], cal: 590, p: 28, c: 52, f: 30 },
-    { name: "Fettuccine Alfredo", cuisine: "Italian", ingredients: ["fettuccine", "butter", "parmesan", "cream", "black pepper"], cal: 680, p: 18, c: 55, f: 42 },
-    { name: "Cacio e Pepe", cuisine: "Italian", ingredients: ["spaghetti", "pecorino romano", "black pepper", "butter"], cal: 510, p: 18, c: 65, f: 20 },
-    { name: "Arancini", cuisine: "Italian", ingredients: ["arborio rice", "mozzarella", "peas", "ground beef", "panko", "oil"], cal: 450, p: 14, c: 55, f: 18 },
-    { name: "Saltimbocca", cuisine: "Italian", ingredients: ["veal", "prosciutto", "sage", "butter", "white wine"], cal: 420, p: 42, c: 5, f: 24 },
-    { name: "Ribollita", cuisine: "Italian", ingredients: ["bread", "cannellini beans", "kale", "carrot", "onion", "olive oil"], cal: 380, p: 14, c: 55, f: 12 },
-    { name: "Panna Cotta", cuisine: "Italian", ingredients: ["cream", "milk", "sugar", "gelatin", "vanilla"], cal: 450, p: 5, c: 30, f: 35 },
-    { name: "Calzone", cuisine: "Italian", ingredients: ["pizza dough", "ricotta", "mozzarella", "ham", "tomato"], cal: 650, p: 28, c: 60, f: 30 },
-
-    // --- AMERICAN (Expanded) ---
-    { name: "Classic Beef Chili", cuisine: "American", ingredients: ["ground beef", "kidney beans", "tomato", "chili", "onion", "cumin"], cal: 480, p: 35, c: 42, f: 20 },
-    { name: "Avocado Beef Burger", cuisine: "American", ingredients: ["ground beef", "burger bun", "avocado", "tomato", "lettuce", "onion"], cal: 680, p: 38, c: 45, f: 40 },
-    { name: "Stovetop Mac and Cheese", cuisine: "American", ingredients: ["pasta", "cheese", "milk", "butter", "flour"], cal: 550, p: 22, c: 58, f: 26 },
-    { name: "Loaded Baked Potato", cuisine: "American", ingredients: ["potato", "cheese", "bacon", "sour cream", "onion"], cal: 450, p: 14, c: 45, f: 24 },
-    { name: "Clam Chowder", cuisine: "American", ingredients: ["clams", "potato", "bacon", "onion", "cream", "butter"], cal: 520, p: 18, c: 35, f: 35 },
-    { name: "BBQ Ribs", cuisine: "American", ingredients: ["pork ribs", "bbq sauce", "brown sugar", "garlic", "paprika"], cal: 850, p: 45, c: 35, f: 55 },
-    { name: "Buffalo Wings", cuisine: "American", ingredients: ["chicken wings", "hot sauce", "butter", "celery", "blue cheese"], cal: 740, p: 40, c: 5, f: 62 },
-    { name: "Pulled Pork Sandwich", cuisine: "American", ingredients: ["pork", "bbq sauce", "burger bun", "cabbage", "carrot"], cal: 580, p: 32, c: 55, f: 24 },
-    { name: "Pancakes with Syrup", cuisine: "American", ingredients: ["flour", "milk", "egg", "butter", "maple syrup"], cal: 480, p: 10, c: 75, f: 16 },
-    { name: "Classic Hot Dog", cuisine: "American", ingredients: ["sausage", "hot dog bun", "mustard", "ketchup", "onion"], cal: 320, p: 12, c: 28, f: 18 },
-    { name: "Philly Cheesesteak", cuisine: "American", ingredients: ["beef", "hoagie roll", "provolone cheese", "onion", "bell pepper"], cal: 650, p: 40, c: 45, f: 32 },
-    { name: "Fried Chicken", cuisine: "American", ingredients: ["chicken", "flour", "buttermilk", "paprika", "oil"], cal: 680, p: 35, c: 40, f: 42 },
-    { name: "Apple Pie", cuisine: "American", ingredients: ["pie crust", "apple", "sugar", "cinnamon", "butter"], cal: 420, p: 3, c: 60, f: 18 },
-    { name: "Meatloaf", cuisine: "American", ingredients: ["ground beef", "onion", "egg", "breadcrumbs", "ketchup"], cal: 450, p: 28, c: 30, f: 24 },
-    { name: "Caesar Salad", cuisine: "American", ingredients: ["romaine lettuce", "chicken", "parmesan", "croutons", "caesar dressing"], cal: 450, p: 30, c: 15, f: 32 },
-    { name: "Grilled Cheese Sandwich", cuisine: "American", ingredients: ["bread", "cheddar cheese", "butter"], cal: 380, p: 14, c: 30, f: 22 },
-
-    // --- ASIAN ---
-    { name: "Beef Stir Fry", cuisine: "Asian", ingredients: ["beef", "broccoli", "soy sauce", "garlic", "ginger", "rice"], cal: 520, p: 35, c: 55, f: 18 },
-    { name: "Egg Fried Rice", cuisine: "Asian", ingredients: ["rice", "egg", "soy sauce", "green peas", "carrot", "onion"], cal: 410, p: 14, c: 58, f: 14 },
-    { name: "Shrimp Pad Thai", cuisine: "Asian", ingredients: ["rice noodles", "shrimp", "egg", "peanuts", "soy sauce", "lime"], cal: 580, p: 28, c: 68, f: 22 },
-    { name: "Tom Yum Soup", cuisine: "Asian", ingredients: ["shrimp", "mushrooms", "lime", "chili", "lemongrass"], cal: 260, p: 22, c: 15, f: 12 },
-    { name: "Green Curry", cuisine: "Asian", ingredients: ["chicken", "green curry paste", "coconut milk", "bamboo shoots", "basil"], cal: 490, p: 28, c: 18, f: 35 },
-    { name: "Kung Pao Chicken", cuisine: "Asian", ingredients: ["chicken", "peanuts", "chili", "soy sauce", "bell pepper", "garlic"], cal: 460, p: 30, c: 22, f: 28 },
-    { name: "Sushi Rolls", cuisine: "Asian", ingredients: ["sushi rice", "nori", "salmon", "avocado", "cucumber"], cal: 350, p: 18, c: 45, f: 10 },
-    { name: "Chicken Tikka Masala", cuisine: "Asian", ingredients: ["chicken", "yogurt", "tomato", "garam masala", "cream", "garlic"], cal: 550, p: 38, c: 20, f: 35 },
-    { name: "Butter Chicken", cuisine: "Asian", ingredients: ["chicken", "butter", "tomato", "cream", "ginger", "garlic"], cal: 610, p: 35, c: 15, f: 45 },
-    { name: "Miso Soup", cuisine: "Asian", ingredients: ["miso paste", "tofu", "seaweed", "green onion", "dashi"], cal: 90, p: 6, c: 8, f: 3 },
-    
-    // --- MIDDLE EASTERN / EUROPEAN ---
-    { name: "Shakshuka", cuisine: "Middle Eastern", ingredients: ["egg", "tomato", "bell pepper", "onion", "garlic", "cumin"], cal: 340, p: 16, c: 20, f: 22 },
-    { name: "Hummus", cuisine: "Middle Eastern", ingredients: ["chickpeas", "tahini", "lemon", "garlic", "olive oil"], cal: 410, p: 12, c: 45, f: 22 },
-    { name: "Falafel", cuisine: "Middle Eastern", ingredients: ["chickpeas", "onion", "parsley", "garlic", "cumin", "flour"], cal: 350, p: 14, c: 42, f: 16 },
-    { name: "Baba Ganoush", cuisine: "Middle Eastern", ingredients: ["eggplant", "tahini", "garlic", "lemon", "olive oil"], cal: 240, p: 5, c: 18, f: 18 },
-    { name: "Ratatouille", cuisine: "European", ingredients: ["eggplant", "zucchini", "bell pepper", "tomato", "garlic", "olive oil"], cal: 190, p: 4, c: 22, f: 11 },
-    { name: "Greek Salad", cuisine: "European", ingredients: ["cucumber", "tomato", "onion", "feta cheese", "olives", "olive oil"], cal: 340, p: 10, c: 15, f: 28 },
-    { name: "Spanish Paella", cuisine: "European", ingredients: ["rice", "shrimp", "chicken", "saffron", "bell pepper", "peas"], cal: 620, p: 38, c: 70, f: 18 },
-    { name: "Beef Bourguignon", cuisine: "European", ingredients: ["beef", "red wine", "mushrooms", "bacon", "pearl onions"], cal: 620, p: 48, c: 20, f: 35 },
-    { name: "Tzatziki", cuisine: "European", ingredients: ["yogurt", "cucumber", "garlic", "dill", "olive oil"], cal: 120, p: 6, c: 8, f: 7 }
-  ];
+  // Music Player Logic
+  musicBtn.addEventListener("click", () => {
+    if (isMusicPlaying) {
+      audioEl.pause();
+      musicBtn.textContent = "🎵 Play Music";
+      isMusicPlaying = false;
+    } else {
+      audioEl.play().catch(e => console.log("Autoplay prevented"));
+      musicBtn.textContent = "⏸️ Pause Music";
+      isMusicPlaying = true;
+    }
+  });
 
   const userIngredients = new Set();
   const inputEl = document.getElementById("ingredient-input");
   const cuisineFilterEl = document.getElementById("cuisine-filter");
+  const dietFilterEl = document.getElementById("diet-filter");
   const btnAdd = document.getElementById("btn-add");
   const tagsBox = document.getElementById("user-ingredients-box");
-  const emptyHint = document.getElementById("empty-hint");
   const recipesGrid = document.getElementById("recipes-grid");
   const resultsCount = document.getElementById("results-count");
+
+  // Handle Theme Changes (Background + Music)
+  cuisineFilterEl.addEventListener("change", () => {
+    const cuisine = cuisineFilterEl.value;
+    const theme = themeConfig[cuisine] || themeConfig["All"];
+    
+    // Change Background
+    document.body.style.backgroundImage = `url('${theme.bg}')`;
+    
+    // Change Music
+    audioEl.src = theme.audio;
+    if (isMusicPlaying) audioEl.play();
+    
+    evaluateRecipes();
+  });
+
+  // Filters Event Listeners
+  dietFilterEl.addEventListener("change", evaluateRecipes);
 
   function addIngredient(val) {
     const cleaned = val.trim().toLowerCase();
@@ -268,10 +196,6 @@
 
   function renderTags() {
     tagsBox.innerHTML = "";
-    if (userIngredients.size === 0) {
-      tagsBox.appendChild(emptyHint);
-      return;
-    }
     userIngredients.forEach(ing => {
       const tag = document.createElement("span");
       tag.className = "tag";
@@ -281,16 +205,31 @@
   }
 
   function evaluateRecipes() {
+    const selectedCuisine = cuisineFilterEl.value;
+    const selectedDiet = dietFilterEl.value;
+    const userArray = Array.from(userIngredients);
+
+    // Filter by Diet first
+    let viableRecipes = recipeDatabase;
+    if (selectedDiet !== "All") {
+      viableRecipes = viableRecipes.filter(r => r.diet.includes(selectedDiet));
+    }
+    
+    // Filter by Cuisine
+    if (selectedCuisine !== "All") {
+      viableRecipes = viableRecipes.filter(r => r.cuisine === selectedCuisine);
+    }
+
     if (userIngredients.size === 0) {
-      recipesGrid.innerHTML = `<div class="empty-state">Add at least one ingredient or meal name to discover recipes!</div>`;
-      resultsCount.textContent = "0";
+      recipesGrid.innerHTML = ``;
+      resultsCount.textContent = viableRecipes.length;
+      
+      // Show all viable recipes if no ingredients entered
+      renderCards(viableRecipes.map(r => ({ ...r, matchPct: 0, matched: [], missing: r.ingredients })));
       return;
     }
 
-    const selectedCuisine = cuisineFilterEl.value;
-    const userArray = Array.from(userIngredients);
-
-    const scoredRecipes = recipeDatabase.map(recipe => {
+    const scoredRecipes = viableRecipes.map(recipe => {
       const total = recipe.ingredients.length;
       let matchedCount = 0;
       const matched = [];
@@ -299,61 +238,57 @@
 
       recipe.ingredients.forEach(ing => {
         if (userIngredients.has(ing.toLowerCase())) {
-          matchedCount++;
-          matched.push(ing);
+          matchedCount++; matched.push(ing);
         } else {
           missing.push(ing);
         }
       });
 
       let matchPct = Math.round((matchedCount / total) * 100);
-      if (isMealMatch) {
-        matchPct = 100;
-        matchedCount = total; 
-      }
+      if (isMealMatch) { matchPct = 100; matchedCount = total; }
       return { ...recipe, matchedCount, total, matched, missing, matchPct, isMealMatch };
     });
 
-    let filtered = scoredRecipes
+    const filtered = scoredRecipes
       .filter(r => r.matchedCount > 0 || r.isMealMatch)
       .sort((a, b) => b.matchPct - a.matchPct || b.matchedCount - a.matchedCount);
 
-    if (selectedCuisine !== "All") {
-      filtered = filtered.filter(r => r.cuisine === selectedCuisine);
-    }
-
     resultsCount.textContent = filtered.length;
+    renderCards(filtered);
+  }
 
-    if (filtered.length === 0) {
-      recipesGrid.innerHTML = `<div class="empty-state">No recipes found matching your criteria. Try adding basic staples or changing your cuisine filter!</div>`;
+  function renderCards(recipes) {
+    if (recipes.length === 0) {
+      recipesGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; background: white; padding: 20px; border-radius: 12px;">No dishes found matching your filters.</div>`;
       return;
     }
 
-    recipesGrid.innerHTML = filtered.map(item => {
-      const isComplete = item.matchPct === 100;
-      const badgeClass = isComplete ? "match-100" : "match-partial";
-      const badgeText = item.isMealMatch ? "Meal Match!" : (isComplete ? "Ready to Cook! (100%)" : `${item.matchPct}% Match (${item.missing.length} missing)`);
+    recipesGrid.innerHTML = recipes.map(item => {
+      const badgeClass = item.matchPct === 100 ? "match-100" : "";
+      const badgeText = item.matchPct > 0 ? (item.isMealMatch ? "Meal Match!" : `${item.matchPct}% Match`) : "Recipe";
+      
+      const dietHtml = item.diet.map(d => `<span class="diet-badge diet-${d.toLowerCase()}">${d}</span>`).join("");
 
       return `
         <div class="recipe-card">
           <div class="card-top">
             <div class="badge-bar">
-              <span class="category-badge">${item.cuisine}</span>
-              <span class="match-badge ${badgeClass}">${badgeText}</span>
+              <span style="font-size: 11px; font-weight: bold; color: #718096;">${item.cuisine.toUpperCase()}</span>
+              ${item.matchPct > 0 ? `<span class="match-badge ${badgeClass}">${badgeText}</span>` : ''}
             </div>
             <h3>${item.name}</h3>
+            <div class="diet-tags">${dietHtml}</div>
             <div class="ingredient-list">
               ${item.matched.map(m => `<span class="ing-tag ing-have">✓ ${m}</span>`).join("")}
-              ${item.missing.map(m => `<span class="ing-tag ing-missing">✗ ${m}</span>`).join("")}
+              ${item.missing.map(m => `<span class="ing-tag ing-missing">${m}</span>`).join("")}
             </div>
           </div>
           <div class="nutrition-bar">
-            <div class="nutrition-title">Nutritional Value per serving</div>
             <div class="macros">
               <span style="color: #e63946;">🔥 ${item.cal} kcal</span>
-              <span style="color: #d97706;">🍗 Pro: ${item.p}g</span>
-              <span style="color: #059669;">🍞 Carb: ${item.c}g</span>
-              <span style="color: #475569;">🥑 Fat: ${item.f}g</span>
+              <span style="color: #d97706;">🍗 P: ${item.p}g</span>
+              <span style="color: #059669;">🍞 C: ${item.c}g</span>
+              <span style="color: #475569;">🥑 F: ${item.f}g</span>
             </div>
           </div>
         </div>
@@ -361,23 +296,12 @@
     }).join("");
   }
 
-  btnAdd.addEventListener("click", () => {
-    addIngredient(inputEl.value);
-    inputEl.value = "";
-    inputEl.focus();
-  });
-  inputEl.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      addIngredient(inputEl.value);
-      inputEl.value = "";
-    }
-  });
-  cuisineFilterEl.addEventListener("change", evaluateRecipes);
-  document.querySelectorAll(".pill").forEach(pill => {
-    pill.addEventListener("click", () => {
-      addIngredient(pill.getAttribute("data-ing"));
-    });
-  });
+  btnAdd.addEventListener("click", () => { addIngredient(inputEl.value); inputEl.value = ""; });
+  inputEl.addEventListener("keypress", (e) => { if (e.key === "Enter") { addIngredient(inputEl.value); inputEl.value = ""; } });
+  
+  // Set default audio on load
+  audioEl.src = themeConfig["All"].audio;
+  evaluateRecipes(); // Run once to populate list
 </script>
 </body>
 </html>
