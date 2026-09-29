@@ -581,7 +581,7 @@ const recipeDatabase = [
   { name: "Spicy Sichuan Noodles", cuisine: "Asian", ingredients: ["noodles", "chili oil", "sichuan peppercorn", "garlic", "soy sauce", "peanut"], cal: 480, p: 14, c: 65, f: 20, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Street Yakitori Skewers", cuisine: "Asian", ingredients: ["chicken thigh", "soy sauce", "mirin", "sugar", "green onion", "bamboo skewer"], cal: 320, p: 30, c: 15, f: 16, diet: ["Dairy-Free"] },
   { name: "Okonomiyaki Street Style", cuisine: "Asian", ingredients: ["cabbage", "flour", "egg", "pork belly", "okonomiyaki sauce", "bonito flakes"], cal: 540, p: 20, c: 45, f: 32, diet: ["Dairy-Free"] },
-  { name: "Miso Butter Corn", cuisine: "Japanese", ingredients: ["corn", "butter", "miso paste", "soy sauce", "green onion"], cal: 240, p: 6, c: 30, f: 12, diet: ["Vegetarian", "Gluten-Free"] }
+  { name: "Miso Butter Corn", cuisine: "Japanese", ingredients: ["corn", "butter", "miso paste", "soy sauce", "green onion"], cal: 240, p: 6, c: 30, f: 12, diet: ["Vegetarian", "Gluten-Free"] },
 // --- OTTOMAN PALACE & HISTORICAL GASTRONOMY ---
   { name: "Kavun Dolması", cuisine: "Turkish", ingredients: ["melon", "ground lamb", "rice", "almond", "pine nuts", "currants"], cal: 520, p: 28, c: 55, f: 22, diet: ["Gluten-Free"] },
   { name: "Vişneli Kebap", cuisine: "Turkish", ingredients: ["ground beef", "sour cherry", "onion", "pomegranate molasses", "pita", "butter"], cal: 610, p: 38, c: 50, f: 28, diet: [] },
