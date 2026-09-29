@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Recipe Finder - 50 Recipes Database</title>
+  <style>
+    :root {
+      --primary: #15803d;
+      --primary-light: #dcfce7;
+      --primary-dark: #166534;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --badge-missing: #fee2e2;
+      --badge-missing-txt: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 30px 16px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .search-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .input-row input {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-row input:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-add {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0 24px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-add:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .quick-tags {
+      margin-bottom: 16px;
+    }
+
+    .quick-tags span {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 12px;
+      margin: 4px;
+      font-size: 13px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .pill:hover {
+      background: #e2e8f0;
+    }
+
+    .user-ingredients-box {
+      min-height: 48px;
+      padding: 10px;
+      background-color: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .tag button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .recipe-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-top {
+      margin-bottom: 12px;
+    }
+
+    .badge-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .category-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .match-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .match-100 {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .match-partial {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .recipe-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .ingredient-list {
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .ing-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      margin: 2px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .ing-have {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .ing-missing {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🍳 Kitchen Recipe Matcher</h1>
+    <p>Enter the ingredients you have at home. We'll rank 50 recipes by what you can cook right now.</p>
+  </header>
+
+  <section class="search-panel">
+    <div class="input-row">
+      <input type="text" id="ingredient-input" placeholder="Type an ingredient (e.g. egg, chicken, onion) and press Enter...">
+      <button class="btn-add" id="btn-add">Add</button>
+    </div>
+
+    <div class="quick-tags">
+      <span>Popular Staples:</span>
+      <button class="pill" data-ing="egg">🥚 Egg</button>
+      <button class="pill" data-ing="tomato">🍅 Tomato</button>
+      <button class="pill" data-ing="onion">🧅 Onion</button>
+      <button class="pill" data-ing="garlic">🧄 Garlic</button>
+      <button class="pill" data-ing="chicken">🍗 Chicken</button>
+      <button class="pill" data-ing="rice">🍚 Rice</button>
+      <button class="pill" data-ing="cheese">🧀 Cheese</button>
+      <button class="pill" data-ing="potato">🥔 Potato</button>
+      <button class="pill" data-ing="milk">🥛 Milk</button>
+    </div>
+
+    <div class="user-ingredients-box" id="user-ingredients-box">
+      <span style="color: #94a3b8; font-size: 13px;" id="empty-hint">Your kitchen is empty. Add ingredients above!</span>
+    </div>
+  </section>
+
+  <div class="results-header">
+    <h2 style="font-size: 1.25rem;">Suggested Recipes (<span id="results-count">0</span>)</h2>
+  </div>
+
+  <section class="recipes-grid" id="recipes-grid">
+    <div class="empty-state">Add at least one ingredient to discover recipes you can make!</div>
+  </section>
+</div>
+
+<script>
+  // 50 RECIPES DATABASE
+  const recipeDatabase = [
+    { name: "Menemen", cuisine: "Turkish", ingredients: ["egg", "tomato", "green pepper", "olive oil", "salt"] },
+    { name: "Guacamole", cuisine: "Mexican", ingredients: ["avocado", "lime", "onion", "tomato", "cilantro", "salt"] },
+    { name: "Tacos al Pastor", cuisine: "Mexican", ingredients: ["pork", "pineapple", "tortilla", "onion", "cilantro"] },
+    { name: "Pozole Rojo", cuisine: "Mexican", ingredients: ["pork", "corn", "chili", "garlic", "onion", "cabbage"] },
+    { name: "Enchiladas Verdes", cuisine: "Mexican", ingredients: ["chicken", "tortilla", "tomatillo", "onion", "cheese", "cream"] },
+    { name: "Mole Poblano", cuisine: "Mexican", ingredients: ["chicken", "chili", "chocolate", "sesame seeds", "garlic", "onion"] },
+    { name: "Chiles en Nogada", cuisine: "Mexican", ingredients: ["poblano pepper", "ground beef", "walnut", "pomegranate", "cream"] },
+    { name: "Spaghetti Bolognese", cuisine: "Italian", ingredients: ["spaghetti", "ground beef", "tomato", "onion", "garlic", "olive oil"] },
+    { name: "Pasta Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "egg", "bacon", "parmesan", "black pepper"] },
+    { name: "Margherita Pizza", cuisine: "Italian", ingredients: ["flour", "yeast", "tomato", "mozzarella", "basil", "olive oil"] },
+    { name: "Shakshuka", cuisine: "Middle Eastern", ingredients: ["egg", "tomato", "bell pepper", "onion", "garlic", "cumin", "olive oil"] },
+    { name: "Caesar Salad", cuisine: "American", ingredients: ["lettuce", "chicken", "parmesan", "bread", "mayonnaise", "garlic"] },
+    { name: "Greek Salad", cuisine: "Greek", ingredients: ["cucumber", "tomato", "onion", "feta cheese", "olives", "olive oil"] },
+    { name: "Hummus", cuisine: "Middle Eastern", ingredients: ["chickpeas", "tahini", "lemon", "garlic", "olive oil", "cumin"] },
+    { name: "Falafel", cuisine: "Middle Eastern", ingredients: ["chickpeas", "onion", "parsley", "garlic", "cumin", "flour"] },
+    { name: "Mercimek Çorbası (Lentil Soup)", cuisine: "Turkish", ingredients: ["red lentils", "onion", "carrot", "potato", "butter", "cumin"] },
+    { name: "Creamy Tomato Soup", cuisine: "International", ingredients: ["tomato", "garlic", "onion", "butter", "flour", "milk"] },
+    { name: "Chicken Quesadilla", cuisine: "Mexican", ingredients: ["tortilla", "chicken", "cheese", "bell pepper", "onion"] },
+    { name: "Beef Stir Fry", cuisine: "Asian", ingredients: ["beef", "broccoli", "soy sauce", "garlic", "ginger", "rice"] },
+    { name: "Egg Fried Rice", cuisine: "Asian", ingredients: ["rice", "egg", "soy sauce", "green peas", "carrot", "onion"] },
+    { name: "Caprese Salad", cuisine: "Italian", ingredients: ["tomato", "mozzarella", "basil", "olive oil", "balsamic vinegar"] },
+    { name: "French Toast", cuisine: "Breakfast", ingredients: ["bread", "egg", "milk", "cinnamon", "butter"] },
+    { name: "Fluffy Pancakes", cuisine: "Breakfast", ingredients: ["flour", "milk", "egg", "sugar", "baking powder", "butter"] },
+    { name: "Classic Cheese Omelette", cuisine: "Breakfast", ingredients: ["egg", "butter", "cheese", "salt"] },
+    { name: "Tomato Garlic Bruschetta", cuisine: "Italian", ingredients: ["bread", "tomato", "garlic", "basil", "olive oil"] },
+    { name: "Garlic Butter Shrimp", cuisine: "Seafood", ingredients: ["shrimp", "butter", "garlic", "lemon", "parsley"] },
+    { name: "Chicken Curry", cuisine: "Indian", ingredients: ["chicken", "curry powder", "coconut milk", "onion", "garlic", "ginger"] },
+    { name: "Classic Beef Chili", cuisine: "American", ingredients: ["ground beef", "kidney beans", "tomato", "chili", "onion", "cumin"] },
+    { name: "Mushroom Risotto", cuisine: "Italian", ingredients: ["rice", "mushrooms", "onion", "garlic", "butter", "parmesan"] },
+    { name: "Avocado Beef Burger", cuisine: "American", ingredients: ["ground beef", "burger bun", "avocado", "tomato", "lettuce", "onion"] },
+    { name: "Ratatouille", cuisine: "French", ingredients: ["eggplant", "zucchini", "bell pepper", "tomato", "garlic", "olive oil"] },
+    { name: "Shepherd's Pie", cuisine: "British", ingredients: ["ground beef", "potato", "peas", "carrot", "onion", "butter", "milk"] },
+    { name: "Shrimp Pad Thai", cuisine: "Thai", ingredients: ["rice noodles", "shrimp", "egg", "peanuts", "soy sauce", "lime"] },
+    { name: "Crispy Beef Tacos", cuisine: "Mexican", ingredients: ["ground beef", "tortilla", "cheese", "lettuce", "tomato", "sour cream"] },
+    { name: "Chicken Fajitas", cuisine: "Mexican", ingredients: ["chicken", "bell pepper", "onion", "tortilla", "lime", "olive oil"] },
+    { name: "Tom Yum Soup", cuisine: "Thai", ingredients: ["shrimp", "mushrooms", "lime", "chili", "garlic"] },
+    { name: "Spinach Feta Börek / Pie", cuisine: "Mediterranean", ingredients: ["spinach", "feta cheese", "egg", "onion", "filo pastry", "olive oil"] },
+    { name: "Stuffed Bell Peppers", cuisine: "Mediterranean", ingredients: ["bell pepper", "ground beef", "rice", "onion", "tomato"] },
+    { name: "Minestrone Vegetable Soup", cuisine: "Italian", ingredients: ["white beans", "tomato", "pasta", "carrot", "onion", "zucchini"] },
+    { name: "Avocado Egg Toast", cuisine: "Breakfast", ingredients: ["bread", "avocado", "egg", "olive oil", "salt"] },
+    { name: "Stovetop Mac and Cheese", cuisine: "American", ingredients: ["pasta", "cheese", "milk", "butter", "flour"] },
+    { name: "Classic Egg Salad", cuisine: "American", ingredients: ["egg", "mayonnaise", "mustard", "onion", "celery"] },
+    { name: "Tuna Salad", cuisine: "Quick Meals", ingredients: ["tuna", "mayonnaise", "onion", "lemon", "celery"] },
+    { name: "Potato Leek Soup", cuisine: "French", ingredients: ["potato", "leek", "butter", "cream", "garlic"] },
+    { name: "Clam Chowder", cuisine: "American", ingredients: ["clams", "potato", "bacon", "onion", "cream", "butter"] },
+    { name: "Teriyaki Chicken Bowl", cuisine: "Japanese", ingredients: ["chicken", "soy sauce", "sugar", "garlic", "ginger", "rice"] },
+    { name: "Loaded Baked Potato", cuisine: "American", ingredients: ["potato", "cheese", "bacon", "sour cream", "onion"] },
+    { name: "Baba Ganoush", cuisine: "Middle Eastern", ingredients: ["eggplant", "tahini", "garlic", "lemon", "olive oil"] },
+    { name: "Green Lentil Salad", cuisine: "Mediterranean", ingredients: ["green lentils", "cucumber", "tomato", "parsley", "lemon", "olive oil"] },
+    { name: "Banana Peanut Smoothie", cuisine: "Beverage", ingredients: ["banana", "milk", "honey", "peanut butter", "yogurt"] }
+  ];
+
+  const userIngredients = new Set();
+
+  const inputEl = document.getElementById("ingredient-input");
+  const btnAdd = document.getElementById("btn-add");
+  const tagsBox = document.getElementById("user-ingredients-box");
+  const emptyHint = document.getElementById("empty-hint");
+  const recipesGrid = document.getElementById("recipes-grid");
+  const resultsCount = document.getElementById("results-count");
+
+  function addIngredient(val) {
+    const cleaned = val.trim().toLowerCase();
+    if (!cleaned || userIngredients.has(cleaned)) return;
+    userIngredients.add(cleaned);
+    renderTags();
+    evaluateRecipes();
+  }
+
+  function removeIngredient(item) {
+    userIngredients.delete(item);
+    renderTags();
+    evaluateRecipes();
+  }
+
+  function renderTags() {
+    tagsBox.innerHTML = "";
+    if (userIngredients.size === 0) {
+      tagsBox.appendChild(emptyHint);
+      return;
+    }
+    userIngredients.forEach(ing => {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.innerHTML = `${ing} <button type="button" onclick="removeIngredient('${ing}')">&times;</button>`;
+      tagsBox.appendChild(tag);
+    });
+  }
+
+  function evaluateRecipes() {
+    if (userIngredients.size === 0) {
+      recipesGrid.innerHTML = `<div class="empty-state">Add at least one ingredient to discover recipes you can make!</div>`;
+      resultsCount.textContent = "0";
+      return;
+    }
+
+    const scoredRecipes = recipeDatabase.map(recipe => {
+      const total = recipe.ingredients.length;
+      let matchedCount = 0;
+      const matched = [];
+      const missing = [];
+
+      recipe.ingredients.forEach(ing => {
+        if (userIngredients.has(ing.toLowerCase())) {
+          matchedCount++;
+          matched.push(ing);
+        } else {
+          missing.push(ing);
+        }
+      });
+
+      const matchPct = Math.round((matchedCount / total) * 100);
+      return { ...recipe, matchedCount, total, matched, missing, matchPct };
+    });
+
+    // Filter recipes that have at least 1 ingredient matched and sort by match % descending
+    const filtered = scoredRecipes
+      .filter(r => r.matchedCount > 0)
+      .sort((a, b) => b.matchPct - a.matchPct || b.matchedCount - a.matchedCount);
+
+    resultsCount.textContent = filtered.length;
+
+    if (filtered.length === 0) {
+      recipesGrid.innerHTML = `<div class="empty-state">No recipes found with these ingredients. Try adding basic staples like onion, tomato, or garlic!</div>`;
+      return;
+    }
+
+    recipesGrid.innerHTML = filtered.map(item => {
+      const isComplete = item.matchPct === 100;
+      const badgeClass = isComplete ? "match-100" : "match-partial";
+      const badgeText = isComplete ? "Ready to Cook! (100%)" : `${item.matchPct}% Match (${item.missing.length} missing)`;
+
+      return `
+        <div class="recipe-card">
+          <div class="card-top">
+            <div class="badge-bar">
+              <span class="category-badge">${item.cuisine}</span>
+              <span class="match-badge ${badgeClass}">${badgeText}</span>
+            </div>
+            <h3>${item.name}</h3>
+            <div class="ingredient-list">
+              ${item.matched.map(m => `<span class="ing-tag ing-have">✓ ${m}</span>`).join("")}
+              ${item.missing.map(m => `<span class="ing-tag ing-missing">✗ ${m}</span>`).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  // Event Listeners
+  btnAdd.addEventListener("click", () => {
+    addIngredient(inputEl.value);
+    inputEl.value = "";
+    inputEl.focus();
+  });
+
+  inputEl.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      addIngredient(inputEl.value);
+      inputEl.value = "";
+    }
+  });
+
+  document.querySelectorAll(".pill").forEach(pill => {
+    pill.addEventListener("click", () => {
+      addIngredient(pill.getAttribute("data-ing"));
+    });
+  });
+</script>
+
+</body>
+</html>
