@@ -405,4 +405,63 @@ const recipeDatabase = [
   { name: "Labneh with Za'atar", cuisine: "Middle Eastern", ingredients: ["labneh", "zaatar", "olive oil", "pita bread", "cucumber"], cal: 280, p: 10, c: 25, f: 18, diet: ["Vegetarian"] },
   { name: "Kousa Mahshi", cuisine: "Middle Eastern", ingredients: ["zucchini", "rice", "ground beef", "tomato", "mint", "garlic"], cal: 380, p: 20, c: 45, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
   { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] }
+// --- NORTHERN ITALIAN & POLLENZO FOCUS ---
+  { name: "Risotto alla Milanese", cuisine: "Italian", ingredients: ["arborio rice", "saffron", "beef broth", "bone marrow", "butter", "parmesan"], cal: 520, p: 14, c: 60, f: 24, diet: ["Gluten-Free"] },
+  { name: "Cotoletta alla Milanese", cuisine: "Italian", ingredients: ["veal chop", "egg", "breadcrumbs", "butter", "lemon"], cal: 650, p: 48, c: 20, f: 42, diet: ["Dairy-Free"] },
+  { name: "Trofie al Pesto", cuisine: "Italian", ingredients: ["trofie pasta", "basil", "pine nuts", "parmesan", "garlic", "olive oil", "potato"], cal: 580, p: 15, c: 65, f: 28, diet: ["Vegetarian"] },
+  { name: "Focaccia di Recco", cuisine: "Italian", ingredients: ["flour", "water", "olive oil", "stracchino cheese", "salt"], cal: 420, p: 12, c: 45, f: 22, diet: ["Vegetarian"] },
+  { name: "Bollito Misto", cuisine: "Italian", ingredients: ["beef brisket", "veal head", "cotechino sausage", "chicken", "carrot", "onion", "salsa verde"], cal: 720, p: 65, c: 10, f: 45, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Tortellini in Brodo", cuisine: "Italian", ingredients: ["tortellini", "chicken broth", "parmesan", "nutmeg"], cal: 380, p: 18, c: 45, f: 12, diet: [] },
+  { name: "Polenta Concia", cuisine: "Italian", ingredients: ["polenta", "fontina cheese", "butter", "parmesan"], cal: 550, p: 16, c: 48, f: 32, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Risi e Bisi", cuisine: "Italian", ingredients: ["vialone nano rice", "peas", "pancetta", "onion", "butter", "parmesan"], cal: 460, p: 15, c: 55, f: 18, diet: ["Gluten-Free"] },
+  { name: "Frico con le Patate", cuisine: "Italian", ingredients: ["montasio cheese", "potato", "onion", "butter"], cal: 490, p: 22, c: 25, f: 35, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Torta 900", cuisine: "Italian", ingredients: ["sponge cake", "chocolate", "butter", "sugar", "powdered sugar"], cal: 410, p: 6, c: 45, f: 24, diet: ["Vegetarian"] },
+
+  // --- ANTALYA REGIONAL & OTTOMAN GASTRONOMY ---
+  { name: "Antalya Cive", cuisine: "Turkish", ingredients: ["tomato", "rice", "onion", "green pepper", "garlic", "olive oil", "basil"], cal: 260, p: 4, c: 42, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Alanya Gülüklü Çorba", cuisine: "Turkish", ingredients: ["chicken broth", "mini meatballs", "chickpeas", "rice", "tomato paste", "lemon"], cal: 350, p: 22, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Alanya Laba Dolması", cuisine: "Turkish", ingredients: ["lamb ribs", "rice", "pine nuts", "almonds", "butter", "black pepper"], cal: 680, p: 45, c: 40, f: 38, diet: ["Gluten-Free"] },
+  { name: "Kölle (Antalya Wheat Stew)", cuisine: "Turkish", ingredients: ["wheat", "chickpeas", "white beans", "fava beans", "walnut", "pomegranate molasses"], cal: 340, p: 12, c: 60, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Taratorlu Tekir Tava", cuisine: "Turkish", ingredients: ["red mullet", "cornmeal", "oil", "walnut", "garlic", "bread"], cal: 480, p: 28, c: 25, f: 30, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Saray Usulü Piliç Topkapı", cuisine: "Turkish", ingredients: ["chicken thigh", "rice", "pine nuts", "currants", "cinnamon", "butter"], cal: 560, p: 38, c: 45, f: 26, diet: ["Gluten-Free"] },
+  { name: "Kirde Kebabı", cuisine: "Turkish", ingredients: ["lamb", "crepe", "tomato", "green pepper", "yogurt", "butter"], cal: 620, p: 42, c: 35, f: 35, diet: [] },
+  { name: "Firik Pilavı", cuisine: "Turkish", ingredients: ["freekeh", "bulgur", "lamb broth", "chickpeas", "butter", "black pepper"], cal: 380, p: 12, c: 65, f: 10, diet: ["Vegetarian"] },
+  { name: "Kestaneli Kuzu Sarma", cuisine: "Turkish", ingredients: ["lamb", "chestnut", "rice", "allspice", "pine nuts", "butter"], cal: 650, p: 45, c: 35, f: 36, diet: ["Gluten-Free"] },
+  { name: "Tahinli Tarator", cuisine: "Turkish", ingredients: ["tahini", "lemon", "garlic", "parsley", "water", "salt"], cal: 210, p: 6, c: 10, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+
+  // --- HIGH-PROTEIN FITNESS & QUICK PREP ---
+  { name: "Cottage Cheese & Tuna Salad", cuisine: "American", ingredients: ["cottage cheese", "canned tuna", "celery", "red onion", "black pepper"], cal: 280, p: 42, c: 8, f: 6, diet: ["Pescatarian", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Whey Protein Brownie Bites", cuisine: "American", ingredients: ["whey protein", "cocoa powder", "peanut butter", "oat flour", "almond milk"], cal: 240, p: 22, c: 15, f: 12, diet: ["Vegetarian", "Fitness"] },
+  { name: "Chicken Breast & Sweet Potato Fries", cuisine: "American", ingredients: ["chicken breast", "sweet potato", "olive oil", "paprika", "garlic powder"], cal: 450, p: 48, c: 40, f: 10, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Turkey & Black Bean Burger", cuisine: "American", ingredients: ["ground turkey", "black beans", "onion", "cumin", "burger bun"], cal: 420, p: 38, c: 45, f: 12, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Egg White & Smoked Salmon Wrap", cuisine: "American", ingredients: ["egg whites", "smoked salmon", "spinach", "whole wheat wrap", "dill"], cal: 320, p: 35, c: 28, f: 8, diet: ["Pescatarian", "Dairy-Free", "Fitness"] },
+  { name: "Seared Tuna & Edamame Bowl", cuisine: "Asian", ingredients: ["tuna steak", "edamame", "brown rice", "soy sauce", "sesame seeds"], cal: 460, p: 45, c: 40, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Lean Beef & Zucchini Noodles", cuisine: "American", ingredients: ["lean beef", "zucchini", "tomato sauce", "garlic", "oregano"], cal: 380, p: 42, c: 12, f: 18, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Quinoa & Black Bean Power Bowl", cuisine: "American", ingredients: ["quinoa", "black beans", "corn", "avocado", "lime", "cilantro"], cal: 410, p: 15, c: 65, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Greek Yogurt & Chia Seed Pudding", cuisine: "American", ingredients: ["greek yogurt", "chia seeds", "almond milk", "honey", "strawberry"], cal: 260, p: 18, c: 25, f: 10, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Grilled Chicken & Asparagus Skillet", cuisine: "American", ingredients: ["chicken breast", "asparagus", "olive oil", "lemon", "garlic"], cal: 310, p: 45, c: 6, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+
+  // --- ASIAN & JAPANESE ---
+  { name: "Spicy Tuna Poke Bowl", cuisine: "Asian", ingredients: ["tuna", "sushi rice", "sriracha", "mayonnaise", "avocado", "seaweed"], cal: 520, p: 32, c: 55, f: 20, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Omurice", cuisine: "Japanese", ingredients: ["egg", "rice", "chicken", "onion", "ketchup", "oil"], cal: 480, p: 22, c: 55, f: 18, diet: ["Dairy-Free"] },
+  { name: "Karaage (Fried Chicken)", cuisine: "Japanese", ingredients: ["chicken thigh", "soy sauce", "ginger", "garlic", "potato starch", "oil"], cal: 550, p: 35, c: 20, f: 35, diet: ["Dairy-Free"] },
+  { name: "Shio Ramen", cuisine: "Japanese", ingredients: ["ramen noodles", "chicken broth", "sea salt", "pork belly", "bamboo shoot", "green onion"], cal: 580, p: 28, c: 65, f: 22, diet: ["Dairy-Free"] },
+  { name: "California Roll", cuisine: "Japanese", ingredients: ["sushi rice", "nori", "crab stick", "avocado", "cucumber", "sesame seeds"], cal: 320, p: 10, c: 55, f: 8, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Tempura Udon", cuisine: "Japanese", ingredients: ["udon noodles", "dashi", "shrimp", "flour", "soy sauce", "mirin"], cal: 460, p: 18, c: 75, f: 10, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Miso Glazed Black Cod", cuisine: "Japanese", ingredients: ["black cod", "miso paste", "mirin", "sake", "sugar"], cal: 380, p: 30, c: 15, f: 22, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Yu Xiang Qie Zi (Eggplant)", cuisine: "Asian", ingredients: ["eggplant", "garlic", "ginger", "doubanjiang", "soy sauce", "vinegar"], cal: 280, p: 4, c: 25, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Dan Dan Noodles", cuisine: "Asian", ingredients: ["noodles", "ground pork", "sichuan peppercorn", "chili oil", "sesame paste", "green onion"], cal: 620, p: 25, c: 65, f: 32, diet: ["Dairy-Free"] },
+  { name: "Beef Rendang", cuisine: "Asian", ingredients: ["beef", "coconut milk", "lemongrass", "galangal", "garlic", "chili"], cal: 680, p: 48, c: 15, f: 45, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+
+  // --- LATIN AMERICAN & MEDITERRANEAN ---
+  { name: "Lomo Saltado", cuisine: "Latin American", ingredients: ["beef", "potato", "onion", "tomato", "soy sauce", "rice"], cal: 650, p: 38, c: 70, f: 24, diet: ["Dairy-Free"] },
+  { name: "Empanadas Argentinas", cuisine: "Latin American", ingredients: ["flour", "ground beef", "onion", "egg", "cumin", "olives"], cal: 480, p: 18, c: 45, f: 25, diet: ["Dairy-Free"] },
+  { name: "Ropa Vieja", cuisine: "Latin American", ingredients: ["flank steak", "tomato", "bell pepper", "onion", "garlic", "cumin"], cal: 450, p: 45, c: 15, f: 22, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Ceviche Peruano", cuisine: "Latin American", ingredients: ["white fish", "lime", "red onion", "rocoto chili", "sweet potato", "corn"], cal: 280, p: 32, c: 35, f: 4, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Tostones con Mojo", cuisine: "Latin American", ingredients: ["green plantain", "oil", "garlic", "sour orange", "olive oil"], cal: 320, p: 2, c: 45, f: 16, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Pisto Manchego", cuisine: "Mediterranean", ingredients: ["tomato", "bell pepper", "zucchini", "onion", "olive oil", "egg"], cal: 280, p: 8, c: 20, f: 20, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Croquetas de Jamón", cuisine: "Mediterranean", ingredients: ["jamon", "butter", "flour", "milk", "egg", "breadcrumbs"], cal: 450, p: 15, c: 35, f: 28, diet: [] },
+  { name: "Kleftiko", cuisine: "Mediterranean", ingredients: ["lamb", "potato", "garlic", "lemon", "oregano", "olive oil"], cal: 680, p: 52, c: 35, f: 38, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Melitzanosalata", cuisine: "Mediterranean", ingredients: ["eggplant", "garlic", "olive oil", "lemon", "parsley", "walnut"], cal: 210, p: 4, c: 12, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Keftedakia", cuisine: "Mediterranean", ingredients: ["ground beef", "onion", "garlic", "mint", "bread", "egg"], cal: 420, p: 25, c: 20, f: 26, diet: ["Dairy-Free"] }
 ];
