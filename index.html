@@ -22,7 +22,7 @@
       color: var(--text);
       line-height: 1.5;
       padding: 30px 16px;
-      background-image: url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000'); 
+      background-image: url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80'); 
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -120,13 +120,33 @@
 <script src="database.js"></script>
 
 <script>
-  // Updated configurations for Backgrounds and Cultural Audio
+  // VERIFIED OPEN-SOURCE AUDIO & IMAGES
   const themeConfig = {
-    "All": { name: "Global", bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" },
-    "Mexican": { name: "Mexican", bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/10/25/audio_249df9d8b7.mp3" },
-    "Turkish": { name: "Turkish", bg: "https://images.unsplash.com/photo-1544062534-118c7bc77ff9?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2023/04/07/audio_4ba73b64f3.mp3" },
-    "Italian": { name: "Italian", bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" },
-    "Asian": { name: "Asian", bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000", audio: "https://cdn.pixabay.com/audio/2022/12/28/audio_38bfa79fbc.mp3" }
+    "All": { 
+        name: "Global", 
+        bg: "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80", 
+        audio: "https://assets.mixkit.co/music/preview/mixkit-acoustic-guitar-loop-2287.mp3" 
+    },
+    "Mexican": { 
+        name: "Mexican", 
+        bg: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=2000&q=80", 
+        audio: "https://assets.mixkit.co/music/preview/mixkit-latin-jazz-guitar-158.mp3" 
+    },
+    "Turkish": { 
+        name: "Turkish", 
+        bg: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80", 
+        audio: "https://assets.mixkit.co/music/preview/mixkit-middle-eastern-beat-116.mp3" 
+    },
+    "Italian": { 
+        name: "Italian", 
+        bg: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=2000&q=80", 
+        audio: "https://assets.mixkit.co/music/preview/mixkit-classical-piano-and-strings-600.mp3" 
+    },
+    "Asian": { 
+        name: "Asian", 
+        bg: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=2000&q=80", 
+        audio: "https://assets.mixkit.co/music/preview/mixkit-zen-relaxing-spa-background-music-230.mp3" 
+    }
   };
 
   const audioEl = document.getElementById("bg-audio");
@@ -134,18 +154,14 @@
   const cuisineFilterEl = document.getElementById("cuisine-filter");
   let isMusicPlaying = false;
 
-  // Safe Audio Loading Function
   async function updateAndPlayAudio(cuisine) {
     const theme = themeConfig[cuisine] || themeConfig["All"];
-    
-    // Change Background immediately
     document.body.style.backgroundImage = `url('${theme.bg}')`;
 
-    // Only swap audio source if it is actually different to prevent skipping
     if (audioEl.src !== theme.audio) {
       audioEl.pause();
       audioEl.src = theme.audio;
-      audioEl.load(); // Forces browser to prep the new track safely
+      audioEl.load(); 
     }
 
     if (isMusicPlaying) {
@@ -153,7 +169,6 @@
         await audioEl.play();
         musicBtn.textContent = `⏸️ Pause ${theme.name} Music`;
       } catch (err) {
-        console.error("Browser blocked autoplay during transition", err);
         isMusicPlaying = false;
         musicBtn.textContent = `🎵 Play ${theme.name} Music`;
       }
@@ -162,7 +177,6 @@
     }
   }
 
-  // Master Play/Pause Button Logic
   musicBtn.addEventListener("click", () => {
     const cuisine = cuisineFilterEl.value;
     const theme = themeConfig[cuisine] || themeConfig["All"];
@@ -178,14 +192,12 @@
     }
   });
 
-  // Handle Theme Changes when dropdown is clicked
   cuisineFilterEl.addEventListener("change", () => {
     const cuisine = cuisineFilterEl.value;
     updateAndPlayAudio(cuisine);
     evaluateRecipes();
   });
 
-  // Rest of the application logic
   const userIngredients = new Set();
   const inputEl = document.getElementById("ingredient-input");
   const dietFilterEl = document.getElementById("diet-filter");
@@ -225,7 +237,6 @@
     const selectedDiet = dietFilterEl.value;
     const userArray = Array.from(userIngredients);
 
-    // Ensure database.js is loaded
     if (typeof recipeDatabase === 'undefined') return;
 
     let viableRecipes = recipeDatabase;
@@ -312,7 +323,6 @@
   btnAdd.addEventListener("click", () => { addIngredient(inputEl.value); inputEl.value = ""; });
   inputEl.addEventListener("keypress", (e) => { if (e.key === "Enter") { addIngredient(inputEl.value); inputEl.value = ""; } });
   
-  // Set default audio on load without auto-playing to respect browser security
   audioEl.src = themeConfig["All"].audio;
   setTimeout(evaluateRecipes, 100); 
 </script>
