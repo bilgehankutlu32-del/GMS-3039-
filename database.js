@@ -523,4 +523,63 @@ const recipeDatabase = [
   { name: "Black Bean & Corn Salsa Salad", cuisine: "Mexican", ingredients: ["black beans", "corn", "red onion", "cilantro", "lime", "olive oil"], cal: 280, p: 10, c: 45, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
   { name: "Sopa de Lima", cuisine: "Mexican", ingredients: ["chicken breast", "chicken broth", "lime", "tomato", "cilantro", "onion"], cal: 250, p: 32, c: 15, f: 6, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Ensalada de Nopales (Cactus Salad)", cuisine: "Mexican", ingredients: ["nopales", "tomato", "onion", "cilantro", "lime", "cotija cheese"], cal: 140, p: 6, c: 14, f: 8, diet: ["Vegetarian", "Gluten-Free"] }
+// --- ARCHAIC PRESERVATION & CHARCUTERIE ---
+  { name: "Duck Prosciutto", cuisine: "French", ingredients: ["duck breast", "sea salt", "black pepper", "thyme", "garlic"], cal: 210, p: 25, c: 0, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Confit de Porc", cuisine: "French", ingredients: ["pork shoulder", "pork fat", "garlic", "thyme", "bay leaf"], cal: 650, p: 35, c: 0, f: 55, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Cured Beef Bresaola", cuisine: "Italian", ingredients: ["beef eye of round", "sea salt", "black pepper", "juniper berries", "rosemary"], cal: 180, p: 38, c: 0, f: 4, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Salt-Cured Egg Yolks", cuisine: "European", ingredients: ["egg yolk", "sea salt", "sugar"], cal: 60, p: 3, c: 1, f: 5, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Traditional Kimchi", cuisine: "Asian", ingredients: ["napa cabbage", "gochugaru", "garlic", "ginger", "fish sauce", "salt"], cal: 45, p: 2, c: 8, f: 0, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Smoked Mackerel", cuisine: "European", ingredients: ["mackerel", "sea salt", "brown sugar", "black pepper", "wood chips"], cal: 290, p: 25, c: 2, f: 20, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Cold-Smoked Salmon (Lox)", cuisine: "European", ingredients: ["salmon", "sea salt", "sugar", "dill"], cal: 210, p: 25, c: 2, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Spicy Nduja Spread", cuisine: "Italian", ingredients: ["pork shoulder", "pork belly", "calabrian chili", "sea salt", "paprika"], cal: 550, p: 18, c: 2, f: 52, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Ev Yapımı Sucuk (Homemade Sujuk)", cuisine: "Turkish", ingredients: ["ground beef", "garlic", "cumin", "red pepper flakes", "sumac"], cal: 380, p: 22, c: 4, f: 30, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Traditional Corned Beef", cuisine: "American", ingredients: ["beef brisket", "pink curing salt", "pickling spice", "garlic", "brown sugar"], cal: 410, p: 35, c: 5, f: 28, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+
+  // --- PIEDMONTESE & NORTHERN ITALIAN (Pollenzo) ---
+  { name: "Battuta di Fassona", cuisine: "Italian", ingredients: ["fassona beef", "olive oil", "lemon", "white truffle", "sea salt"], cal: 280, p: 45, c: 0, f: 10, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Capunet (Stuffed Cabbage)", cuisine: "Italian", ingredients: ["cabbage", "ground pork", "ground beef", "egg", "parmesan", "nutmeg"], cal: 380, p: 28, c: 12, f: 24, diet: ["Gluten-Free"] },
+  { name: "Finanziera", cuisine: "Italian", ingredients: ["veal sweetbreads", "chicken liver", "beef marrow", "marsala wine", "butter"], cal: 520, p: 42, c: 8, f: 35, diet: ["Gluten-Free", "Keto"] },
+  { name: "Tajarin al Burro e Salvia", cuisine: "Italian", ingredients: ["tajarin pasta", "butter", "sage", "parmesan"], cal: 450, p: 14, c: 55, f: 20, diet: ["Vegetarian"] },
+  { name: "Rabaton", cuisine: "Italian", ingredients: ["ricotta", "spinach", "egg", "flour", "parmesan", "butter"], cal: 410, p: 22, c: 25, f: 26, diet: ["Vegetarian"] },
+  { name: "Tomino al Forno con Speck", cuisine: "Italian", ingredients: ["tomino cheese", "speck", "honey", "walnut"], cal: 380, p: 18, c: 8, f: 30, diet: ["Gluten-Free", "Keto"] },
+  { name: "Brasato di Cervo", cuisine: "Italian", ingredients: ["venison", "red wine", "onion", "carrot", "celery", "juniper berries"], cal: 540, p: 58, c: 15, f: 22, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Merluzzo alla Piemontese", cuisine: "Italian", ingredients: ["cod fish", "tomato", "garlic", "olive oil", "parsley"], cal: 310, p: 38, c: 8, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Faraona Arrosto (Roasted Guinea Fowl)", cuisine: "Italian", ingredients: ["guinea fowl", "rosemary", "garlic", "white wine", "olive oil"], cal: 480, p: 52, c: 4, f: 28, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Uova al Tartufo Bianco", cuisine: "Italian", ingredients: ["egg", "butter", "white truffle", "parmesan", "sea salt"], cal: 260, p: 14, c: 2, f: 22, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+
+  // --- TURKISH & ANATOLIAN ---
+  { name: "Beyti Sarma", cuisine: "Turkish", ingredients: ["ground beef", "lamb", "lavash", "tomato sauce", "yogurt", "butter"], cal: 680, p: 45, c: 40, f: 38, diet: [] },
+  { name: "Çökertme Kebabı", cuisine: "Turkish", ingredients: ["beef strip", "potato", "yogurt", "garlic", "tomato sauce", "butter"], cal: 720, p: 40, c: 55, f: 38, diet: ["Gluten-Free"] },
+  { name: "Çiğ Börek", cuisine: "Turkish", ingredients: ["flour", "ground beef", "onion", "water", "oil", "black pepper"], cal: 410, p: 15, c: 45, f: 20, diet: ["Dairy-Free"] },
+  { name: "Kağıt Kebabı", cuisine: "Turkish", ingredients: ["ground beef", "tomato", "green pepper", "garlic", "parsley", "parchment paper"], cal: 420, p: 38, c: 12, f: 24, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Patlıcan Musakka", cuisine: "Turkish", ingredients: ["eggplant", "ground beef", "tomato", "onion", "green pepper", "olive oil"], cal: 450, p: 25, c: 20, f: 32, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Zeytinyağlı Barbunya", cuisine: "Turkish", ingredients: ["borlotti beans", "carrot", "potato", "onion", "olive oil", "tomato paste"], cal: 280, p: 10, c: 40, f: 12, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Orman Kebabı", cuisine: "Turkish", ingredients: ["lamb", "peas", "carrot", "potato", "thyme", "butter"], cal: 520, p: 42, c: 25, f: 28, diet: ["Gluten-Free"] },
+  { name: "Yuvalama Çorbası", cuisine: "Turkish", ingredients: ["lamb", "rice", "chickpeas", "yogurt", "egg", "mint", "butter"], cal: 480, p: 35, c: 38, f: 22, diet: ["Gluten-Free"] },
+  { name: "Kıymalı Pide", cuisine: "Turkish", ingredients: ["dough", "ground beef", "onion", "tomato", "green pepper"], cal: 550, p: 25, c: 75, f: 18, diet: ["Dairy-Free"] },
+  { name: "Kazandibi", cuisine: "Turkish", ingredients: ["milk", "sugar", "rice flour", "cornstarch", "vanilla"], cal: 320, p: 8, c: 65, f: 6, diet: ["Vegetarian", "Gluten-Free"] },
+
+  // --- HIGH PROTEIN & GYM FUEL ---
+  { name: "Egg White & Spinach Omelette", cuisine: "American", ingredients: ["egg whites", "spinach", "olive oil", "black pepper", "tomato"], cal: 180, p: 25, c: 5, f: 6, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Grilled Turkey Breast & Broccoli", cuisine: "American", ingredients: ["turkey breast", "broccoli", "olive oil", "lemon", "garlic"], cal: 340, p: 52, c: 10, f: 10, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Cottage Cheese & Walnut Bowl", cuisine: "American", ingredients: ["cottage cheese", "walnut", "honey", "cinnamon"], cal: 290, p: 25, c: 15, f: 14, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Tuna & Cucumber Salad", cuisine: "American", ingredients: ["canned tuna", "cucumber", "red onion", "lemon", "olive oil"], cal: 260, p: 35, c: 8, f: 10, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Lean Beef Meatballs", cuisine: "American", ingredients: ["lean beef", "garlic", "egg", "oregano", "tomato sauce"], cal: 420, p: 48, c: 12, f: 20, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Chicken & Cauliflower Rice", cuisine: "Asian", ingredients: ["chicken breast", "cauliflower", "soy sauce", "ginger", "sesame oil"], cal: 350, p: 45, c: 12, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Whey Protein & Banana Smoothie", cuisine: "American", ingredients: ["whey protein", "banana", "almond milk", "peanut butter", "ice"], cal: 380, p: 35, c: 35, f: 12, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Baked Tilapia & Asparagus", cuisine: "American", ingredients: ["tilapia", "asparagus", "lemon", "olive oil", "paprika"], cal: 280, p: 38, c: 6, f: 10, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Bison Mince & Sweet Potato", cuisine: "American", ingredients: ["ground bison", "sweet potato", "spinach", "garlic", "olive oil"], cal: 460, p: 42, c: 45, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Edamame & Lentil Salad", cuisine: "Asian", ingredients: ["edamame", "brown lentils", "carrot", "sesame dressing", "green onion"], cal: 340, p: 22, c: 45, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+
+  // --- RUSTIC TAVERN & STREET FOOD FUSIONS ---
+  { name: "Rustic Boar & Ale Stew", cuisine: "European", ingredients: ["wild boar", "dark ale", "carrot", "onion", "potato", "thyme"], cal: 580, p: 48, c: 35, f: 22, diet: ["Dairy-Free"] },
+  { name: "Mutton & Barley Broth", cuisine: "European", ingredients: ["mutton", "barley", "carrot", "celery", "onion", "beef broth"], cal: 450, p: 35, c: 45, f: 16, diet: ["Dairy-Free"] },
+  { name: "Hearth-Baked Flatbread", cuisine: "European", ingredients: ["flour", "water", "olive oil", "sea salt", "rosemary"], cal: 280, p: 8, c: 48, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Venison & Root Vegetable Pie", cuisine: "European", ingredients: ["venison", "pie crust", "turnip", "carrot", "onion", "thyme"], cal: 680, p: 42, c: 55, f: 32, diet: ["Dairy-Free"] },
+  { name: "Roasted Pheasant", cuisine: "European", ingredients: ["pheasant", "butter", "garlic", "sage", "lemon"], cal: 520, p: 55, c: 2, f: 30, diet: ["Gluten-Free", "Keto"] },
+  { name: "Spicy Pork Bao Buns", cuisine: "Asian", ingredients: ["pork belly", "bao bun", "gochujang", "green onion", "sesame seeds"], cal: 420, p: 18, c: 45, f: 18, diet: ["Dairy-Free"] },
+  { name: "Spicy Sichuan Noodles", cuisine: "Asian", ingredients: ["noodles", "chili oil", "sichuan peppercorn", "garlic", "soy sauce", "peanut"], cal: 480, p: 14, c: 65, f: 20, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Street Yakitori Skewers", cuisine: "Asian", ingredients: ["chicken thigh", "soy sauce", "mirin", "sugar", "green onion", "bamboo skewer"], cal: 320, p: 30, c: 15, f: 16, diet: ["Dairy-Free"] },
+  { name: "Okonomiyaki Street Style", cuisine: "Asian", ingredients: ["cabbage", "flour", "egg", "pork belly", "okonomiyaki sauce", "bonito flakes"], cal: 540, p: 20, c: 45, f: 32, diet: ["Dairy-Free"] },
+  { name: "Miso Butter Corn", cuisine: "Japanese", ingredients: ["corn", "butter", "miso paste", "soy sauce", "green onion"], cal: 240, p: 6, c: 30, f: 12, diet: ["Vegetarian", "Gluten-Free"] }
 ];
