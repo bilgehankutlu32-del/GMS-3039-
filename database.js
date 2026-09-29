@@ -464,4 +464,63 @@ const recipeDatabase = [
   { name: "Kleftiko", cuisine: "Mediterranean", ingredients: ["lamb", "potato", "garlic", "lemon", "oregano", "olive oil"], cal: 680, p: 52, c: 35, f: 38, diet: ["Dairy-Free", "Gluten-Free"] },
   { name: "Melitzanosalata", cuisine: "Mediterranean", ingredients: ["eggplant", "garlic", "olive oil", "lemon", "parsley", "walnut"], cal: 210, p: 4, c: 12, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
   { name: "Keftedakia", cuisine: "Mediterranean", ingredients: ["ground beef", "onion", "garlic", "mint", "bread", "egg"], cal: 420, p: 25, c: 20, f: 26, diet: ["Dairy-Free"] }
+// --- HIGH-PROTEIN & GYM FUEL ---
+  { name: "Turkey Mince & Cauliflower Rice", cuisine: "American", ingredients: ["ground turkey", "cauliflower", "onion", "garlic", "olive oil"], cal: 320, p: 40, c: 12, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Baked Salmon & Zucchini", cuisine: "American", ingredients: ["salmon", "zucchini", "lemon", "dill", "olive oil"], cal: 410, p: 42, c: 8, f: 22, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Shrimp & Edamame Bowl", cuisine: "Asian", ingredients: ["shrimp", "edamame", "brown rice", "soy sauce", "sesame seeds"], cal: 380, p: 35, c: 45, f: 6, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Egg White & Turkey Sausage Frittata", cuisine: "American", ingredients: ["egg whites", "turkey sausage", "spinach", "tomato", "black pepper"], cal: 260, p: 38, c: 6, f: 8, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Tofu & Green Bean Stir Fry", cuisine: "Asian", ingredients: ["tofu", "green beans", "garlic", "ginger", "soy sauce", "sesame oil"], cal: 290, p: 20, c: 15, f: 16, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Fitness"] },
+  { name: "Lentil & Sweet Potato Stew", cuisine: "American", ingredients: ["brown lentils", "sweet potato", "carrot", "vegetable broth", "cumin"], cal: 340, p: 18, c: 60, f: 4, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Quinoa & Roasted Chickpea Salad", cuisine: "American", ingredients: ["quinoa", "chickpeas", "cucumber", "lemon", "olive oil", "parsley"], cal: 380, p: 14, c: 55, f: 12, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Baked Cod & Roasted Brussels Sprouts", cuisine: "American", ingredients: ["cod fish", "brussels sprouts", "olive oil", "balsamic vinegar", "garlic"], cal: 310, p: 38, c: 20, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Lean Beef & Green Bell Pepper Skillet", cuisine: "American", ingredients: ["lean beef", "green pepper", "onion", "garlic", "olive oil"], cal: 380, p: 45, c: 12, f: 16, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Greek Yogurt & Berry Protein Bowl", cuisine: "American", ingredients: ["greek yogurt", "whey protein", "strawberry", "blueberry", "almonds"], cal: 320, p: 38, c: 25, f: 8, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Tuna & Avocado Stuffed Pepper", cuisine: "American", ingredients: ["bell pepper", "canned tuna", "avocado", "lemon", "red onion"], cal: 340, p: 35, c: 12, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Chia Seed & Almond Milk Pudding", cuisine: "American", ingredients: ["chia seeds", "almond milk", "vanilla", "honey", "walnut"], cal: 280, p: 8, c: 22, f: 18, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Seared Scallops & Cauliflower Mash", cuisine: "American", ingredients: ["scallops", "cauliflower", "garlic", "olive oil", "parsley"], cal: 290, p: 32, c: 14, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Chicken Bone Broth & Kale Soup", cuisine: "American", ingredients: ["chicken bone broth", "kale", "carrot", "celery", "chicken breast"], cal: 220, p: 35, c: 10, f: 4, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Bison & Asparagus Grill", cuisine: "American", ingredients: ["bison steak", "asparagus", "olive oil", "sea salt", "black pepper"], cal: 420, p: 52, c: 6, f: 20, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+
+  // --- HEALTHY MEDITERRANEAN & ITALIAN ---
+  { name: "Insalata di Polpo", cuisine: "Italian", ingredients: ["octopus", "potato", "celery", "lemon", "olive oil", "parsley"], cal: 280, p: 35, c: 18, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Zuppa Toscana Light", cuisine: "Italian", ingredients: ["turkey sausage", "kale", "cauliflower", "chicken broth", "onion"], cal: 310, p: 28, c: 18, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Peperonata", cuisine: "Italian", ingredients: ["bell pepper", "onion", "tomato", "garlic", "olive oil", "basil"], cal: 180, p: 3, c: 20, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Minestrone Verde", cuisine: "Italian", ingredients: ["zucchini", "spinach", "peas", "green beans", "vegetable broth", "pesto"], cal: 220, p: 8, c: 28, f: 9, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Bronzino al Forno", cuisine: "Italian", ingredients: ["sea bass", "lemon", "rosemary", "olive oil", "garlic"], cal: 340, p: 45, c: 4, f: 15, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Fagioli all'Uccelletto", cuisine: "Italian", ingredients: ["cannellini beans", "tomato", "garlic", "sage", "olive oil"], cal: 290, p: 14, c: 40, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Insalata Mista con Noci", cuisine: "Italian", ingredients: ["mixed greens", "walnut", "cherry tomato", "balsamic vinegar", "olive oil"], cal: 210, p: 4, c: 10, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Branzino con Patate", cuisine: "Italian", ingredients: ["sea bass", "potato", "olive oil", "parsley", "white wine"], cal: 420, p: 42, c: 25, f: 14, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Pollo alla Cacciatora (Light)", cuisine: "Italian", ingredients: ["chicken breast", "tomato", "mushroom", "onion", "bell pepper", "oregano"], cal: 350, p: 45, c: 15, f: 10, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Caponata Siciliana", cuisine: "Italian", ingredients: ["eggplant", "celery", "capers", "olives", "tomato", "vinegar"], cal: 240, p: 4, c: 22, f: 16, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+
+  // --- HEALTHY TURKISH & AEGEAN ---
+  { name: "Zeytinyağlı Taze Fasulye", cuisine: "Turkish", ingredients: ["green beans", "tomato", "onion", "olive oil", "sugar"], cal: 180, p: 4, c: 22, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Bamya Yemeği", cuisine: "Turkish", ingredients: ["okra", "tomato", "onion", "lemon", "olive oil"], cal: 150, p: 4, c: 18, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Deniz Börülcesi", cuisine: "Turkish", ingredients: ["samphire", "garlic", "lemon", "olive oil"], cal: 120, p: 3, c: 8, f: 9, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Zeytinyağlı Pırasa", cuisine: "Turkish", ingredients: ["leek", "carrot", "rice", "olive oil", "lemon"], cal: 210, p: 3, c: 28, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Yoğurtlu Semizotu", cuisine: "Turkish", ingredients: ["purslane", "yogurt", "garlic", "olive oil"], cal: 140, p: 6, c: 8, f: 10, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "Izgara Tavuk Şiş", cuisine: "Turkish", ingredients: ["chicken breast", "yogurt", "tomato paste", "olive oil", "thyme"], cal: 320, p: 45, c: 4, f: 12, diet: ["Gluten-Free", "Keto", "Fitness"] },
+  { name: "Fırında Çipura", cuisine: "Turkish", ingredients: ["sea bream", "lemon", "onion", "bay leaf", "olive oil"], cal: 360, p: 42, c: 6, f: 16, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Tirmis & Roka Salatası", cuisine: "Turkish", ingredients: ["lupin beans", "arugula", "cherry tomato", "lemon", "olive oil"], cal: 220, p: 10, c: 14, f: 14, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Acılı Ezme", cuisine: "Turkish", ingredients: ["tomato", "onion", "green pepper", "parsley", "pomegranate molasses", "red pepper flakes"], cal: 110, p: 3, c: 18, f: 4, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Karışık Ot Kavurması", cuisine: "Turkish", ingredients: ["wild greens", "onion", "olive oil", "garlic", "egg"], cal: 240, p: 12, c: 12, f: 16, diet: ["Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
+
+  // --- HEALTHY ASIAN ---
+  { name: "Steamed Tofu with Soy & Ginger", cuisine: "Asian", ingredients: ["tofu", "soy sauce", "ginger", "green onion", "sesame oil"], cal: 210, p: 18, c: 8, f: 12, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Salmon Sashimi Salad", cuisine: "Japanese", ingredients: ["salmon", "mixed greens", "cucumber", "soy sauce", "sesame oil", "lemon"], cal: 320, p: 35, c: 8, f: 16, diet: ["Pescatarian", "Dairy-Free", "Keto", "Fitness"] },
+  { name: "Wakame Seaweed Salad", cuisine: "Japanese", ingredients: ["wakame seaweed", "sesame oil", "rice vinegar", "soy sauce", "sesame seeds"], cal: 90, p: 3, c: 10, f: 4, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Chicken Pho (Clear Broth)", cuisine: "Asian", ingredients: ["chicken breast", "rice noodles", "chicken broth", "bean sprouts", "basil", "lime"], cal: 380, p: 35, c: 45, f: 6, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Fresh Vietnamese Spring Rolls", cuisine: "Asian", ingredients: ["rice paper", "shrimp", "lettuce", "mint", "cucumber", "carrot"], cal: 220, p: 15, c: 35, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Steamed Bok Choy with Garlic", cuisine: "Asian", ingredients: ["bok choy", "garlic", "soy sauce", "sesame oil"], cal: 80, p: 4, c: 8, f: 4, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Miso Soup with Shiitake", cuisine: "Japanese", ingredients: ["miso paste", "shiitake mushroom", "tofu", "green onion", "dashi"], cal: 110, p: 8, c: 12, f: 3, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Thai Green Papaya Salad", cuisine: "Asian", ingredients: ["green papaya", "tomato", "green beans", "peanut", "lime", "fish sauce"], cal: 180, p: 6, c: 25, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Soba Noodle Salad", cuisine: "Japanese", ingredients: ["soba noodles", "cucumber", "carrot", "soy sauce", "rice vinegar", "sesame oil"], cal: 280, p: 10, c: 45, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Steamed Halibut with Ginger", cuisine: "Asian", ingredients: ["halibut", "ginger", "green onion", "soy sauce", "sesame oil"], cal: 290, p: 42, c: 4, f: 10, diet: ["Pescatarian", "Dairy-Free", "Fitness"] },
+
+  // --- HEALTHY MEXICAN ---
+  { name: "Chicken Fajita Bowl (No Tortilla)", cuisine: "Mexican", ingredients: ["chicken breast", "bell pepper", "onion", "black beans", "avocado", "salsa"], cal: 420, p: 45, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Shrimp Ceviche", cuisine: "Mexican", ingredients: ["shrimp", "lime", "tomato", "red onion", "cilantro", "jalapeno"], cal: 190, p: 28, c: 10, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Black Bean & Corn Salsa Salad", cuisine: "Mexican", ingredients: ["black beans", "corn", "red onion", "cilantro", "lime", "olive oil"], cal: 280, p: 10, c: 45, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Sopa de Lima", cuisine: "Mexican", ingredients: ["chicken breast", "chicken broth", "lime", "tomato", "cilantro", "onion"], cal: 250, p: 32, c: 15, f: 6, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Ensalada de Nopales (Cactus Salad)", cuisine: "Mexican", ingredients: ["nopales", "tomato", "onion", "cilantro", "lime", "cotija cheese"], cal: 140, p: 6, c: 14, f: 8, diet: ["Vegetarian", "Gluten-Free"] }
 ];
