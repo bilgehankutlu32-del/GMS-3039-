@@ -700,4 +700,63 @@ const recipeDatabase = [
   { name: "Sopes con Chorizo", cuisine: "Mexican", ingredients: ["masa dough", "chorizo", "refried beans", "lettuce", "cheese", "cream"], cal: 580, p: 25, c: 45, f: 35, diet: ["Gluten-Free"] },
   { name: "Aguachile de Camarón", cuisine: "Mexican", ingredients: ["shrimp", "lime", "cilantro", "jalapeno", "cucumber", "red onion"], cal: 190, p: 28, c: 10, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Churros", cuisine: "Mexican", ingredients: ["flour", "water", "sugar", "cinnamon", "oil"], cal: 350, p: 4, c: 45, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free"] }
+// --- ITALIAN CLASSICS & POLLENZO PREP ---
+  { name: "Tortelli di Zucca", cuisine: "Italian", ingredients: ["pasta dough", "pumpkin", "amaretti", "parmesan", "nutmeg", "butter"], cal: 420, p: 12, c: 55, f: 18, diet: ["Vegetarian"] },
+  { name: "Fritto Misto di Pesce", cuisine: "Italian", ingredients: ["calamari", "shrimp", "anchovies", "flour", "lemon", "oil"], cal: 480, p: 35, c: 30, f: 24, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Pappa al Pomodoro", cuisine: "Italian", ingredients: ["bread", "tomato", "garlic", "basil", "olive oil", "vegetable broth"], cal: 310, p: 8, c: 45, f: 12, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Ribollita", cuisine: "Italian", ingredients: ["cannellini beans", "cavolo nero", "cabbage", "bread", "olive oil", "potato"], cal: 360, p: 15, c: 50, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Pappardelle al Cinghiale", cuisine: "Italian", ingredients: ["pappardelle", "wild boar", "red wine", "tomato", "onion", "juniper berries"], cal: 580, p: 32, c: 55, f: 22, diet: ["Dairy-Free"] },
+  { name: "Orecchiette alle Cime di Rapa", cuisine: "Italian", ingredients: ["orecchiette", "broccoli rabe", "garlic", "anchovies", "olive oil", "chili"], cal: 420, p: 14, c: 60, f: 16, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Fegato alla Veneziana", cuisine: "Italian", ingredients: ["calf liver", "onion", "butter", "olive oil", "white wine", "parsley"], cal: 450, p: 38, c: 15, f: 26, diet: ["Gluten-Free", "Keto"] },
+  { name: "Sarde in Saor", cuisine: "Italian", ingredients: ["sardines", "onion", "vinegar", "pine nuts", "raisins", "flour"], cal: 380, p: 25, c: 22, f: 20, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Arancini al Ragù", cuisine: "Italian", ingredients: ["arborio rice", "ground beef", "peas", "mozzarella", "breadcrumbs", "oil"], cal: 520, p: 18, c: 65, f: 22, diet: [] },
+  { name: "Pollo alla Cacciatora", cuisine: "Italian", ingredients: ["chicken", "tomato", "onion", "bell pepper", "white wine", "rosemary"], cal: 410, p: 45, c: 12, f: 18, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+
+  // --- ANATOLIAN STREET FOOD & COMFORT ---
+  { name: "Nohut Dürüm", cuisine: "Turkish", ingredients: ["chickpeas", "lavash", "onion", "parsley", "sumac", "lemon"], cal: 350, p: 12, c: 55, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "İçli Köfte", cuisine: "Turkish", ingredients: ["bulgur", "ground beef", "walnut", "onion", "parsley", "oil"], cal: 480, p: 22, c: 45, f: 24, diet: ["Dairy-Free"] },
+  { name: "Menemen", cuisine: "Turkish", ingredients: ["egg", "tomato", "green pepper", "olive oil", "butter", "black pepper"], cal: 280, p: 14, c: 12, f: 20, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
+  { name: "İskender Kebap", cuisine: "Turkish", ingredients: ["beef döner", "pita", "tomato sauce", "yogurt", "butter"], cal: 750, p: 45, c: 50, f: 42, diet: [] },
+  { name: "Ezogelin Çorbası", cuisine: "Turkish", ingredients: ["red lentils", "bulgur", "mint", "tomato paste", "onion", "butter"], cal: 260, p: 12, c: 38, f: 8, diet: ["Vegetarian"] },
+  { name: "Kısır", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "pomegranate molasses", "parsley", "green onion", "olive oil"], cal: 320, p: 8, c: 55, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Şekerpare", cuisine: "Turkish", ingredients: ["flour", "semolina", "butter", "sugar", "egg", "hazelnut"], cal: 450, p: 6, c: 60, f: 22, diet: ["Vegetarian"] },
+  { name: "Sigara Böreği", cuisine: "Turkish", ingredients: ["phyllo dough", "feta cheese", "parsley", "oil"], cal: 380, p: 12, c: 35, f: 22, diet: ["Vegetarian"] },
+  { name: "Hamsili Pilav", cuisine: "Turkish", ingredients: ["anchovies", "rice", "pine nuts", "currants", "onion", "dill"], cal: 520, p: 32, c: 50, f: 22, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Mercimekli Köfte", cuisine: "Turkish", ingredients: ["red lentils", "bulgur", "onion", "parsley", "tomato paste", "cumin"], cal: 290, p: 14, c: 45, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+
+  // --- HIGH-PROTEIN & GAMER FUEL ---
+  { name: "Turkey & Sweet Potato Mash", cuisine: "American", ingredients: ["ground turkey", "sweet potato", "garlic", "olive oil", "black pepper"], cal: 410, p: 42, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Chicken & Black Bean Bowl", cuisine: "American", ingredients: ["chicken breast", "black beans", "salsa", "avocado", "cilantro"], cal: 450, p: 52, c: 30, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Egg White & Cottage Cheese Bake", cuisine: "American", ingredients: ["egg whites", "cottage cheese", "spinach", "tomato", "black pepper"], cal: 240, p: 35, c: 8, f: 4, diet: ["Vegetarian", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Whey Protein & Almond Butter Oats", cuisine: "American", ingredients: ["whey protein", "oats", "almond butter", "almond milk", "cinnamon"], cal: 420, p: 38, c: 40, f: 14, diet: ["Vegetarian", "Fitness"] },
+  { name: "Tuna & Spinach Salad", cuisine: "American", ingredients: ["canned tuna", "spinach", "cucumber", "lemon", "olive oil"], cal: 260, p: 35, c: 6, f: 10, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Lean Beef & Green Bean Stir Fry", cuisine: "Asian", ingredients: ["lean beef", "green beans", "soy sauce", "garlic", "ginger"], cal: 380, p: 45, c: 12, f: 16, diet: ["Dairy-Free", "Keto", "Fitness"] },
+  { name: "Shrimp & Asparagus Skillet", cuisine: "American", ingredients: ["shrimp", "asparagus", "lemon", "garlic", "olive oil"], cal: 290, p: 38, c: 8, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Bison & Broccoli Bowl", cuisine: "American", ingredients: ["ground bison", "broccoli", "sesame oil", "soy sauce", "garlic"], cal: 410, p: 48, c: 10, f: 20, diet: ["Dairy-Free", "Keto", "Fitness"] },
+  { name: "Greek Yogurt & Walnut Bowl", cuisine: "American", ingredients: ["greek yogurt", "walnut", "honey", "chia seeds"], cal: 320, p: 22, c: 25, f: 18, diet: ["Vegetarian", "Gluten-Free", "Fitness"] },
+  { name: "Seared Scallops & Zucchini", cuisine: "American", ingredients: ["scallops", "zucchini", "lemon", "olive oil", "parsley"], cal: 280, p: 32, c: 8, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+
+  // --- HISTORICAL PRESERVATION & ARCHAIC ---
+  { name: "Garum Cured Mackerel", cuisine: "Mediterranean", ingredients: ["mackerel", "garum", "olive oil", "lemon", "black pepper"], cal: 310, p: 35, c: 1, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Pemmican", cuisine: "Indigenous", ingredients: ["dried beef", "beef tallow", "dried blueberries"], cal: 550, p: 45, c: 15, f: 38, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Salt-Baked Chicken", cuisine: "Asian", ingredients: ["whole chicken", "sea salt", "ginger", "green onion", "star anise"], cal: 480, p: 55, c: 2, f: 28, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Fermented Black Garlic & Mushroom", cuisine: "Asian", ingredients: ["black garlic", "shiitake mushroom", "soy sauce", "sesame oil", "green onion"], cal: 180, p: 6, c: 25, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Dry-Aged Venison Steak", cuisine: "European", ingredients: ["venison", "sea salt", "black pepper", "butter", "rosemary"], cal: 420, p: 58, c: 0, f: 18, diet: ["Gluten-Free", "Keto", "Fitness"] },
+  { name: "Mead-Braised Pork Belly", cuisine: "European", ingredients: ["pork belly", "mead", "onion", "thyme", "garlic"], cal: 720, p: 25, c: 15, f: 62, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Pickled Herring & Onion", cuisine: "European", ingredients: ["herring", "vinegar", "sugar", "onion", "mustard seeds"], cal: 240, p: 22, c: 12, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Lardo di Colonnata on Toast", cuisine: "Italian", ingredients: ["lardo", "bread", "rosemary", "black pepper", "garlic"], cal: 350, p: 8, c: 25, f: 24, diet: ["Dairy-Free"] },
+  { name: "Smoked Eel", cuisine: "European", ingredients: ["eel", "sea salt", "wood chips"], cal: 380, p: 35, c: 0, f: 26, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Cured Pork Guanciale", cuisine: "Italian", ingredients: ["pork jowl", "sea salt", "black pepper", "sugar", "thyme"], cal: 650, p: 15, c: 2, f: 65, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+
+  // --- GLOBAL & ASIAN FUSION ---
+  { name: "Tom Yum Soup", cuisine: "Asian", ingredients: ["shrimp", "lemongrass", "galangal", "kaffir lime", "chili", "fish sauce"], cal: 220, p: 25, c: 12, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Beef Pho", cuisine: "Asian", ingredients: ["beef brisket", "rice noodles", "beef broth", "star anise", "bean sprouts", "basil"], cal: 480, p: 35, c: 55, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Pork Banh Mi", cuisine: "Asian", ingredients: ["baguette", "pork belly", "pate", "carrot", "daikon", "cilantro", "mayonnaise"], cal: 580, p: 25, c: 65, f: 26, diet: ["Dairy-Free"] },
+  { name: "Katsu Sando", cuisine: "Japanese", ingredients: ["pork loin", "milk bread", "panko", "tonkatsu sauce", "cabbage", "egg"], cal: 620, p: 28, c: 60, f: 30, diet: ["Dairy-Free"] },
+  { name: "Spicy Tuna Hand Roll", cuisine: "Japanese", ingredients: ["tuna", "sushi rice", "nori", "sriracha", "sesame oil", "green onion"], cal: 280, p: 22, c: 35, f: 6, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Lamb Gyro", cuisine: "Mediterranean", ingredients: ["lamb", "pita", "tzatziki", "tomato", "onion", "oregano"], cal: 550, p: 38, c: 45, f: 24, diet: [] },
+  { name: "Chicken Souvlaki", cuisine: "Mediterranean", ingredients: ["chicken breast", "lemon", "olive oil", "garlic", "oregano"], cal: 320, p: 48, c: 4, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Tostadas de Ceviche", cuisine: "Mexican", ingredients: ["white fish", "corn tostada", "lime", "tomato", "onion", "cilantro"], cal: 310, p: 30, c: 35, f: 6, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Arepas con Queso", cuisine: "Latin American", ingredients: ["cornmeal", "mozzarella", "butter", "salt", "water"], cal: 420, p: 15, c: 45, f: 20, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Poutine", cuisine: "Canadian", ingredients: ["potato", "cheese curds", "beef gravy", "oil", "salt"], cal: 750, p: 22, c: 80, f: 38, diet: [] },
 ];
