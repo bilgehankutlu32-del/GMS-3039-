@@ -43,7 +43,7 @@ const recipeDatabase = [
   // --- FRENCH ---
   { name: "Ratatouille", cuisine: "French", ingredients: ["eggplant", "zucchini", "bell pepper", "tomato", "garlic", "olive oil"], cal: 190, p: 4, c: 22, f: 11, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
   { name: "Salade Niçoise", cuisine: "French", ingredients: ["tuna", "egg", "green beans", "potato", "olives", "olive oil"], cal: 410, p: 32, c: 25, f: 22, diet: ["Pescatarian", "Gluten-Free", "Dairy-Free", "Fitness"] },
-  { name: "Steak au Poivre", cuisine: "French", ingredients: ["beef steak", "black peppercorns", "butter", "cream", "cognac"], cal: 720, p: 55, c: 8, f: 48, diet: ["Keto", "Gluten-Free"] }
+  { name: "Steak au Poivre", cuisine: "French", ingredients: ["beef steak", "black peppercorns", "butter", "cream", "cognac"], cal: 720, p: 55, c: 8, f: 48, diet: ["Keto", "Gluten-Free"] },
 // --- ITALIAN (Piedmontese & Handcrafted Classics) ---
   { name: "Vitello Tonnato", cuisine: "Italian", ingredients: ["veal", "tuna", "capers", "egg yolk", "olive oil", "lemon"], cal: 420, p: 45, c: 2, f: 25, diet: ["Keto", "Dairy-Free", "Gluten-Free", "Fitness"] },
   { name: "Tajarin al Tartufo", cuisine: "Italian", ingredients: ["pasta dough", "egg yolk", "butter", "white truffle", "parmesan"], cal: 550, p: 18, c: 45, f: 32, diet: ["Vegetarian"] },
@@ -108,7 +108,7 @@ const recipeDatabase = [
   // --- MIDDLE EASTERN ---
   { name: "Baba Ganoush", cuisine: "Middle Eastern", ingredients: ["eggplant", "tahini", "garlic", "lemon", "olive oil"], cal: 240, p: 5, c: 18, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
   { name: "Tabbouleh", cuisine: "Middle Eastern", ingredients: ["parsley", "bulgur", "tomato", "mint", "lemon", "olive oil"], cal: 180, p: 4, c: 25, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
-  { name: "Kofta Kebab", cuisine: "Middle Eastern", ingredients: ["ground beef", "onion", "parsley", "cumin", "coriander"], cal: 410, p: 30, c: 8, f: 28, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] }
+  { name: "Kofta Kebab", cuisine: "Middle Eastern", ingredients: ["ground beef", "onion", "parsley", "cumin", "coriander"], cal: 410, p: 30, c: 8, f: 28, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
 
 // --- OTTOMAN PALACE & TURKISH REGIONAL ---
   { name: "Mutancana", cuisine: "Turkish", ingredients: ["lamb", "apricot", "fig", "almond", "honey", "butter"], cal: 650, p: 40, c: 45, f: 35, diet: ["Gluten-Free"] },
@@ -168,7 +168,7 @@ const recipeDatabase = [
   { name: "Yakisoba", cuisine: "Japanese", ingredients: ["yakisoba noodles", "pork", "cabbage", "carrot", "yakisoba sauce", "oil"], cal: 480, p: 20, c: 65, f: 16, diet: ["Dairy-Free"] },
   { name: "Oyakodon", cuisine: "Japanese", ingredients: ["chicken thigh", "egg", "rice", "onion", "soy sauce", "mirin"], cal: 580, p: 35, c: 70, f: 18, diet: ["Dairy-Free"] },
   { name: "Unagi Don (Eel Bowl)", cuisine: "Japanese", ingredients: ["eel", "rice", "soy sauce", "mirin", "sugar", "sake"], cal: 540, p: 25, c: 75, f: 15, diet: ["Pescatarian", "Dairy-Free"] },
-  { name: "Agedashi Tofu", cuisine: "Japanese", ingredients: ["tofu", "potato starch", "oil", "dashi", "soy sauce", "mirin"], cal: 280, p: 12, c: 22, f: 16, diet: ["Pescatarian", "Dairy-Free"] }
+  { name: "Agedashi Tofu", cuisine: "Japanese", ingredients: ["tofu", "potato starch", "oil", "dashi", "soy sauce", "mirin"], cal: 280, p: 12, c: 22, f: 16, diet: ["Pescatarian", "Dairy-Free"] },
 // --- FRENCH GASTRONOMY ---
   { name: "Steak Tartare", cuisine: "French", ingredients: ["raw beef", "egg yolk", "capers", "mustard", "shallot", "parsley"], cal: 350, p: 45, c: 2, f: 18, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Duck Confit (Confit de Canard)", cuisine: "French", ingredients: ["duck leg", "duck fat", "garlic", "thyme", "bay leaf"], cal: 680, p: 38, c: 0, f: 58, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
@@ -227,7 +227,7 @@ const recipeDatabase = [
   { name: "Balık Ekmek", cuisine: "Turkish", ingredients: ["mackerel", "bread", "onion", "lettuce", "lemon", "salt"], cal: 420, p: 28, c: 45, f: 14, diet: ["Pescatarian", "Dairy-Free"] },
   { name: "Kumpir", cuisine: "Turkish", ingredients: ["potato", "butter", "kasar cheese", "sausage", "corn", "olives"], cal: 650, p: 18, c: 65, f: 38, diet: ["Gluten-Free"] },
   { name: "Sultan Reşat Pilavı", cuisine: "Turkish", ingredients: ["rice", "chicken", "eggplant", "pine nuts", "currants", "butter"], cal: 550, p: 25, c: 60, f: 22, diet: ["Gluten-Free"] },
-  { name: "Fırın Sütlaç", cuisine: "Turkish", ingredients: ["milk", "rice", "sugar", "cornstarch", "vanilla"], cal: 310, p: 8, c: 55, f: 6, diet: ["Vegetarian", "Gluten-Free"] }
+  { name: "Fırın Sütlaç", cuisine: "Turkish", ingredients: ["milk", "rice", "sugar", "cornstarch", "vanilla"], cal: 310, p: 8, c: 55, f: 6, diet: ["Vegetarian", "Gluten-Free"] },
 // --- FRENCH GASTRONOMY & BISTRO ---
   { name: "Coquilles Saint-Jacques", cuisine: "French", ingredients: ["scallops", "butter", "white wine", "garlic", "shallot", "breadcrumbs"], cal: 380, p: 28, c: 15, f: 22, diet: ["Pescatarian"] },
   { name: "Croque Monsieur", cuisine: "French", ingredients: ["bread", "ham", "gruyere cheese", "butter", "flour", "milk"], cal: 520, p: 28, c: 40, f: 28, diet: [] },
@@ -286,7 +286,7 @@ const recipeDatabase = [
   { name: "Su Böreği", cuisine: "Turkish", ingredients: ["flour", "egg", "feta cheese", "butter", "parsley"], cal: 520, p: 18, c: 55, f: 26, diet: ["Vegetarian"] },
   { name: "Etsiz Çiğ Köfte", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "isot pepper", "pomegranate molasses", "walnut", "onion"], cal: 310, p: 8, c: 60, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Ayva Tatlısı", cuisine: "Turkish", ingredients: ["quince", "sugar", "cloves", "kaymak", "pistachio"], cal: 280, p: 2, c: 65, f: 5, diet: ["Vegetarian", "Gluten-Free"] },
-  { name: "Cacık", cuisine: "Turkish", ingredients: ["yogurt", "cucumber", "garlic", "mint", "olive oil"], cal: 150, p: 8, c: 10, f: 9, diet: ["Vegetarian", "Gluten-Free", "Keto"] }
+  { name: "Cacık", cuisine: "Turkish", ingredients: ["yogurt", "cucumber", "garlic", "mint", "olive oil"], cal: 150, p: 8, c: 10, f: 9, diet: ["Vegetarian", "Gluten-Free", "Keto"] },
 // --- ITALIAN (Roman Classics & Street Food) ---
   { name: "Spaghetti alla Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "guanciale", "pecorino romano", "egg yolk", "black pepper"], cal: 650, p: 25, c: 55, f: 35, diet: [] },
   { name: "Bucatini all'Amatriciana", cuisine: "Italian", ingredients: ["bucatini", "guanciale", "pecorino romano", "tomato", "chili"], cal: 600, p: 22, c: 60, f: 30, diet: [] },
@@ -345,7 +345,7 @@ const recipeDatabase = [
   { name: "Muhammara", cuisine: "Middle Eastern", ingredients: ["roasted red pepper", "walnut", "pomegranate molasses", "olive oil", "breadcrumbs", "cumin"], cal: 310, p: 6, c: 22, f: 24, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Labneh with Za'atar", cuisine: "Middle Eastern", ingredients: ["labneh", "zaatar", "olive oil", "pita bread", "cucumber"], cal: 280, p: 10, c: 25, f: 18, diet: ["Vegetarian"] },
   { name: "Kousa Mahshi", cuisine: "Middle Eastern", ingredients: ["zucchini", "rice", "ground beef", "tomato", "mint", "garlic"], cal: 380, p: 20, c: 45, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
-  { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] }
+  { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
 // --- ITALIAN (Roman Classics & Street Food) ---
   { name: "Spaghetti alla Carbonara", cuisine: "Italian", ingredients: ["spaghetti", "guanciale", "pecorino romano", "egg yolk", "black pepper"], cal: 650, p: 25, c: 55, f: 35, diet: [] },
   { name: "Bucatini all'Amatriciana", cuisine: "Italian", ingredients: ["bucatini", "guanciale", "pecorino romano", "tomato", "chili"], cal: 600, p: 22, c: 60, f: 30, diet: [] },
@@ -404,7 +404,7 @@ const recipeDatabase = [
   { name: "Muhammara", cuisine: "Middle Eastern", ingredients: ["roasted red pepper", "walnut", "pomegranate molasses", "olive oil", "breadcrumbs", "cumin"], cal: 310, p: 6, c: 22, f: 24, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Labneh with Za'atar", cuisine: "Middle Eastern", ingredients: ["labneh", "zaatar", "olive oil", "pita bread", "cucumber"], cal: 280, p: 10, c: 25, f: 18, diet: ["Vegetarian"] },
   { name: "Kousa Mahshi", cuisine: "Middle Eastern", ingredients: ["zucchini", "rice", "ground beef", "tomato", "mint", "garlic"], cal: 380, p: 20, c: 45, f: 14, diet: ["Dairy-Free", "Gluten-Free"] },
-  { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] }
+  { name: "Samak Mashwi", cuisine: "Middle Eastern", ingredients: ["whole fish", "lemon", "garlic", "cumin", "coriander", "olive oil"], cal: 350, p: 42, c: 5, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
 // --- NORTHERN ITALIAN & POLLENZO FOCUS ---
   { name: "Risotto alla Milanese", cuisine: "Italian", ingredients: ["arborio rice", "saffron", "beef broth", "bone marrow", "butter", "parmesan"], cal: 520, p: 14, c: 60, f: 24, diet: ["Gluten-Free"] },
   { name: "Cotoletta alla Milanese", cuisine: "Italian", ingredients: ["veal chop", "egg", "breadcrumbs", "butter", "lemon"], cal: 650, p: 48, c: 20, f: 42, diet: ["Dairy-Free"] },
@@ -463,7 +463,7 @@ const recipeDatabase = [
   { name: "Croquetas de Jamón", cuisine: "Mediterranean", ingredients: ["jamon", "butter", "flour", "milk", "egg", "breadcrumbs"], cal: 450, p: 15, c: 35, f: 28, diet: [] },
   { name: "Kleftiko", cuisine: "Mediterranean", ingredients: ["lamb", "potato", "garlic", "lemon", "oregano", "olive oil"], cal: 680, p: 52, c: 35, f: 38, diet: ["Dairy-Free", "Gluten-Free"] },
   { name: "Melitzanosalata", cuisine: "Mediterranean", ingredients: ["eggplant", "garlic", "olive oil", "lemon", "parsley", "walnut"], cal: 210, p: 4, c: 12, f: 18, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free", "Keto"] },
-  { name: "Keftedakia", cuisine: "Mediterranean", ingredients: ["ground beef", "onion", "garlic", "mint", "bread", "egg"], cal: 420, p: 25, c: 20, f: 26, diet: ["Dairy-Free"] }
+  { name: "Keftedakia", cuisine: "Mediterranean", ingredients: ["ground beef", "onion", "garlic", "mint", "bread", "egg"], cal: 420, p: 25, c: 20, f: 26, diet: ["Dairy-Free"] },
 // --- HIGH-PROTEIN & GYM FUEL ---
   { name: "Turkey Mince & Cauliflower Rice", cuisine: "American", ingredients: ["ground turkey", "cauliflower", "onion", "garlic", "olive oil"], cal: 320, p: 40, c: 12, f: 14, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Baked Salmon & Zucchini", cuisine: "American", ingredients: ["salmon", "zucchini", "lemon", "dill", "olive oil"], cal: 410, p: 42, c: 8, f: 22, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
@@ -522,7 +522,7 @@ const recipeDatabase = [
   { name: "Shrimp Ceviche", cuisine: "Mexican", ingredients: ["shrimp", "lime", "tomato", "red onion", "cilantro", "jalapeno"], cal: 190, p: 28, c: 10, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Black Bean & Corn Salsa Salad", cuisine: "Mexican", ingredients: ["black beans", "corn", "red onion", "cilantro", "lime", "olive oil"], cal: 280, p: 10, c: 45, f: 8, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
   { name: "Sopa de Lima", cuisine: "Mexican", ingredients: ["chicken breast", "chicken broth", "lime", "tomato", "cilantro", "onion"], cal: 250, p: 32, c: 15, f: 6, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
-  { name: "Ensalada de Nopales (Cactus Salad)", cuisine: "Mexican", ingredients: ["nopales", "tomato", "onion", "cilantro", "lime", "cotija cheese"], cal: 140, p: 6, c: 14, f: 8, diet: ["Vegetarian", "Gluten-Free"] }
+  { name: "Ensalada de Nopales (Cactus Salad)", cuisine: "Mexican", ingredients: ["nopales", "tomato", "onion", "cilantro", "lime", "cotija cheese"], cal: 140, p: 6, c: 14, f: 8, diet: ["Vegetarian", "Gluten-Free"] },
 // --- ARCHAIC PRESERVATION & CHARCUTERIE ---
   { name: "Duck Prosciutto", cuisine: "French", ingredients: ["duck breast", "sea salt", "black pepper", "thyme", "garlic"], cal: 210, p: 25, c: 0, f: 12, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
   { name: "Confit de Porc", cuisine: "French", ingredients: ["pork shoulder", "pork fat", "garlic", "thyme", "bay leaf"], cal: 650, p: 35, c: 0, f: 55, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
@@ -640,7 +640,7 @@ const recipeDatabase = [
   { name: "Toros Salata", cuisine: "Turkish", ingredients: ["arugula", "tomato", "tulum cheese", "walnut", "pomegranate molasses", "olive oil"], cal: 290, p: 8, c: 15, f: 24, diet: ["Vegetarian", "Gluten-Free"] },
   { name: "Yörük Kebabı", cuisine: "Turkish", ingredients: ["lamb", "eggplant", "zucchini", "carrot", "peas", "thyme"], cal: 450, p: 38, c: 22, f: 24, diet: ["Gluten-Free", "Dairy-Free"] },
   { name: "Tahinli Piyaz", cuisine: "Turkish", ingredients: ["white beans", "tahini", "garlic", "lemon", "vinegar", "tomato"], cal: 340, p: 14, c: 30, f: 20, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
-  { name: "Gülüklü Çorba", cuisine: "Turkish", ingredients: ["chicken broth", "mini meatballs", "chickpeas", "rice", "tomato paste", "lemon"], cal: 350, p: 22, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free"] }
+  { name: "Gülüklü Çorba", cuisine: "Turkish", ingredients: ["chicken broth", "mini meatballs", "chickpeas", "rice", "tomato paste", "lemon"], cal: 350, p: 22, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free"] },
 // --- LUPIN (TIRMIS) & AEGEAN GASTRONOMY ---
   { name: "Tirmis & Hummus Wrap", cuisine: "Turkish", ingredients: ["lupin beans", "hummus", "lavash", "cucumber", "tomato", "parsley"], cal: 320, p: 14, c: 45, f: 10, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
   { name: "Tirmis Hardallı Levrek", cuisine: "Turkish", ingredients: ["sea bass", "lupin beans", "mustard", "olive oil", "lemon", "garlic"], cal: 380, p: 45, c: 8, f: 18, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
