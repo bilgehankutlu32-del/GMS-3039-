@@ -228,4 +228,63 @@ const recipeDatabase = [
   { name: "Kumpir", cuisine: "Turkish", ingredients: ["potato", "butter", "kasar cheese", "sausage", "corn", "olives"], cal: 650, p: 18, c: 65, f: 38, diet: ["Gluten-Free"] },
   { name: "Sultan Reşat Pilavı", cuisine: "Turkish", ingredients: ["rice", "chicken", "eggplant", "pine nuts", "currants", "butter"], cal: 550, p: 25, c: 60, f: 22, diet: ["Gluten-Free"] },
   { name: "Fırın Sütlaç", cuisine: "Turkish", ingredients: ["milk", "rice", "sugar", "cornstarch", "vanilla"], cal: 310, p: 8, c: 55, f: 6, diet: ["Vegetarian", "Gluten-Free"] }
+// --- FRENCH GASTRONOMY & BISTRO ---
+  { name: "Coquilles Saint-Jacques", cuisine: "French", ingredients: ["scallops", "butter", "white wine", "garlic", "shallot", "breadcrumbs"], cal: 380, p: 28, c: 15, f: 22, diet: ["Pescatarian"] },
+  { name: "Croque Monsieur", cuisine: "French", ingredients: ["bread", "ham", "gruyere cheese", "butter", "flour", "milk"], cal: 520, p: 28, c: 40, f: 28, diet: [] },
+  { name: "Salade Lyonnaise", cuisine: "French", ingredients: ["frisée lettuce", "bacon", "egg", "croutons", "dijon mustard", "vinegar"], cal: 350, p: 18, c: 15, f: 25, diet: ["Dairy-Free"] },
+  { name: "Clafoutis aux Cerises", cuisine: "French", ingredients: ["cherry", "egg", "milk", "flour", "sugar", "butter"], cal: 320, p: 8, c: 45, f: 12, diet: ["Vegetarian"] },
+  { name: "Blanquette de Veau", cuisine: "French", ingredients: ["veal", "butter", "carrot", "onion", "heavy cream", "mushroom"], cal: 650, p: 55, c: 12, f: 42, diet: ["Gluten-Free", "Keto"] },
+  { name: "Gougères", cuisine: "French", ingredients: ["flour", "butter", "egg", "gruyere cheese", "water"], cal: 280, p: 12, c: 20, f: 18, diet: ["Vegetarian"] },
+  { name: "Pot-au-Feu", cuisine: "French", ingredients: ["beef chuck", "bone marrow", "carrot", "leek", "turnip", "onion"], cal: 580, p: 48, c: 25, f: 32, diet: ["Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Macarons (Raspberry)", cuisine: "French", ingredients: ["almond flour", "egg white", "sugar", "raspberry", "butter"], cal: 210, p: 4, c: 30, f: 10, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Pâté de Campagne", cuisine: "French", ingredients: ["ground pork", "pork liver", "bacon", "garlic", "cognac", "thyme"], cal: 450, p: 25, c: 4, f: 38, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Navarin d'Agneau", cuisine: "French", ingredients: ["lamb", "turnip", "carrot", "potato", "pea", "tomato paste"], cal: 540, p: 40, c: 35, f: 26, diet: ["Dairy-Free", "Gluten-Free"] },
+
+  // --- JAPANESE CLASSICS ---
+  { name: "Udon Noodle Soup", cuisine: "Japanese", ingredients: ["udon noodles", "dashi", "soy sauce", "mirin", "green onion", "kamaboko"], cal: 350, p: 12, c: 68, f: 4, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Tonkotsu Ramen", cuisine: "Japanese", ingredients: ["ramen noodles", "pork broth", "pork belly", "egg", "green onion", "wood ear mushroom"], cal: 720, p: 35, c: 65, f: 38, diet: ["Dairy-Free"] },
+  { name: "Onigiri (Tuna Mayo)", cuisine: "Japanese", ingredients: ["sushi rice", "nori", "canned tuna", "mayonnaise", "salt"], cal: 280, p: 12, c: 40, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Tamagoyaki", cuisine: "Japanese", ingredients: ["egg", "soy sauce", "mirin", "sugar", "oil"], cal: 210, p: 14, c: 8, f: 14, diet: ["Vegetarian", "Dairy-Free"] },
+  { name: "Ebi Tempura", cuisine: "Japanese", ingredients: ["shrimp", "flour", "egg", "ice water", "oil", "tentsuyu"], cal: 380, p: 18, c: 35, f: 20, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Matcha Mochi", cuisine: "Japanese", ingredients: ["glutinous rice flour", "sugar", "water", "matcha", "red bean paste"], cal: 180, p: 2, c: 40, f: 1, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Chawanmushi", cuisine: "Japanese", ingredients: ["egg", "dashi", "shrimp", "chicken", "mushroom", "soy sauce"], cal: 150, p: 15, c: 5, f: 8, diet: ["Dairy-Free"] },
+  { name: "Pork Gyoza", cuisine: "Japanese", ingredients: ["ground pork", "cabbage", "garlic", "ginger", "gyoza wrapper", "soy sauce"], cal: 320, p: 18, c: 30, f: 14, diet: ["Dairy-Free"] },
+  { name: "Katsu Curry", cuisine: "Japanese", ingredients: ["pork loin", "panko", "rice", "curry roux", "potato", "carrot"], cal: 850, p: 32, c: 95, f: 38, diet: ["Dairy-Free"] },
+  { name: "Zaru Soba", cuisine: "Japanese", ingredients: ["soba noodles", "soy sauce", "mirin", "dashi", "green onion", "wasabi"], cal: 310, p: 14, c: 60, f: 2, diet: ["Pescatarian", "Dairy-Free"] },
+
+  // --- ASIAN (Korean, Chinese, Thai) ---
+  { name: "Kimchi Fried Rice", cuisine: "Asian", ingredients: ["rice", "kimchi", "egg", "sesame oil", "green onion", "gochujang"], cal: 420, p: 14, c: 65, f: 12, diet: ["Vegetarian", "Dairy-Free"] },
+  { name: "Beef Bibimbap", cuisine: "Asian", ingredients: ["rice", "beef", "spinach", "carrot", "egg", "gochujang"], cal: 580, p: 35, c: 75, f: 18, diet: ["Dairy-Free"] },
+  { name: "Bulgogi (Korean BBQ)", cuisine: "Asian", ingredients: ["beef ribeye", "soy sauce", "pear", "garlic", "sesame oil", "sugar"], cal: 480, p: 42, c: 20, f: 25, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Peking Duck", cuisine: "Asian", ingredients: ["duck", "hoisin sauce", "cucumber", "green onion", "pancake"], cal: 650, p: 35, c: 45, f: 38, diet: ["Dairy-Free"] },
+  { name: "Mapo Tofu", cuisine: "Asian", ingredients: ["tofu", "ground pork", "doubanjiang", "Sichuan peppercorn", "garlic", "soy sauce"], cal: 420, p: 25, c: 15, f: 28, diet: ["Dairy-Free", "Keto"] },
+  { name: "Har Gow (Shrimp Dumplings)", cuisine: "Asian", ingredients: ["shrimp", "wheat starch", "tapioca starch", "bamboo shoot", "sesame oil"], cal: 260, p: 16, c: 35, f: 6, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Char Siu (BBQ Pork)", cuisine: "Asian", ingredients: ["pork shoulder", "hoisin sauce", "honey", "five spice", "soy sauce"], cal: 480, p: 45, c: 25, f: 22, diet: ["Dairy-Free", "Fitness"] },
+  { name: "Tom Kha Gai", cuisine: "Asian", ingredients: ["chicken", "coconut milk", "galangal", "lemongrass", "mushroom", "lime"], cal: 380, p: 28, c: 12, f: 26, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Som Tum (Green Papaya Salad)", cuisine: "Asian", ingredients: ["green papaya", "tomato", "peanut", "chili", "lime", "fish sauce"], cal: 180, p: 6, c: 25, f: 8, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Nasi Goreng", cuisine: "Asian", ingredients: ["rice", "kecap manis", "chicken", "shrimp paste", "egg", "shallot"], cal: 520, p: 25, c: 65, f: 18, diet: ["Dairy-Free"] },
+
+  // --- MEXICAN (Expanded) ---
+  { name: "Tlayuda", cuisine: "Mexican", ingredients: ["large tortilla", "refried beans", "oaxaca cheese", "cabbage", "beef", "avocado"], cal: 750, p: 45, c: 65, f: 35, diet: [] },
+  { name: "Enchiladas Rojas", cuisine: "Mexican", ingredients: ["corn tortilla", "chicken", "guajillo chili", "cheese", "onion", "cream"], cal: 540, p: 35, c: 45, f: 26, diet: ["Gluten-Free"] },
+  { name: "Ceviche de Camarón", cuisine: "Mexican", ingredients: ["shrimp", "lime", "tomato", "onion", "cilantro", "cucumber"], cal: 220, p: 30, c: 15, f: 4, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Gorditas de Chicharrón", cuisine: "Mexican", ingredients: ["masa dough", "chicharron", "salsa verde", "onion", "cilantro", "cheese"], cal: 480, p: 22, c: 35, f: 30, diet: ["Gluten-Free"] },
+  { name: "Cochinita Pibil", cuisine: "Mexican", ingredients: ["pork shoulder", "achiote paste", "orange", "lime", "red onion", "habanero"], cal: 520, p: 42, c: 12, f: 34, diet: ["Dairy-Free", "Gluten-Free", "Keto"] },
+  { name: "Frijoles Refritos", cuisine: "Mexican", ingredients: ["pinto beans", "lard", "onion", "garlic", "salt"], cal: 280, p: 12, c: 35, f: 12, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Churros con Chocolate", cuisine: "Mexican", ingredients: ["flour", "sugar", "cinnamon", "oil", "chocolate", "milk"], cal: 550, p: 8, c: 75, f: 25, diet: ["Vegetarian"] },
+  { name: "Huevos Divorciados", cuisine: "Mexican", ingredients: ["egg", "corn tortilla", "salsa roja", "salsa verde", "refried beans"], cal: 410, p: 20, c: 45, f: 18, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Menudo", cuisine: "Mexican", ingredients: ["beef tripe", "hominy corn", "guajillo chili", "garlic", "onion", "oregano"], cal: 380, p: 35, c: 25, f: 16, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Aguachile Rojo", cuisine: "Mexican", ingredients: ["shrimp", "lime", "chiltepin chili", "cucumber", "red onion", "salt"], cal: 190, p: 28, c: 12, f: 2, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+
+  // --- MEDITERRANEAN, TURKISH, & ITALIAN ---
+  { name: "Patatas a lo Pobre", cuisine: "Mediterranean", ingredients: ["potato", "green pepper", "onion", "olive oil", "garlic"], cal: 320, p: 4, c: 45, f: 16, diet: ["Vegan", "Vegetarian", "Dairy-Free", "Gluten-Free"] },
+  { name: "Pulpo a la Gallega", cuisine: "Mediterranean", ingredients: ["octopus", "potato", "olive oil", "paprika", "sea salt"], cal: 380, p: 42, c: 25, f: 12, diet: ["Pescatarian", "Dairy-Free", "Gluten-Free", "Fitness"] },
+  { name: "Calamari Fritti", cuisine: "Italian", ingredients: ["squid", "flour", "lemon", "oil", "salt"], cal: 410, p: 22, c: 35, f: 20, diet: ["Pescatarian", "Dairy-Free"] },
+  { name: "Arrosticini", cuisine: "Italian", ingredients: ["lamb", "olive oil", "rosemary", "salt", "black pepper"], cal: 450, p: 45, c: 0, f: 30, diet: ["Dairy-Free", "Gluten-Free", "Keto", "Fitness"] },
+  { name: "Involtini di Melanzane", cuisine: "Italian", ingredients: ["eggplant", "ricotta", "tomato sauce", "parmesan", "basil"], cal: 340, p: 16, c: 20, f: 22, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Lahana Sarması", cuisine: "Turkish", ingredients: ["cabbage", "ground beef", "rice", "onion", "tomato paste", "mint"], cal: 350, p: 18, c: 35, f: 15, diet: ["Dairy-Free", "Gluten-Free"] },
+  { name: "Su Böreği", cuisine: "Turkish", ingredients: ["flour", "egg", "feta cheese", "butter", "parsley"], cal: 520, p: 18, c: 55, f: 26, diet: ["Vegetarian"] },
+  { name: "Etsiz Çiğ Köfte", cuisine: "Turkish", ingredients: ["bulgur", "tomato paste", "isot pepper", "pomegranate molasses", "walnut", "onion"], cal: 310, p: 8, c: 60, f: 6, diet: ["Vegan", "Vegetarian", "Dairy-Free"] },
+  { name: "Ayva Tatlısı", cuisine: "Turkish", ingredients: ["quince", "sugar", "cloves", "kaymak", "pistachio"], cal: 280, p: 2, c: 65, f: 5, diet: ["Vegetarian", "Gluten-Free"] },
+  { name: "Cacık", cuisine: "Turkish", ingredients: ["yogurt", "cucumber", "garlic", "mint", "olive oil"], cal: 150, p: 8, c: 10, f: 9, diet: ["Vegetarian", "Gluten-Free", "Keto"] }
 ];
