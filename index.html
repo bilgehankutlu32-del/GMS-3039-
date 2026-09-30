@@ -6,29 +6,25 @@
   <title>Immersive Gastronomy & Nutrition Matcher</title>
   <style>
     :root {
-      --primary: #d94838;
-      --primary-dark: #b83628;
-      --secondary: #4a7c59;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --text: #2d3748;
-      --text-muted: #718096;
-      --border: #e2e8f0;
+        --bg-main: #0b0f19;         /* Derin gece mavisi/antrasit (Loş & Pahalı) */
+        --card-bg: rgba(30, 41, 59, 0.85); /* Mat cam efektli koyu kartlar */
+        --text-main: #f1f5f9;       /* Tertemiz parlak beyaz metin */
+        --text-muted: #94a3b8;      /* Gri alt ton */
+        --accent-gold: #d4af37;     /* Lüks altın sarısı vurgu */
+        --border-color: rgba(212, 175, 55, 0.25); /* İnce şık altın çerçeve */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      line-height: 1.5;
-      padding: 30px 16px;
-      background-image: url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80'); 
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      transition: background-image 0.6s ease-in-out;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--text-main);
+        line-height: 1.5;
+        padding: 30px 16px;
+        background-color: var(--bg-main) !important;
+        background-image: none !important; /* O eski arka plan resmini kökten sildik */
+        min-height: 100vh;
     }
-
     .container { max-width: 1100px; margin: 0 auto; }
 
     header { text-align: center; margin-bottom: 30px; background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
