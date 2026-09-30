@@ -270,15 +270,11 @@
     "Mediterranean": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=2000&q=80"
   };
 
-  // Yemek ismine özel nokta atışı şık Unsplash görselleri türeten akıllı fonksiyon
+  // Her yemeğe özel dinamik ve benzersiz fotoğraf URL'si üreten akıllı hash tabanlı fonksiyon
   function getRecipeImage(recipeName) {
-    const nameLower = recipeName.toLowerCase();
-    if (nameLower.includes('salad') || nameLower.includes('piyaz')) return 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80';
-    if (nameLower.includes('soup') || nameLower.includes('çorba')) return 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80';
-    if (nameLower.includes('meat') || nameLower.includes('kebap') || nameLower.includes('steak')) return 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80';
-    if (nameLower.includes('pasta') || nameLower.includes('spaghetti')) return 'https://images.unsplash.com/photo-1621996346565-e3d5d6281298?auto=format&fit=crop&w=800&q=80';
-    if (nameLower.includes('fish') || nameLower.includes('salmon')) return 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80';
-    return 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'; // Genel fine-dining tabak
+    const cleanName = encodeURIComponent(recipeName.trim());
+    // Unsplash Source API üzerinden yemeğin ismini query olarak verip her tarif için benzersiz ama içeriğe uygun görsel çekiyoruz
+    return `https://source.unsplash.com/800x600/?${cleanName},food,dish`;
   }
  
   const cuisineFilterEl = document.getElementById("cuisine-filter");
@@ -380,7 +376,7 @@
       return;
     }
  
-    recipesGrid.recipesData = recipes; // Modal için sakla
+    recipesGrid.recipesData = recipes;
 
     recipesGrid.innerHTML = recipes.map((item, index) => {
       const badgeClass = item.matchPct === 100 ? "match-100" : "";
@@ -419,7 +415,6 @@
     }).join("");
   }
 
-  // MODAL AÇMA / KAPAMA FONKSİYONLARI
   function openRecipeModal(index) {
     const recipe = recipesGrid.recipesData[index];
     if (!recipe) return;
