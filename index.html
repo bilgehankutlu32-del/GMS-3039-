@@ -270,11 +270,26 @@
     "Mediterranean": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=2000&q=80"
   };
 
-  // Her yemeğe özel dinamik ve benzersiz fotoğraf URL'si üreten akıllı hash tabanlı fonksiyon
+  // Güvenli ve garantili çalışan fine-dining yemek görsel havuzu (Asla patlamaz)
+  const foodImages = [
+    'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80'
+  ];
+
   function getRecipeImage(recipeName) {
-    const cleanName = encodeURIComponent(recipeName.trim());
-    // Unsplash Source API üzerinden yemeğin ismini query olarak verip her tarif için benzersiz ama içeriğe uygun görsel çekiyoruz
-    return `https://source.unsplash.com/800x600/?${cleanName},food,dish`;
+    // Yemek isminin karakter kodlarını toplayıp havuzdan sabit ve o yemeğe özel bir görsel seçiyoruz (Sallama değil, her yemek kendi fotoğrafını hatırlar)
+    let hash = 0;
+    for (let i = 0; i < recipeName.length; i++) {
+      hash = recipeName.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const index = Math.abs(hash) % foodImages.length;
+    return foodImages[index];
   }
  
   const cuisineFilterEl = document.getElementById("cuisine-filter");
