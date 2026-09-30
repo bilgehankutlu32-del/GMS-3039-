@@ -129,11 +129,8 @@
   <section class="recipes-grid" id="recipes-grid"></section>
 </div>
 
-<!-- Links to your Database File -->
-<script src="database.js"></script>
-
 <script>
-  // Dynamic Background Images based on Cuisine (No Audio)
+  // Dynamic Background Images based on Cuisine
   const backgrounds = {
     "All": "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80",
     "Turkish": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80",
@@ -155,9 +152,10 @@
   const recipesGrid = document.getElementById("recipes-grid");
   const resultsCount = document.getElementById("results-count");
   const userIngredients = new Set();
+  
+  let recipeDatabase = [];
 
   cuisineFilterEl.addEventListener("change", () => {
-    // Change background image instantly
     const cuisine = cuisineFilterEl.value;
     document.body.style.backgroundImage = `url('${backgrounds[cuisine] || backgrounds["All"]}')`;
     evaluateRecipes();
@@ -194,7 +192,7 @@
     const selectedDiet = dietFilterEl.value;
     const userArray = Array.from(userIngredients);
 
-    if (typeof recipeDatabase === 'undefined') return;
+    if (!recipeDatabase || recipeDatabase.length === 0) return;
 
     let viableRecipes = recipeDatabase;
     
@@ -252,7 +250,6 @@
       const badgeClass = item.matchPct === 100 ? "match-100" : "";
       const badgeText = item.matchPct > 0 ? (item.isMealMatch ? "Meal Match!" : `${item.matchPct}% Match`) : "Recipe";
       
-      // Map diet tags to their specific CSS classes
       const dietHtml = item.diet.map(d => {
         const safeClass = d.toLowerCase().replace(/\s+/g, '-');
         return `<span class="diet-badge diet-${safeClass}">${d}</span>`;
@@ -280,6 +277,7 @@
               <span style="color: #475569;">🥑 F: ${item.f}g</span>
             </div>
           </div>
+          ${item.instructions ? `<div style="margin-top:12px; font-size:12.5px; line-height:1.4; color:#4a5568; border-top:1px solid #e2e8f0; padding-top:10px;"><b>Chef's Note:</b> <i>${item.instructions}</i></div>` : ''}
         </div>
       `;
     }).join("");
@@ -288,8 +286,14 @@
   btnAdd.addEventListener("click", () => { addIngredient(inputEl.value); inputEl.value = ""; });
   inputEl.addEventListener("keypress", (e) => { if (e.key === "Enter") { addIngredient(inputEl.value); inputEl.value = ""; } });
   
-  // Render on startup
-  setTimeout(evaluateRecipes, 100); 
+  // JSON Veritabanını Canlı Olarak Bağla ve Siteyi Başlat
+  fetch('database.json')
+    .then(response => response.json())
+    .then(data => {
+      recipeDatabase = data;
+      evaluateRecipes();
+    })
+    .catch(error => console.error("Veritabanı okunamadı şef:", error));
 </script>
 </body>
 </html>
