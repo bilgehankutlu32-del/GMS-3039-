@@ -282,15 +282,23 @@
     'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80'
   ];
 
-  function getRecipeImage(recipeName) {
-    // Yemek isminin karakter kodlarını toplayıp havuzdan sabit ve o yemeğe özel bir görsel seçiyoruz (Sallama değil, her yemek kendi fotoğrafını hatırlar)
-    let hash = 0;
-    for (let i = 0; i < recipeName.length; i++) {
-      hash = recipeName.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const index = Math.abs(hash) % foodImages.length;
-    return foodImages[index];
+function getRecipeImage(recipeName) {
+  // Doğrudan veritabanından (database.json'dan gelen) bu yemeği bul
+  const found = recipeDatabase.find(r => r.name === recipeName);
+  
+  // Eğer veritabanında bu yemek ve özel bir resmi varsa, onu bas!
+  if (found && found.image) {
+    return found.image;
   }
+  
+  // Bulamazsa eski sisteme (yedek olarak) geri dönsün
+  let hash = 0;
+  for (let i = 0; i < recipeName.length; i++) {
+    hash = recipeName.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % foodImages.length;
+  return foodImages[index];
+}
  
   const cuisineFilterEl = document.getElementById("cuisine-filter");
   const dietFilterEl = document.getElementById("diet-filter");
