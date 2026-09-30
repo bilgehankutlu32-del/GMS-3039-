@@ -18,8 +18,9 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
-    },
+        ],
+        "instructions": "Whisk mustard and fresh lemon juice in a bowl to create the acid base. Slowly drizzle in the olive oil to form a stable emulsion. Gently toss the signature Antalya lupin beans (tirmis) and crisp mixed greens with this vinaigrette, and serve immediately."
+    },    
     {
         "name": "Antalya Usulü Piyaz",
         "cuisine": "Turkish",
@@ -40,7 +41,8 @@
             "Vegetarian",
             "Gluten-Free",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Whisk tahini, crushed garlic, lemon juice, and vinegar into a smooth tarator sauce, thinning it with a little warm bean broth if necessary. Fold in the boiled white beans to coat them evenly. Garnish with diced tomatoes and sliced hard-boiled eggs to complete this traditional Antalya texture."
     },
     {
         "name": "Hibeş",
@@ -63,7 +65,8 @@
             "Keto",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Place tahini in a deep bowl; whisk in fresh lemon juice and crushed garlic to bind the texture (it will stiffen at first, then loosen). Balance the spices by folding in cumin and sweet paprika. Finish with a generous drizzle of extra virgin olive oil and serve as a cold meze."
     },
     {
         "name": "Manca Meze",
@@ -84,7 +87,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Char the eggplant and red bell peppers over high heat until smoky. Peel and finely chop them with a knife (avoid mashing; retain a bite). Mix with crushed garlic, extra virgin olive oil, and grape vinegar to establish the acid-fat balance. Serve cold."
     },
     {
         "name": "Hünkar Beğendi",
@@ -103,7 +107,8 @@
         "f": 45,
         "diet": [
             "Fitness"
-        ]
+        ],
+        "instructions": "Sear the cubed lamb over high heat, then let it simmer in its own juices until tender. In a separate pan, cook butter and flour into a blonde roux, then fold in the roasted, mashed eggplant. Gradually whisk in warm milk and grated cheese until smooth and stretchy. Plate the rich eggplant puree (beğendi) and top it with the melt-in-your-mouth lamb."
     },
     {
         "name": "Mercimek Çorbası",
@@ -124,7 +129,8 @@
             "Vegan",
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Sweat the diced onion, carrot, and potato in olive oil to release their natural sugars. Stir in the washed red lentils and toast briefly before adding hot water. Simmer until the vegetables release their starches. Blend to a smooth velouté consistency, and serve drizzled with hot mint-infused oil."
     },
     {
         "name": "Zeytinyağlı Enginar",
@@ -146,7 +152,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Keep the artichoke bottoms in lemon water to prevent oxidation. Sweat diced onions in olive oil, then sauté the carrots and peas. Arrange the artichokes in a wide pot, fill them with the vegetable garnish, drizzle with generous olive oil, fresh lemon juice, and a pinch of sugar. Braise gently in their own steam."
     },
     {
         "name": "Izgara Levrek (Grilled Sea Bass)",
@@ -168,7 +175,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Marinate the sea bass fillets in olive oil, lemon juice, crushed garlic, and freshly ground black pepper for 15 minutes (do not exceed this to prevent the acid from cooking the fish). Heat the grill to high and sear skin-side down. Cook briefly to keep the inside juicy, and serve with a fresh lemon wedge."
     },
     {
         "name": "Agnolotti del Plin",
@@ -185,7 +193,8 @@
         "p": 28,
         "c": 52,
         "f": 30,
-        "diet": []
+        "diet": [],
+        "instructions": "Portion the filling—made from roasted veal, pork, and spinach—onto thinly rolled fresh pasta dough (pasta fresca) and seal using the traditional 'plin' (pinch) method. Boil in salted water until al dente, then toss in a pan with melted butter and fresh sage (burro e salvia) to coat perfectly."
     },
     {
         "name": "Risotto al Tartufo",
@@ -205,9 +214,10 @@
         "diet": [
             "Vegetarian",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Sweat finely chopped onions in butter, add Arborio rice and toast until the starches are sealed (tostatura). Deglaze with white wine and reduce. Gradually ladle in hot vegetable broth, stirring constantly to massage the starches out. Remove from heat and bind with cold butter, parmesan, and fresh truffle shavings (mantecatura) to achieve the perfect wavy consistency (all'onda)."
     },
-    {
+   {
         "name": "Bistecca alla Fiorentina",
         "cuisine": "Italian",
         "ingredients": [
@@ -226,7 +236,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Bring a thick-cut T-bone steak to room temperature. Grill over white-hot coals to achieve a heavy char (Maillard reaction) on the outside while keeping the center strictly rare. Let it rest for 5-10 minutes. Carve off the bone, finish with coarse sea salt, freshly cracked black pepper, and a drizzle of premium olive oil infused with a sprig of rosemary."
     },
     {
         "name": "Caprese Salad",
@@ -246,7 +257,8 @@
             "Vegetarian",
             "Gluten-Free",
             "Keto"
-        ]
+        ],
+        "instructions": "Slice ripe, seasonal tomatoes and fresh buffalo mozzarella into even rounds. Arrange them on a plate, alternating the slices with fresh basil leaves. Season lightly with flaky salt. Finish with a generous drizzle of high-quality extra virgin olive oil and a few drops of aged balsamic vinegar for depth."
     },
     {
         "name": "Pesce all'Acqua Pazza",
@@ -268,7 +280,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Prepare the 'crazy water' broth by sweating garlic in olive oil, then adding halved cherry tomatoes and deglazing with white wine. Submerge the white fish fillets in this fragrant, simmering liquid and poach gently until the fish is flaky and opaque. Garnish generously with freshly chopped parsley."
     },
     {
         "name": "Pesto Zucchini Noodles",
@@ -289,7 +302,8 @@
             "Vegetarian",
             "Gluten-Free",
             "Keto"
-        ]
+        ],
+        "instructions": "Use a spiralizer to turn fresh zucchini into noodles (zoodles) and briefly blanch or sauté them to retain a slight crunch. In a mortar or food processor, blend fresh basil, toasted pine nuts, garlic, parmesan, and olive oil into a vibrant pesto emulsion. Toss the warm zoodles in the pesto to coat evenly."
     },
     {
         "name": "Melanzane alla Parmigiana",
@@ -308,7 +322,8 @@
         "diet": [
             "Vegetarian",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Slice the eggplants, salt them to draw out bitterness, then fry until golden. In a baking dish, build layers of fried eggplant, rich tomato sauce, torn fresh mozzarella, grated parmesan, and basil leaves. Bake until the cheese is bubbling and golden brown. Let it set slightly before slicing."
     },
     {
         "name": "Tacos al Pastor",
@@ -327,7 +342,8 @@
         "diet": [
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Marinate thinly sliced pork in achiote and chilies, then roast on a vertical spit (trompo) if available, or sear quickly in a hot pan. Slice the caramelized pork directly onto warm corn tortillas. Top with roasted pineapple chunks, finely diced onion, fresh cilantro, and a squeeze of lime."
     },
     {
         "name": "Chiles en Nogada",
@@ -345,7 +361,8 @@
         "f": 38,
         "diet": [
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Roast and peel the poblano peppers, then stuff them with a savory-sweet picadillo mixture of ground beef and fruits. Blend soaked walnuts with cream to create a rich, velvety nogada sauce. Pour the white sauce over the stuffed peppers and garnish brightly with fresh red pomegranate seeds and parsley."
     },
     {
         "name": "Guacamole & Cucumber Slices",
@@ -368,7 +385,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Keto"
-        ]
+        ],
+        "instructions": "Mash ripe avocados, keeping some chunky texture. Fold in finely diced onion, seeded tomatoes, fresh cilantro, and a generous squeeze of lime juice for acidity. Serve immediately with crisp, thick-cut cucumber slices for a refreshing, low-carb dipping alternative."
     },
     {
         "name": "Black Bean Sofrito Bowls",
@@ -390,7 +408,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Prepare a fragrant sofrito by slowly sautéing finely diced onions, bell peppers, and aromatics until deeply caramelized. Simmer the black beans in this sofrito to absorb the flavors. Serve over a bed of steamed brown rice and garnish with fresh cilantro for a vibrant finish."
     },
     {
         "name": "Ceviche de Pescado",
@@ -413,7 +432,8 @@
             "Gluten-Free",
             "Keto",
             "Fitness"
-        ]
+        ],
+        "instructions": "Dice fresh, high-quality white fish and submerge it entirely in fresh lime juice. Let the acid 'cook' the proteins (denaturation) for 15-20 minutes until opaque. Drain slightly, then toss gently with diced tomatoes, red onion, minced jalapeno, and fresh cilantro. Serve chilled."
     },
     {
         "name": "Vegan Mushroom Fajitas",
@@ -434,7 +454,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Slice thick strips of meaty portobello mushrooms, onions, and bell peppers. Sauté them over high heat with fajita spices until they develop a slight char and the onions caramelize. Serve sizzling hot alongside warm corn tortillas, finishing with a squeeze of fresh lime juice."
     },
     {
         "name": "Caramelized Soy-Honey Shrimp",
@@ -454,7 +475,8 @@
         "diet": [
             "Pescatarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Quickly sear the shrimp in a hot pan. In a separate bowl, whisk together soy sauce, honey, minced garlic, and ginger. Pour the glaze over the shrimp, reducing it rapidly until it thickens and heavily coats the shrimp with a sticky, caramelized finish. Drizzle with toasted sesame oil just before serving."
     },
     {
         "name": "Tofu & Broccoli Stir Fry",
@@ -476,7 +498,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Press the tofu to remove excess moisture, cube it, and pan-fry until golden and crispy on all sides. Blanch the broccoli florets briefly to keep them vibrant green. Toss the crispy tofu and broccoli in a hot wok with minced garlic, ginger, and soy sauce. Serve immediately over steamed rice."
     },
     {
         "name": "Sashimi Platter",
@@ -497,7 +520,8 @@
             "Keto",
             "Dairy-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Using a very sharp Yanagiba knife, slice sashimi-grade salmon and tuna against the grain into even, bite-sized pieces. Arrange elegantly over ice or a chilled platter to maintain temperature. Serve with high-quality soy sauce, freshly grated wasabi, and pickled ginger to cleanse the palate."
     },
     {
         "name": "Chicken Lettuce Wraps",
@@ -517,7 +541,8 @@
             "Dairy-Free",
             "Keto",
             "Fitness"
-        ]
+        ],
+        "instructions": "Finely mince the chicken breast and stir-fry over high heat until browned. Add chopped water chestnuts for crunch, then deglaze with soy sauce and hoisin sauce, reducing until the mixture is deeply savory and slightly sticky. Serve the warm chicken mixture spooned into crisp, chilled lettuce cups."
     },
     {
         "name": "Miso Glazed Eggplant",
@@ -537,7 +562,8 @@
             "Vegan",
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Score the flesh of halved eggplants in a crosshatch pattern. Sear flesh-side down in a hot pan until golden, then flip. Brush generously with a rich glaze made from miso paste, mirin, and soy sauce. Broil until the glaze bubbles and caramelizes. Garnish with toasted sesame seeds."
     },
     {
         "name": "Fattoush Salad",
@@ -559,7 +585,8 @@
             "Vegan",
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Toast or fry pieces of pita bread until deeply crisp. Chop lettuce, cucumbers, tomatoes, and radishes into large, rustic bites. Toss the vegetables and crispy pita in a bright vinaigrette made of olive oil, lemon, and a generous amount of tangy sumac just before serving to preserve the crunch."
     },
     {
         "name": "Grilled Octopus",
@@ -581,7 +608,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Tenderize the octopus by slow-braising it in a court-bouillon until easily pierced. Let it cool, then char the tentacles quickly over a screaming hot grill for a smoky exterior. Dress immediately with a simple emulsion of premium olive oil, lemon juice, crushed garlic, and dried oregano."
     },
     {
         "name": "Falafel & Tahini Bowl",
@@ -603,7 +631,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Blend soaked (not canned) chickpeas with parsley, garlic, and spices, form into patties, and deep-fry until the exterior is deeply browned and crisp. Serve the hot falafels over a fresh cucumber and tomato salad, heavily drizzled with a smooth, lemony tahini sauce."
     },
     {
         "name": "Chicken Shawarma Plate",
@@ -624,7 +653,8 @@
             "Keto",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Marinate chicken in bold middle eastern spices, lemon, and olive oil, then roast or pan-sear over high heat to mimic the rotisserie char. Slice thinly and serve alongside a refreshing cucumber-tomato salad. Finish with a generous dollop of intense, fluffy garlic sauce (toum)."
     },
     {
         "name": "Shakshuka",
@@ -646,7 +676,8 @@
             "Vegetarian",
             "Gluten-Free",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Create a rich, spiced stew by simmering diced tomatoes, bell peppers, onions, garlic, and cumin until it thickens. Create small wells in the sauce and crack the eggs directly into them. Cover and simmer gently until the egg whites are just set, but the yolks remain perfectly runny."
     },
     {
         "name": "Ratatouille",
@@ -668,7 +699,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "To ensure perfect texture, sauté the eggplant, zucchini, and bell peppers separately in olive oil before combining. Simmer the vegetables together in a fragrant tomato and garlic sauce (piperade) over low heat until tender but not mushy, allowing the flavors to meld beautifully."
     },
     {
         "name": "Salade Niçoise",
@@ -690,7 +722,8 @@
             "Gluten-Free",
             "Dairy-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Blanch the green beans (haricots verts) and potatoes until just tender. Arrange them meticulously on a platter alongside high-quality tuna, soft-boiled eggs, and briny Niçoise olives. Dress lightly with a classic Dijon vinaigrette to tie the distinct components together."
     },
     {
         "name": "Steak au Poivre",
@@ -709,7 +742,8 @@
         "diet": [
             "Keto",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Crush black peppercorns and press them firmly into both sides of the steak. Sear in a screaming hot pan with butter to form a spicy crust. Remove the steak, deglaze the pan with cognac (flambé if desired), and whisk in cream to create a rich, reduction sauce. Pour over the rested steak."
     },
     {
         "name": "Vitello Tonnato",
@@ -731,7 +765,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Poach the veal gently until tender, cool it completely, and slice it paper-thin. For the sauce, blend high-quality canned tuna, egg yolks, olive oil, lemon juice, and capers into a smooth, umami-rich mayonnaise. Drape the sauce generously over the cold veal slices and garnish with extra capers."
     },
     {
         "name": "Tajarin al Tartufo",
@@ -749,7 +784,8 @@
         "f": 32,
         "diet": [
             "Vegetarian"
-        ]
+        ],
+        "instructions": "Prepare a very rich, egg-yolk heavy fresh pasta dough, rolling it out and cutting it into delicate, thin ribbons (tajarin). Cook briefly in salted boiling water. Toss in a pan with melted high-quality butter and a splash of pasta water to create a glossy emulsion. Finish with freshly shaved white truffle."
     },
     {
         "name": "Brasato al Barolo",
@@ -770,7 +806,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Marinate the beef roast overnight in Barolo wine and mirepoix (onion, carrot, celery). Sear the beef heavily on all sides. Braise it slowly in the marinade liquid along with a sprig of rosemary until fork-tender. Puree the remaining braising liquid and vegetables into a thick, glossy reduction sauce."
     },
     {
         "name": "Artisan Handmade Pasta",
@@ -788,7 +825,8 @@
         "diet": [
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Mound the semolina flour and create a well in the center. Crack the eggs into the well, add a pinch of salt and a dash of olive oil, and slowly whisk with a fork, incorporating the flour until a dough forms. Knead vigorously until smooth and elastic, then rest before rolling and cutting."
     },
     {
         "name": "Cacio e Pepe",
@@ -804,7 +842,8 @@
         "f": 18,
         "diet": [
             "Vegetarian"
-        ]
+        ],
+        "instructions": "Toast freshly cracked black pepper in a dry pan to release its essential oils. Boil the spaghetti until just under al dente. In a separate bowl, mix finely grated Pecorino Romano with a splash of hot, starchy pasta water to form a thick paste. Toss the pasta in the pepper pan, off the heat, vigorously stirring in the cheese paste until a creamy, emulsified sauce coats the noodles."
     },
     {
         "name": "Ossobuco alla Milanese",
@@ -825,7 +864,8 @@
             "Dairy-Free",
             "Gluten-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Tie the veal shanks to hold their shape and sear aggressively. Sauté the aromatics, deglaze with white wine, and add beef broth. Braise low and slow until the meat is meltingly tender and the marrow in the bone is soft. Finish with a gremolata made of minced garlic, parsley, and lemon zest for brightness."
     },
     {
         "name": "Focaccia Barese",
@@ -845,7 +885,8 @@
             "Vegan",
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Prepare a highly hydrated dough using flour, yeast, and a small amount of mashed potato for softness. Let it proof in a pan heavily coated with olive oil. Dimple the dough deeply with your fingers, pressing halved cherry tomatoes and olives firmly into the surface. Bake until the bottom is practically fried and crispy."
     },
     {
         "name": "Tiramisu Naturale",
@@ -863,7 +904,8 @@
         "f": 28,
         "diet": [
             "Vegetarian"
-        ]
+        ],
+        "instructions": "Whisk egg yolks with sugar until pale and ribbony, then gently fold in rich mascarpone cheese. Quickly dip the ladyfingers (savoiardi) into strong, cold espresso—do not soak them. Layer the soaked biscuits with the mascarpone cream. Chill overnight to set, and dust heavily with bitter cocoa powder before serving."
     },
     {
         "name": "Caramelized Soy-Honey Shrimp & Arancini",
@@ -882,7 +924,8 @@
         "f": 24,
         "diet": [
             "Pescatarian"
-        ]
+        ],
+        "instructions": "Form leftover Arborio rice around a small cube of mozzarella, coat in panko breadcrumbs, and deep-fry into crispy arancini. In a separate pan, sear shrimp and glaze them with a sticky reduction of soy sauce and honey. Serve the caramelized shrimp resting atop the crispy, molten-centered risotto balls for a striking fusion."
     },
     {
         "name": "Spicy Tuna Crispy Rice",
@@ -902,7 +945,8 @@
             "Pescatarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Press seasoned sushi rice into a block, chill, slice into rectangles, and pan-fry until a golden, crispy crust forms on the bottom. Mix finely minced sashimi-grade tuna with sriracha and sesame oil. Spoon the spicy tuna tartare over the warm, crispy rice blocks and garnish with a thin slice of jalapeño."
     },
     {
         "name": "Matcha Soba Noodles",
@@ -922,7 +966,8 @@
             "Vegan",
             "Vegetarian",
             "Dairy-Free"
-        ]
+        ],
+        "instructions": "Boil the matcha-infused buckwheat soba noodles until tender, then immediately shock them in an ice bath to preserve their chew and vibrant color. Toss gently in a light dressing of soy sauce and toasted sesame oil. Serve cold, garnished with finely sliced green onions."
     },
     {
         "name": "Chicken Yakitori",
@@ -942,7 +987,8 @@
         "diet": [
             "Dairy-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Skewer bite-sized pieces of juicy chicken thigh alternating with sections of green onion. Grill over high heat (preferably binchotan charcoal). Reduce soy sauce, mirin, sake, and sugar into a thick tare sauce. Glaze the skewers repeatedly during the final stages of grilling to build a deeply caramelized, sticky coating."
     },
     {
         "name": "Beef Gyudon",
@@ -962,7 +1008,8 @@
         "diet": [
             "Dairy-Free",
             "Fitness"
-        ]
+        ],
+        "instructions": "Simmer thinly sliced onions in a delicate broth of dashi, soy sauce, and mirin. Add paper-thin slices of beef and poach briefly just until cooked through to maintain tenderness. Serve the beef and onions along with the savory broth poured generously over a bowl of steamed short-grain rice. Top with a soft-poached or raw egg yolk."
     },
     {
         "name": "Tom Yum Goong",
@@ -985,7 +1032,8 @@
             "Gluten-Free",
             "Keto",
             "Fitness"
-        ]
+        ],
+        "instructions": "Infuse a light broth by simmering bruised lemongrass, sliced galangal, and torn kaffir lime leaves. Add fresh shrimp, bird's eye chilies, and a savory hit of fish sauce. Turn off the heat and finish with a squeeze of fresh lime juice to preserve its bright acidity, delivering a sharp hot-and-sour profile."
     },
     {
         "name": "Pad Kra Pao",
@@ -1006,7 +1054,8 @@
             "Dairy-Free",
             "Keto",
             "Fitness"
-        ]
+        ],
+        "instructions": "Pound garlic and fresh bird's eye chilies into a rough paste and fry quickly in a hot wok. Stir in the ground pork and season intensely with soy and oyster sauces. Fold in a generous handful of holy basil just before removing from the heat. Serve over rice, crowned with a crispy-edged, runny fried egg."
     },
     {
         "name": "Gavurdağı Salatası",
@@ -1028,7 +1077,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Finely dice tomatoes, onions, and parsley (brunoise style) so the juices mingle. Toss with roughly chopped walnuts for texture. Dress heavily with authentic, thick pomegranate molasses (nar ekşisi) and rich olive oil to create a sweet, sour, and crunchy flavor profile unique to the Gaziantep region."
     },
     {
         "name": "Adana Kebap",
@@ -1044,7 +1094,8 @@
         "p": 38,
         "c": 35,
         "f": 45,
-        "diet": []
+        "diet": [],
+        "instructions": "Hand-mince fatty lamb meat using a traditional 'zırh' (curved cleaver), blending it intimately with minced red bell peppers and salt. Mold the mixture firmly onto wide flat skewers. Grill over open coals until the exterior is heavily charred and the interior remains intensely juicy. Serve over warm pita bread to catch the drippings."
     },
     {
         "name": "Çılbır",
@@ -1064,7 +1115,8 @@
             "Vegetarian",
             "Gluten-Free",
             "Keto"
-        ]
+        ],
+        "instructions": "Prepare a base of room-temperature, garlicky strained yogurt. Create a gentle vortex in simmering water with a splash of vinegar and carefully poach the eggs until the whites are set but yolks remain liquid. Place the poached eggs over the yogurt bed and drizzle generously with butter infused with sizzling red pepper flakes (pul biber)."
     },
     {
         "name": "Midye Dolma",
@@ -1085,7 +1137,8 @@
             "Pescatarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Prepare a fragrant, spiced pilaf using rice, pine nuts, sweet currants, allspice, and a hint of cinnamon. Carefully pry open fresh mussels, stuff them generously with the rice mixture, and press them closed. Braise the stuffed mussels gently in a pot with a little water and olive oil until the rice is tender."
     },
     {
         "name": "Kuymak / Mıhlama",
@@ -1103,7 +1156,8 @@
         "diet": [
             "Vegetarian",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Melt a generous amount of high-quality local butter in a copper pan (sahan). Slowly toast the cornmeal in the butter until aromatic and golden. Gradually whisk in warm water to form a smooth base. Fold in strings of regional Trabzon or Kolot cheese, stirring continuously over low heat until the cheese melts and stretches dramatically."
     },
     {
         "name": "Ali Nazik Kebap",
@@ -1121,7 +1175,8 @@
         "f": 35,
         "diet": [
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Char eggplants over an open flame for a deep, smoky flavor. Peel and mash the flesh, then fold it into thick, garlicky strained yogurt to create a creamy base. Sauté ground beef (or lamb) with butter and mild spices. Serve the hot, savory meat piled high over the cool, smoky eggplant-yogurt puree."
     },
     {
         "name": "Şakşuka",
@@ -1143,7 +1198,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Cube eggplants, zucchinis, and potatoes, then fry them separately in hot olive oil until deeply golden, draining well to maintain texture. Prepare a rich, robust tomato sauce simmered with plenty of garlic. Toss the fried vegetables in the warm tomato sauce and serve as a cold or room-temperature meze."
     },
     {
         "name": "Zeytinyağlı Yaprak Sarma",
@@ -1165,7 +1221,8 @@
             "Vegetarian",
             "Dairy-Free",
             "Gluten-Free"
-        ]
+        ],
+        "instructions": "Prepare an aromatic filling by cooking rice with copious amounts of finely chopped onions, pine nuts, dried mint, and a touch of sugar in olive oil. Carefully roll small, tight cigars of the mixture inside blanched grape leaves. Arrange tightly in a pot, drizzle with lemon and generous olive oil, and braise slowly under a weighted plate."
     },
     {
         "name": "Egg White & Cottage Cheese Scramble",
