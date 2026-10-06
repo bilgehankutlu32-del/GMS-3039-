@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Immersive Gastronomy & Nutrition Matcher</title>
+  
+  <!-- 3D DÜNYA İÇİN GEREKLİ KÜTÜPHANELER -->
+  <script src="https://unpkg.com/three"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
+
   <style>
     :root {
         --bg-main: #0b0f19;
@@ -26,6 +31,7 @@
                     url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
         background-size: cover;
         min-height: 100vh;
+        overflow-x: hidden;
     }
 
     .container { max-width: 1100px; margin: 0 auto; }
@@ -57,96 +63,84 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* İNTERAKTİF DÜNYA HARİTASI STİLLERİ */
-    .map-wrapper {
+    /* 3D DÜNYA STİLLERİ */
+    .globe-wrapper {
         position: relative;
         width: 100%;
         max-width: 900px;
+        height: 450px;
         margin: 0 auto 25px auto;
-        aspect-ratio: 2 / 1;
-        background: rgba(5, 7, 12, 0.5);
+        background: radial-gradient(circle at center, rgba(30, 41, 59, 0.4) 0%, rgba(5, 7, 12, 0.8) 100%);
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.05);
         overflow: hidden;
-        box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: grab;
     }
+    .globe-wrapper:active { cursor: grabbing; }
 
-    .map-bg {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') no-repeat center center;
-        background-size: 100% 100%;
-        filter: invert(0.7) opacity(0.3) sepia(0.5) hue-rotate(180deg);
-        pointer-events: none;
-    }
-
-    .map-pin {
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        background: #64748b;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 10;
-        box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-
-    .map-pin:hover, .map-pin.active {
-        background: var(--accent-gold);
-        transform: translate(-50%, -50%) scale(1.6);
-        box-shadow: 0 0 15px var(--accent-gold), 0 0 30px var(--accent-red);
-        z-index: 20;
-    }
-
-    .map-pin .pin-label {
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(15, 23, 42, 0.95);
+    .globe-pin {
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid var(--accent-gold);
         color: #fff;
         padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 12px;
+        border-radius: 8px;
+        font-size: 13px;
         font-weight: 700;
         white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-        border: 1px solid var(--accent-gold);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .map-pin:hover .pin-label, .map-pin.active .pin-label {
-        opacity: 1;
-        top: -35px;
-    }
-
-    .btn-reset-map {
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        background: rgba(15, 23, 42, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
         cursor: pointer;
-        transition: 0.3s;
-        z-index: 30;
+        transition: all 0.3s ease;
+        user-select: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        pointer-events: auto;
     }
 
-    .btn-reset-map:hover {
+    .globe-pin:hover, .globe-pin.active {
         background: var(--accent-red);
         border-color: #f87171;
+        transform: scale(1.15);
+        z-index: 1000;
     }
 
-    /* MEVCUT ARAMA INPUTLARI */
+    .globe-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        pointer-events: none; /* Arka plandaki dünyaya tıklanabilmesi için */
+    }
+
+    .btn-spin, .btn-reset-map {
+        pointer-events: auto;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .btn-spin {
+        background: linear-gradient(135deg, #d4af37 0%, #b48600 100%);
+        border-color: #fff;
+        color: #0f172a;
+    }
+
+    .btn-spin:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); }
+    .btn-reset-map:hover { background: var(--accent-red); border-color: #f87171; }
+
+    /* ARAMA INPUTLARI */
     .input-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
     .input-row input { 
         flex: 2; min-width: 200px; padding: 12px 16px; font-size: 15px; 
@@ -186,12 +180,7 @@
         font-size: 0.9rem;
         transition: all 0.3s ease;
     }
-
-    .filter-chip:hover {
-        background: var(--accent-red);
-        border-color: #f87171;
-        transform: translateY(-2px);
-    }
+    .filter-chip:hover { background: var(--accent-red); border-color: #f87171; transform: translateY(-2px); }
 
     .user-ingredients-box { 
         min-height: 48px; padding: 10px; background: rgba(15, 23, 42, 0.6); 
@@ -212,8 +201,7 @@
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
         display: flex; flex-direction: column; justify-content: space-between; 
-        transition: transform 0.3s ease, border-color 0.3s ease; 
-        cursor: pointer;
+        transition: transform 0.3s ease, border-color 0.3s ease; cursor: pointer;
     }
     .recipe-card:hover { transform: translateY(-5px); border-color: var(--accent-gold) !important; }
     
@@ -277,26 +265,17 @@
 <div class="container">
   <header>
     <div class="logo">🌍 Global Gastronomy Matcher</div>
-    <p class="purpose">Search recipes, filter by region on the map, and calculate macros instantly.</p>
+    <p class="purpose">Spin the globe, choose a region, and calculate macros instantly.</p>
   </header>
  
   <section class="search-panel">
     
-    <!-- YENİ İNTERAKTİF DÜNYA HARİTASI (DROPDOWN YERİNE) -->
-    <div class="map-wrapper">
-        <div class="map-bg"></div>
-        
-        <div class="map-pin" style="left: 23%; top: 48%;" data-cuisine="Mexican"><span class="pin-label">🌮 Mexican</span></div>
-        <div class="map-pin" style="left: 48%; top: 31%;" data-cuisine="French"><span class="pin-label">🥐 French</span></div>
-        <div class="map-pin" style="left: 51%; top: 33%;" data-cuisine="Italian"><span class="pin-label">🍝 Italian</span></div>
-        <div class="map-pin" style="left: 53.5%; top: 36%;" data-cuisine="Mediterranean"><span class="pin-label">🍋 Mediterranean</span></div>
-        <div class="map-pin" style="left: 56.5%; top: 34%;" data-cuisine="Turkish"><span class="pin-label">🍢 Turkish</span></div>
-        <div class="map-pin" style="left: 59%; top: 42%;" data-cuisine="Middle Eastern"><span class="pin-label">🥙 Middle Eastern</span></div>
-        <div class="map-pin" style="left: 70%; top: 47%;" data-cuisine="Indian"><span class="pin-label">🍛 Indian</span></div>
-        <div class="map-pin" style="left: 78%; top: 42%;" data-cuisine="Asian"><span class="pin-label">🍜 Asian</span></div>
-        <div class="map-pin" style="left: 86%; top: 34%;" data-cuisine="Japanese"><span class="pin-label">🍣 Japanese</span></div>
-
-        <button class="btn-reset-map" id="btn-reset-map">🌍 All Cuisines</button>
+    <!-- YENİ 3D İNTERAKTİF DÜNYA VE BUTONLAR -->
+    <div class="globe-wrapper" id="globeViz">
+        <div class="globe-controls">
+            <button class="btn-spin" onclick="spinAndChoose()">🎲 Spin & Choose</button>
+            <button class="btn-reset-map" onclick="resetMap()">🌍 All Cuisines</button>
+        </div>
     </div>
 
     <div class="input-row">
@@ -328,7 +307,7 @@
   </section>
  
   <div class="results-header">
-    <h2>Suggested Recipes (<span id="results-count">0</span>)</h2>
+    <h2>Suggested Recipes (<span id="results-count">0</span>) <span id="active-region-text" style="color: var(--accent-gold); font-size: 0.9rem; margin-left: 10px;"></span></h2>
   </div>
   <section class="recipes-grid" id="recipes-grid"></section>
 </div>
@@ -352,6 +331,7 @@
 </div>
  
 <script>
+  // Arka plan görselleri
   const backgrounds = {
     "All": "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80",
     "Turkish": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80",
@@ -368,8 +348,7 @@
   const foodImages = [
     'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80'
+    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
   ];
 
   function getRecipeImage(recipeName) {
@@ -379,8 +358,112 @@
     for (let i = 0; i < recipeName.length; i++) hash = recipeName.charCodeAt(i) + ((hash << 5) - hash);
     return foodImages[Math.abs(hash) % foodImages.length];
   }
- 
-  let currentSelectedCuisine = "All"; // MAP İÇİN SEÇİLİ MUTFAK
+
+  // --- 3D DÜNYA VE KOORDİNATLAR (Artık Okyanusta Değiller!) ---
+  const cuisinesData = [
+      { name: "Mexican", lat: 23.6345, lng: -102.5528, label: "🌮 Mexican" },
+      { name: "French", lat: 46.2276, lng: 2.2137, label: "🥐 French" },
+      { name: "Italian", lat: 41.8719, lng: 12.5674, label: "🍝 Italian" },
+      { name: "Mediterranean", lat: 39.0742, lng: 21.8243, label: "🍋 Mediterranean" },
+      { name: "Turkish", lat: 38.9637, lng: 35.2433, label: "🍢 Turkish" },
+      { name: "Middle Eastern", lat: 33.8547, lng: 35.8623, label: "🥙 Middle Eastern" },
+      { name: "Indian", lat: 20.5937, lng: 78.9629, label: "🍛 Indian" },
+      { name: "Asian", lat: 35.8617, lng: 104.1954, label: "🍜 Asian" },
+      { name: "Japanese", lat: 36.2048, lng: 138.2529, label: "🍣 Japanese" }
+  ];
+
+  let currentSelectedCuisine = "All"; 
+  let world; // Küre objemiz
+  
+  // Küreyi Başlat
+  const globeContainer = document.getElementById('globeViz');
+  
+  // Eğer mobildeyse veya container küçükse ona göre ayarla
+  const globeWidth = globeContainer.clientWidth;
+  
+  world = Globe()(globeContainer)
+    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg') // Efsanevi karanlık tema dünya
+    .backgroundColor('rgba(0,0,0,0)')
+    .width(globeWidth)
+    .height(450)
+    .htmlElementsData(cuisinesData)
+    .htmlElement(d => {
+        const el = document.createElement('div');
+        el.innerHTML = d.label;
+        el.className = 'globe-pin';
+        el.id = `pin-${d.name}`;
+        
+        el.onclick = () => selectCuisineFromMap(d);
+        return el;
+    });
+
+  // Dünyanın kendi etrafında yavaşça dönmesi (Ambient rotation)
+  world.controls().autoRotate = true;
+  world.controls().autoRotateSpeed = 0.6;
+  world.controls().enableZoom = false; // Mobilde kaydırmayı bozmasın diye zoomu kapattık
+  
+  // İlk açılışta Avrupa/Asya tarafına baksın
+  world.pointOfView({ lat: 35, lng: 35, altitude: 2 }, 1000);
+
+  // Pencere boyutu değişince haritayı sığdır
+  window.addEventListener('resize', () => {
+      world.width(document.getElementById('globeViz').clientWidth);
+  });
+
+  // HARİTADAN SEÇİM YAPILDIĞINDA ÇALIŞACAK FONKSİYON
+  function selectCuisineFromMap(cuisineObj) {
+      // Pinlerin stillerini sıfırla
+      document.querySelectorAll('.globe-pin').forEach(pin => pin.classList.remove('active'));
+      const activePin = document.getElementById(`pin-${cuisineObj.name}`);
+      if(activePin) activePin.classList.add('active');
+
+      currentSelectedCuisine = cuisineObj.name;
+      document.getElementById('active-region-text').innerText = `- ${cuisineObj.label}`;
+      
+      // Dünyayı o ülkeye odaklar (Kamera animasyonu)
+      world.pointOfView({ lat: cuisineObj.lat, lng: cuisineObj.lng, altitude: 1.2 }, 1000);
+      
+      // Arka planı değiştir
+      const bgImg = backgrounds[currentSelectedCuisine] || backgrounds["All"];
+      document.body.style.background = `linear-gradient(135deg, rgba(11, 15, 25, 0.92) 0%, rgba(153, 27, 27, 0.25) 100%), url('${bgImg}') no-repeat center center fixed`;
+      document.body.style.backgroundSize = "cover";
+      
+      evaluateRecipes();
+  }
+
+  // ÇARKIFELEK (SPIN) FONKSİYONU
+  function spinAndChoose() {
+      // 1. Önce dünyayı fırıldak gibi döndür
+      world.controls().autoRotateSpeed = 40; 
+      
+      // 2. Butona basıldığını belli et, pin stillerini sıfırla
+      document.querySelectorAll('.globe-pin').forEach(pin => pin.classList.remove('active'));
+      document.getElementById('active-region-text').innerText = "- 🎲 Spinning...";
+
+      // 3. 2.5 saniye sonra rastgele bir mutfak seç ve durdur
+      setTimeout(() => {
+          world.controls().autoRotateSpeed = 0.6; // Normale döndür
+          const randomCuisine = cuisinesData[Math.floor(Math.random() * cuisinesData.length)];
+          
+          // O ülkeye şık bir kamera uçuşu
+          selectCuisineFromMap(randomCuisine);
+      }, 2500);
+  }
+
+  // HARİTAYI SIFIRLA FONKSİYONU
+  function resetMap() {
+      document.querySelectorAll('.globe-pin').forEach(pin => pin.classList.remove('active'));
+      currentSelectedCuisine = "All";
+      document.getElementById('active-region-text').innerText = "";
+      
+      world.pointOfView({ lat: 35, lng: 35, altitude: 2 }, 1500); // Varsayılan konuma geri dön
+
+      document.body.style.background = `linear-gradient(135deg, rgba(11, 15, 25, 0.92) 0%, rgba(153, 27, 27, 0.25) 100%), url('${backgrounds["All"]}') no-repeat center center fixed`;
+      document.body.style.backgroundSize = "cover";
+      evaluateRecipes();
+  }
+  // --- 3D DÜNYA KODLARI BİTİŞ ---
+
   const dietFilterEl = document.getElementById("diet-filter");
   const inputEl = document.getElementById("ingredient-input");
   const btnAdd = document.getElementById("btn-add");
@@ -391,33 +474,6 @@
   
   let recipeDatabase = [];
 
-  // HARİTA ETKİLEŞİM JS KODLARI
-  const mapPins = document.querySelectorAll('.map-pin');
-  const btnResetMap = document.getElementById('btn-reset-map');
-
-  mapPins.forEach(pin => {
-      pin.addEventListener('click', function() {
-          mapPins.forEach(p => p.classList.remove('active'));
-          this.classList.add('active');
-          
-          currentSelectedCuisine = this.getAttribute('data-cuisine');
-          
-          const bgImg = backgrounds[currentSelectedCuisine] || backgrounds["All"];
-          document.body.style.background = `linear-gradient(135deg, rgba(11, 15, 25, 0.92) 0%, rgba(153, 27, 27, 0.25) 100%), url('${bgImg}') no-repeat center center fixed`;
-          document.body.style.backgroundSize = "cover";
-          
-          evaluateRecipes();
-      });
-  });
-
-  btnResetMap.addEventListener('click', () => {
-      mapPins.forEach(p => p.classList.remove('active'));
-      currentSelectedCuisine = "All";
-      document.body.style.background = `linear-gradient(135deg, rgba(11, 15, 25, 0.92) 0%, rgba(153, 27, 27, 0.25) 100%), url('${backgrounds["All"]}') no-repeat center center fixed`;
-      document.body.style.backgroundSize = "cover";
-      evaluateRecipes();
-  });
- 
   dietFilterEl.addEventListener("change", evaluateRecipes);
  
   function addIngredient(val) {
@@ -453,7 +509,7 @@
       viableRecipes = viableRecipes.filter(r => r.diet && r.diet.includes(selectedDiet));
     }
     
-    // YENİ HARİTA DEĞİŞKENİNDEN FİLTRELEME
+    // HARİTADAN SEÇİLEN MUTFAĞA GÖRE FİLTRELE
     if (currentSelectedCuisine !== "All") {
       viableRecipes = viableRecipes.filter(r => r.cuisine === currentSelectedCuisine);
     }
