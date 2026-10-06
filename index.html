@@ -34,6 +34,54 @@
         overflow-x: hidden;
     }
 
+    /* SİNEMATİK AÇILIŞ EKRANI (SPLASH SCREEN) STİLLERİ */
+    #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 99999; /* Her şeyin üstünde */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    }
+
+    #intro-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .splash-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    #skip-btn {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        transition: 0.3s;
+        z-index: 100000;
+    }
+
+    #skip-btn:hover {
+        background: rgba(153, 27, 27, 0.8);
+        border-color: #f87171;
+    }
+
     .container { max-width: 1100px; margin: 0 auto; }
 
     header {
@@ -257,6 +305,16 @@
 </head>
 <body>
  
+<!-- YENİ EKLENEN SİNEMATİK SPLASH EKRANI -->
+<div id="splash-screen">
+    <!-- playsinline ve muted çok önemli, yoksa mobilde otomatik başlamaz -->
+    <video id="intro-video" autoplay muted playsinline>
+        <source src="intro.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+    <button id="skip-btn">Skip Intro ➔</button>
+</div>
+
 <div class="container">
   <header>
     <div class="logo">🌍 Global Gastronomy Matcher</div>
@@ -325,6 +383,29 @@
 </div>
  
 <script>
+  // YENİ SPLASH SCREEN KONTROL KODU
+  const splashScreen = document.getElementById('splash-screen');
+  const introVideo = document.getElementById('intro-video');
+  const skipBtn = document.getElementById('skip-btn');
+
+  function removeSplash() {
+      // Fade out class'ını ekle (CSS'te 1 saniyede kararacak)
+      splashScreen.classList.add('splash-hidden');
+      // Arka planda çalmaya devam etmesin diye videoyu durdur
+      introVideo.pause(); 
+      // Tamamen sayfadan gizle (CSS animasyonu bittikten sonra)
+      setTimeout(() => {
+          splashScreen.style.display = 'none';
+      }, 1000); 
+  }
+
+  // Video doğal olarak bittiğinde
+  introVideo.addEventListener('ended', removeSplash);
+  
+  // Kullanıcı izlemek istemeyip skip'e bastığında
+  skipBtn.addEventListener('click', removeSplash);
+  // --- SPLASH SCREEN BİTİŞ ---
+
   const backgrounds = {
     "All": "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=2000&q=80",
     "Turkish": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=80",
@@ -387,7 +468,6 @@
         return el;
     });
 
-  // 1. DÜNYA ARTIK KENDİ KENDİNE DÖNMÜYOR (Kullanıcı serbestçe çevirecek)
   world.controls().autoRotate = false;
   world.controls().enableZoom = true; 
   
@@ -398,7 +478,6 @@
   });
 
   function selectCuisineFromMap(cuisineObj) {
-      // 2. TOGGLE (İPTAL ETME) MANTIĞI: Seçili olana tekrar basarsa sıfırla
       if (currentSelectedCuisine === cuisineObj.name) {
           resetMap();
           return;
@@ -421,7 +500,6 @@
   }
 
   function spinAndChoose() {
-      // Butona basılınca dönsün
       world.controls().autoRotate = true;
       world.controls().autoRotateSpeed = 40; 
       
@@ -429,7 +507,6 @@
       document.getElementById('active-region-text').innerText = "- 🎲 Spinning...";
 
       setTimeout(() => {
-          // 2.5 saniye sonra tekrar sabitlensin
           world.controls().autoRotate = false; 
           const randomCuisine = cuisinesData[Math.floor(Math.random() * cuisinesData.length)];
           selectCuisineFromMap(randomCuisine);
