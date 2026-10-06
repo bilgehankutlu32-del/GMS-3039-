@@ -387,10 +387,8 @@
         return el;
     });
 
-  world.controls().autoRotate = true;
-  // HIZ ARTIRILDI (0.6'dan 1.8'e)
-  world.controls().autoRotateSpeed = 1.8;
-  // ZOOM (YAKINLAŞTIRMA/UZAKLAŞTIRMA) AÇILDI
+  // 1. DÜNYA ARTIK KENDİ KENDİNE DÖNMÜYOR (Kullanıcı serbestçe çevirecek)
+  world.controls().autoRotate = false;
   world.controls().enableZoom = true; 
   
   world.pointOfView({ lat: 35, lng: 35, altitude: 2.2 }, 1000);
@@ -400,6 +398,12 @@
   });
 
   function selectCuisineFromMap(cuisineObj) {
+      // 2. TOGGLE (İPTAL ETME) MANTIĞI: Seçili olana tekrar basarsa sıfırla
+      if (currentSelectedCuisine === cuisineObj.name) {
+          resetMap();
+          return;
+      }
+
       document.querySelectorAll('.globe-pin').forEach(pin => pin.classList.remove('active'));
       const activePin = document.getElementById(`pin-${cuisineObj.name}`);
       if(activePin) activePin.classList.add('active');
@@ -417,14 +421,16 @@
   }
 
   function spinAndChoose() {
+      // Butona basılınca dönsün
+      world.controls().autoRotate = true;
       world.controls().autoRotateSpeed = 40; 
       
       document.querySelectorAll('.globe-pin').forEach(pin => pin.classList.remove('active'));
       document.getElementById('active-region-text').innerText = "- 🎲 Spinning...";
 
       setTimeout(() => {
-          // Çark durduğunda yeni hızlı standart ayara (1.8) geri dönüyor
-          world.controls().autoRotateSpeed = 1.8; 
+          // 2.5 saniye sonra tekrar sabitlensin
+          world.controls().autoRotate = false; 
           const randomCuisine = cuisinesData[Math.floor(Math.random() * cuisinesData.length)];
           selectCuisineFromMap(randomCuisine);
       }, 2500);
